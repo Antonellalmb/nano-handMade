@@ -5,7 +5,7 @@ const mainRouter = require('./routes/mainRouter');
 
 
 
-app.use(express.static("./public"));
+app.use(express.static("./assets"));
 
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json());
