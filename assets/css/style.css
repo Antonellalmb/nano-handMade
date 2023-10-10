@@ -76,6 +76,25 @@ body {
   position: relative;
 }
 
+.navbar {
+  min-height: 80px;
+}
+
+.navbar-header {
+  height: fit-content;
+}
+
+.navbar-brand {
+  height: fit-content;
+  padding: 10px;
+
+}
+
+.navbar-logo {
+  max-height: 75px;
+
+}
+
 a {
   color: #fc6e51;
   -webkit-transition: all .25s ease-in-out;
@@ -421,11 +440,13 @@ p {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > 
 .active > a:focus {
   background: transparent;
-  color: #fc6e51;
+  color: #84563d;
+  font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #fc6e51;
+  color: #84563d;
+  font-weight: bold;
 }
 
 .dropdown-menu {
