@@ -1561,7 +1561,7 @@ h4.post-title {
 /***********************************************************************************************/
 /* =Contact section*/
 /***********************************************************************************************/
-
+/*
 #contact-section .divider {
   display: inline-block;
 }
@@ -1584,7 +1584,7 @@ textarea.form-control {
   display: block;
   width: 100%;
   margin-top: 10px;
-}
+}*/
 
 .contact-info {
   text-align: center;
@@ -1595,13 +1595,13 @@ textarea.form-control {
   color: #4F4F4F;
   font-size: 18px;
   display: block;
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 .contact-info a i {
   display: block;
   font-size: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /***********************************************************************************************/
@@ -2908,7 +2908,7 @@ ul.download li a img {
 
 #footer-section {
   padding: 80px 0;
-  background: #F7F7F7;
+  background: #f7f7f7ae;
   border-top: 1px solid #EEEEEE;
 }
 
@@ -2939,7 +2939,7 @@ ul.footer-social-links li a:after {
   left: 0;
   right: 0;
   height: 1px;
-  background: #fe8869;
+  background: #fea96978;
   opacity: 0;
   -webkit-transform: translateY(5px);
      -moz-transform: translateY(5px);
@@ -2972,7 +2972,7 @@ p.copyright {
 
 .back-to-top {
   text-align: center;
-  background: #ed4d2b;
+  background: #d18e245f;
   color: #fff;
   display: none;
   width: 40px;
@@ -2982,7 +2982,7 @@ p.copyright {
   position: fixed;
   right: 25px;
   bottom: 25px;
-  opacity: 0.7;
+  opacity: 9;
   -webkit-transition: all .3s ease-in-out;
      -moz-transition: all .3s ease-in-out;
       -ms-transition: all .3s ease-in-out;
@@ -3056,10 +3056,6 @@ p.copyright {
     width: auto;
   }
 
-  .contactform {
-    padding: 80px 10px;
-  }
-
   .portfolio-desc .col-sm-4 {
     margin-bottom: 20px;
   }
@@ -3068,13 +3064,6 @@ p.copyright {
     margin-bottom: 20px;
   }
 
-  .form-inline .form-control, .form-inline .form-group {
-    display: block;
-  }
-
-  .newsletter-field {
-    width: 100%;
-  }
 
   #subscribe-section #subscribe-button {
     display: block;
