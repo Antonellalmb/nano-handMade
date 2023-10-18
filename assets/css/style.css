@@ -208,7 +208,7 @@ p {
 }
 
 .pad-sec {
-  padding: 100px 0!important;
+  padding: 50px 0!important;
 }
 
 .title-section {
@@ -672,7 +672,7 @@ ul.caption-slides li {
 
 .big-title-sec {
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 
@@ -1966,6 +1966,28 @@ ul.features-list li {
   font-size: 42px;
   color: #fc6e51;
   padding-bottom: 15px;
+}
+
+#row-atelier {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#container-img-atelier {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  aspect-ratio: 1.5/1;
+  margin-bottom: 15px;
+} 
+
+#images-atelier{
+  width: fit-content;
+  aspect-ratio: 1.5/1;
+/*  text-align: center; */
+/*  object-fit: contain */;
+/*  min-height: 300px; */
 }
 
 /*--------------------
