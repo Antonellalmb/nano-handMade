@@ -1800,12 +1800,12 @@ ul.details-list li:last-child {
 ----------------------*/
 
 #features-section {
-  padding: 120px 0!important;
-  padding-bottom: 100px!important;
+  padding: 50px 0!important;
+  padding-bottom: 50px!important;
 }
 
 #features-section .title-section {
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .features-image {
