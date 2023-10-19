@@ -135,6 +135,25 @@ $(document).ready(function($) {
         Animated content
     =============================================== */
 
+    $('.animated').disappear(function(){
+        var el = $(this);
+        var anim = el.data('animation');
+        var animDelay = el.data('delay');
+        if (animDelay) {
+
+            setTimeout(function(){
+                el.removeClass( anim + " in" );
+                el.addClass('out');
+            }, animDelay);
+
+        }
+
+        else {
+            el.removeClass( anim + " in" );
+            el.addClass('out');
+        }    
+    },{accY: -150})
+
     $('.animated').appear(function(){
         var el = $(this);
         var anim = el.data('animation');
