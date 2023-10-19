@@ -468,12 +468,12 @@ p {
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background-color: #fff;
-  color: #fc6e51;
+  color: #fca65194;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
   background-color: #fff;
-  color: #fc6e51;
+  color: #fca65194;
 }
 
 .navbar-default .dropdown:hover>.dropdown-menu {
@@ -1988,6 +1988,9 @@ ul.features-list li {
 /*  text-align: center; */
 /*  object-fit: contain */;
 /*  min-height: 300px; */
+}
+#images-atelier:hover {
+  filter: sepia(60%);
 }
 
 /*--------------------
