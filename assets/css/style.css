@@ -1019,13 +1019,33 @@ span.percentfactor {
   text-align: center;
 }
 
+#row-coleccion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+}
+
+#team-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+  
+}
+
 .member-team {
   position: relative;
   cursor: pointer;
 }
 
+#imagen-coleccion {
+  object-fit: fill;
+}
+
 .member-team img {
   width: 100%;
+   
 }
 
 .member-team .magnifier {
