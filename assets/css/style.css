@@ -722,6 +722,10 @@ ul.caption-slides li {
   background: #fc6e51;
   border: 1px solid #fc6e51;
 }
+#botonColecciones{
+  padding-left: 25px;
+  margin-top: 15px;
+}
 
 .about-box {
   text-align: center;
@@ -921,91 +925,9 @@ a:hover .overlay {
 #masonry-projects-section #type-masory .project {
   padding-bottom: 30px;
 }
-
-/***********************************************************************************************/
-/* =clients section*/
-/***********************************************************************************************/
-
-.clients-bg {
-  background: url('../images/clients/clients-bg.jpg') center top;
-  position: relative;
-  padding: 60px 0;
-}
-
-.clients-bg:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: rgba(5,5,5,0.8);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-.clients-bg .container {
-  position: relative;
-  z-index: 3;
-}
-
-.client {
-  padding: 30px;
-}
-
-.client a {
-  display: block;
-}
-
-.client a img {
-  width: 100%
-}
-
-.client a:hover {
-  opacity: .8;
-}
-
 /***********************************************************************************************/
 /* =Statistics Section */
 /***********************************************************************************************/
-
-#statistic-section {
-  background: url('../images/temp/stats-bg.jpg') center top;
-  position: relative;
-  text-align: center;
-  padding-top: 70px;
-}
-
-#statistic-section:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: rgba(5,5,5,0.8);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-#statistic-section .container {
-  position: relative;
-  z-index: 3;
-}
-
-.statistic-percent {
-  padding-bottom: 70px;
-}
-
-span.percentfactor {
-  color: #fff;
-  font-size: 42px;
-  margin-bottom: 4px;
-}
-
-.fact p {
-  color: #fff;
-  margin-top: 10px;
-  text-transform: uppercase;
-}
 
 /***********************************************************************************************/
 /* =Team Section */
@@ -1041,6 +963,7 @@ span.percentfactor {
 
 #imagen-coleccion {
   object-fit: fill;
+  aspect-ratio: 1/1.47;
 }
 
 .member-team img {
@@ -1237,9 +1160,10 @@ h6.progress-value {
 }
 
 #banner-services {
-  background: url('../images/temp/stats-bg.jpg') center top;
+  background: url('../images/temp/bannerMedio.jpg') center top;
   position: relative;
   border-bottom: 1px solid transparent;
+  
 }
 
 #banner-services:before {
@@ -1247,7 +1171,7 @@ h6.progress-value {
   content: '';
   top: 0;
   left: 0;
-  background: rgba(5,5,5,0.8);
+  background: rgba(5,5,5,0.6);
   width: 100%;
   height: 100%;
   z-index: 2;
@@ -1517,67 +1441,6 @@ ul.tweet-slider small {
 /* =Blog-section section */
 /***********************************************************************************************/
 
-#blog-section .title-section {
-  padding-bottom: 80px;
-}
-
-.entry-image {
-  margin-bottom: 23px;
-}
-
-.entry-image a {
-  display: block;
-}
-
-.entry-image a:hover {
-  opacity: 0.8;
-}
-
-.entry-image img {
-  width: 100%;
-}
-
-.post-meta {
-  padding-bottom: 8px;
-}
-
-.post-meta, .post-meta a {
-  color: #aaa;
-}
-
-.post-meta a:hover {
-  color: #111;
-}
-
-.post-meta p span.date:after {
-  padding: 0 4px 0 8px;
-  content: "|";
-}
-
-.post-meta p span.author a {
-  padding-left: 2px;
-}
-
-.post-meta p span.author:after {
-  padding: 0 4px 0 8px;
-  content: "|";
-}  
-
-h4.post-title {
-  font-size: 16px;
-  font-weight: 500!important;
-  letter-spacing: 2.1px;
-}
-
-.post-title a {
-  color: #4F4F4F;
-  font-size: 16px;
-}
-
-.blog-more {
-  margin-top: 20px;
-}
-
 /***********************************************************************************************/
 /* =Contact section*/
 /***********************************************************************************************/
@@ -1606,23 +1469,6 @@ textarea.form-control {
   margin-top: 10px;
 }*/
 
-.contact-info {
-  text-align: center;
-  border-top: 1px solid #EEEEEE;
-}
-
-.contact-info a {
-  color: #4F4F4F;
-  font-size: 18px;
-  display: block;
-  padding: 30px 0;
-}
-
-.contact-info a i {
-  display: block;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
 
 /***********************************************************************************************/
 /* =Google maps*/
@@ -1896,6 +1742,14 @@ ul.features-list li {
   padding: 0 25px;
   text-align: center;
 }
+.marColeccion:hover{
+  transform: scale(1.10);
+
+}
+.marColeccion{
+  width: 100%;
+}
+
 
 /*--------------------
   Video section
@@ -3093,6 +2947,11 @@ p.copyright {
   #about-section .about {
     padding-top: 40px;
   }
+  .member-team .magnifier .magnifier-inner {
+   
+    top: 5%;
+    padding: 0 20px;
+  }
 
 }
 
@@ -3241,6 +3100,11 @@ p.copyright {
 
   .about-me h4 a {
     margin-bottom: 30px;
+  }
+  .member-team .magnifier .magnifier-inner {
+    
+    top: 5%;
+    padding: 0 20px;
   }
 
 }
