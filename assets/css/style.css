@@ -1041,6 +1041,7 @@ span.percentfactor {
 
 #imagen-coleccion {
   object-fit: fill;
+  aspect-ratio: 1/1.47;
 }
 
 .member-team img {
