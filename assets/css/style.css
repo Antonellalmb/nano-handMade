@@ -1927,7 +1927,7 @@ ul.features-list li {
 }
 
 .screenshots-carousel .shot a img {
-  border-radius: 3px;
+  border-radius: 10px;
   width: 100%;
 }
 
