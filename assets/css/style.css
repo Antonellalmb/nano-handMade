@@ -1,69 +1,3 @@
-/***********************************************************************************************
-	Salient by TEMPLATE STOCK
-	templatestock.co @templatestock
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-    
-**********************************************************************************************/
-
-/***********************************************************************************************/
-/* TABLE OF CONTENTS: */
-/***********************************************************************************************/
-
-/*------------------------------------------------------------------------
-
-
-  01. Common Styles
-      -Typography
-      -Buttons
-      -Form
-  02. Preloader
-  03. Navbar
-  04. Hero section
-      -Hero section 2
-      -Hero section 3
-      -Hero section 4
-  05. Home hero
-  06. About Section
-  07. Choose Section
-  08. Projects Section
-  09. Clients section
-  10. Statistics Section
-  11. Call-to-action section
-  12. Services
-  13. Portfolio Page
-  14. Tweet section
-  15. Blog-section
-  16. Contact section
-  17. Google maps
-  18. Single-project
-  19. Landing page
-      -Features Section
-      -Video section
-      -Offer section
-      -Screenshots
-      -Subscribe section
-      -Testimonials section
-  20. Landing Blog
-      -Pagination
-      -Comments section
-      -Sidebar
-      -About widget
-      -Tags
-      -Recent Posts 
-  21. App landing page
-  22. Coming soon page
-  23. Personal page
-  24. Footer
-  25. Back to top
-  26. Responsive Part
-
---------------------------------------------------------------------------*/
-
-
-
-/***********************************************************************************************/
-/* =Common Styles */
-/***********************************************************************************************/
 
 @import 'login.css';
 
@@ -343,42 +277,6 @@ p {
 }
 
 /***********************************************************************************************/
-/* =Form */
-/***********************************************************************************************/
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-control {
-  font-size: 12px;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 1px;
-  height: auto;
-  padding: 9px 12px;
-    -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-  -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-  -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-  -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-  transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-}
-
-.form-control:focus {
-  color: #111;
-  border-color: rgba(0,0,0, .7);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  outline: none;
-}
-
-/***********************************************************************************************/
 /* =Preloader */
 /***********************************************************************************************/ 
 
@@ -503,74 +401,9 @@ p {
   z-index: 1;
 }
 
-.home-hero {
-  background: url('../images/hero-bg/home.jpg');
-  background-size: cover;
-}
-
 /***********************************************************************************************/
-/* =Hero section-2 */
 /***********************************************************************************************/
 
-.home-hero-2:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.home-hero-2 {
-  background: url('../images/hero-bg/home-2.jpg');
-  background-size: cover;
-}
-
-/***********************************************************************************************/
-/* =Hero section-3 */
-/***********************************************************************************************/
-
-.home-hero-3:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.home-hero-3 {
-  background: url('../images/hero-bg/home-3.jpg');
-  background-size: cover;
-}
-
-/***********************************************************************************************/
-/* =Hero section-4 */
-/***********************************************************************************************/
-
-.home-hero-4:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.home-hero-4 {
-  background: url('../images/hero-bg/home-4.jpg');
-  background-size: cover;
-}
-
-/***********************************************************************************************/
-/* =Home hero */
-/***********************************************************************************************/
 
 .hero-content {
   position: relative;
@@ -909,7 +742,13 @@ a:hover .overlay .overlay-inner p, a:hover .overlay .overlay-inner span {
      -moz-transform: translateY(30px);
       -ms-transform: translateY(30px);
        -o-transform: translateY(30px);
+  transform: translateY(30px); 
 }
+
+a:hover .overlay {
+  opacity: 1;
+}
+
 
 a:hover .overlay {
   opacity: 1;
@@ -1256,49 +1095,8 @@ h6.progress-value {
   margin-top: 15px;
 }
 
-#prices-section .title-section {
-  padding-bottom: 80px;
-}
 
-ul.price-table {
-  list-style-type: none;
-  padding: 0px;
-  margin: 25px 20px;
-  text-align: center;
-  border: 1px solid #f1f1f1;
-}
 
-ul.price-table li {
-  padding: 5px 0;
-  text-transform: uppercase;
-  color: #000;
-}
-
-.title-price {
-  border-bottom: 1px solid #f1f1f1;;
-  padding: 25px!important;
-  font-weight: 500;
-}
-
-.title-price h3 {
-  margin-bottom: 0;
-}
-
-.price-table .price-box {
-  padding: 30px;
-  border-bottom: 1px solid #f1f1f1;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-p.price {
-  font-size: 38px;
-  font-weight: 700;
-  color: #000;
-  position: relative;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
 
 span.currency {
   font-size: 18px;
@@ -1441,54 +1239,6 @@ ul.tweet-slider small {
 
 /***********************************************************************************************/
 /* =Blog-section section */
-/***********************************************************************************************/
-
-/***********************************************************************************************/
-/* =Contact section*/
-/***********************************************************************************************/
-/*
-#contact-section .divider {
-  display: inline-block;
-}
-
-#contact-section .title-section {
-  padding-bottom: 80px;
-}
-
-.form-group .form-control.br-b {
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-}
-
-textarea.form-control {
-  min-height: 100px;
-}
-
-#contactform .form-group #submit {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}*/
-
-
-/***********************************************************************************************/
-/* =Google maps*/
-/***********************************************************************************************/
-/*
-#map {
-  height: 100%;
-  width: 100%;
-}
-
-#module-maps {
-  position: relative;
-  height: 400px;
-  width: 100%;
-}*/
-
-/***********************************************************************************************/
-/* =Single-project */
 /***********************************************************************************************/
 
 #project-head-section {
@@ -1754,69 +1504,7 @@ ul.features-list li {
 
 
 /*--------------------
-  Video section
-----------------------*/
-
-#video-section {
-  background: url('../images/temp/tweet-bg.jpg') center top;
-  position: relative;
-  padding: 100px 0;
-}
-
-#video-section:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: #fc6e51;
-  opacity: .9;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-#video-section .container {
-  position: relative;
-  z-index: 3;
-}
-
-#video-section .video-section-content a {
-  display: block;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
-  border: 3px solid rgba(255,255,255, .93);
-  text-align: center;
-  line-height: 78px;
-  font-size: 28px;
-  color: rgba(255,255,255, .93);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
-
-#video-section .video-section-content a .fa-play {
-  position: relative;
-  left: 4px;
-}
-
-.video-head {
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 1.3;
-  text-align: center;
-  color: #fff;
-  padding-bottom: 7px;
-}
-
-.video-sub-heading {
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
-  line-height: 1.3;
-  opacity: .9;
-  color: #fff;
-}
+  
 
 /*--------------------
   Offer section
@@ -1889,9 +1577,6 @@ ul.features-list li {
   justify-content:center
 }
 
-/*#aulas-img-div {
-  width: 80%;
-} */
 
 #images-aulas {
   width: 100%;
@@ -1936,41 +1621,6 @@ ul.features-list li {
 /*--------------------
   Subscribe section
 ----------------------*/
-
-#subscribe-section {
-  background: #f8f8f8;
-  padding: 70px 0;
-  border-top: 1px solid #EAEAEA;
-  border-bottom: 1px solid #EAEAEA;
-}
-
-.newsletter-title {
-  margin-bottom: 30px;
-}
-
-.newsletter-title h4 {
-  font-weight: 400;
-}
-
-.newsletter-field {
-  width: 65%;
-}
-
-#subscriber-email {
-  width: 100%;
-}
-
-.subscription-success, .subscription-error {
-  text-align: center;
-  font-weight: 400;
-  margin: 20px 0 25px 0;
-  font-size: 13px;
-}
-
-.subscription-success span, .subscription-error span {
-  margin-bottom: 15px;
-  font-size: 24px;
-}
 
 /*--------------------
   Testimonials section
