@@ -65,6 +65,8 @@
 /* =Common Styles */
 /***********************************************************************************************/
 
+@import 'login.css';
+
 body {
   font-family: 'Raleway', sans-serif;
   color: #737272;

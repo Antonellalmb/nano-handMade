@@ -10,5 +10,8 @@ router.get('/', controller.home);
 //routes products
 router.get('/products', controller.products)
 
+//routes login administrador
+router.get('/admin', controller.login)
+
 
 module.exports = router;

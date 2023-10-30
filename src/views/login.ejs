@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coleções</title>
+    <title>Admin</title>
     
   <!-- Custom Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300,700' rel='stylesheet' type='text/css'>
@@ -45,16 +45,16 @@
 	<link rel="shortcut icon" href="/images/logo_nano.png">
 </head>
 <body>
-            <!-- Preload the Whole Page -->
-            <div id="preloader">      
-            <div id="loading-animation">&nbsp;</div>
-            </div>
+    <!-- Preload the Whole Page -->
+    <div id="preloader">      
+    <div id="loading-animation">&nbsp;</div>
+    </div>
         
-            <!-- Navbar -->
-            <header class="header">
-            <nav class="navbar navbar-default navbar-static-top">
-                <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-nav">
                     <span class="sr-only">Toggle navigation</span>
@@ -75,9 +75,47 @@
                     <li><a href="/#footer-section">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
-                </div><!-- /.container -->
-            </nav>
-            </header>
+            </div><!-- /.container -->
+        </nav>
+    </header>
+
+    <div class="mainLogin">
+        <div class="left">
+            <section class="copy">
+                <h2>Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
+            </section>
+        </div>
+        <div class="right">
+            <form class="login-form" action="/user/login" method="post" >
+                <section class="copy">
+                    <h2>Inicie sessão</h2>
+                    <div class="login-container">
+                        <p class="registrate">Ainda não tem uma conta? <a href="/user/registro" class="form_link">Registre-se aqui</a></p>
+                    </div>
+                </section>
+                <div>
+                    <input class="log-control" type="email" name="email" value="" placeholder=" Email">
+                    <p id="errorEmail"  class="error"></p>
+                </div> 
+                <div class="input-container password">
+                    <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
+                    <p id="errores"  class="error"></p>
+                </div>
+                <div class="recordameLogin">
+                    <input type="checkbox" name="cookie" id="cookie"> 
+                    <label for="cookie">Lembrar-me</label>
+                </div>
+                <div class="erroresLogin">
+                    <% if(locals.errors && errors.datosMal) { %>
+                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
+                        <% } %>
+                </div>
+                <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Entrar</button>                
+
+                <p class="olvideSenha"><a href="#">Esqueceu sua senha?</a></p>
+            </form>
+        </div>
+    </div>
      <!-- End Navbar -->
      <!-- JS libraries and scripts -->
   <script src="/js/jquery-1.11.3.min.js"></script>

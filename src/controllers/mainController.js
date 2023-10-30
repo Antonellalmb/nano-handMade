@@ -3,8 +3,14 @@ module.exports = {
         return res.render('home')
     },
 
-    products : (req,res) => {
+    products : (req, res) => {
         return res.render('products')
+    },
+
+    login: (req, res) => {
+        return res.render('login')
     }
+
+
     
 };

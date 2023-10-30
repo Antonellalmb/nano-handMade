@@ -1,0 +1,171 @@
+.mainLogin {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .left {
+    height: 200px;
+  }
+  
+  .left, .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/app/mar.jpg");
+    background-size: cover;
+  }
+  
+  .left .copy {
+    color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .left p{
+    font-weight: 300;
+  }
+
+  .left .copy h2{
+    font-size: 20px;
+  }
+  
+  .right .copy {
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .right .copy p {
+    margin: 1.5em 0;
+    font-size: 1.200rem;
+  }
+  
+  .right form {
+    width: 328px;
+  }
+  
+  form input[type="email"],
+  form input[type="password"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 1.85rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.75rem;
+  }
+  
+  .login-form h2 {
+    font-size: 2rem;
+    margin-bottom: .5em;
+  }
+  
+  .input-container .password {
+    position: relative;
+  }
+  
+  .recordameLogin {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+  }
+  
+  .recordameLogin input {
+    margin: 0 0 0 10px;  
+  }
+  
+  .erroresLogin {
+    padding: 0;
+    margin: 15px;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .erroresLogin p.errorDatos {
+    font-size: 14px;
+    color: #f4db8c;
+    text-align: center;
+    padding: 0;
+    margin: 15px;
+    border: none;
+  }
+  
+  .recordameLogin label {
+    text-align: center;
+  }
+  
+  .botonLog {
+    display: block;
+    width: 100%;
+    background: #fc6e51;
+    color: white;
+    font-weight: 300;
+    border: none;
+    padding: 1rem;
+    border-radius: 0px;
+    font-size: 1.40rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .botonLog:hover{
+    background-color: black;
+  }
+  
+  .login-form .registrate , .login-form .olvideSenha {
+    margin: 15px;
+  }
+  .registrate p {
+    font-size: medium;
+  }
+
+  .form_link {
+    font-weight: 400;
+    color: #000;
+  }
+  
+  .login-form a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+  }
+  
+  .login-form a:hover {
+    color: #b28222dc;
+  }
+  
+  .recordameLogin label {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  
+  
+  @media(min-width: 900px){
+    .mainLogin{
+      flex-direction: row;
+      height: 100vh;
+    }
+    .left,
+    .right{
+      display: flex;
+      width: 50%;
+      height: auto;
+    }
+    .left .copy h2{
+        font-size: 15px;
+      }
+
+  
+  }
+  
