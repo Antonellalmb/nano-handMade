@@ -86,11 +86,11 @@
             </section>
         </div>
         <div class="right">
-            <form class="login-form" action="/user/login" method="post" >
+            <form class="login-form" action="" method="post" >
                 <section class="copy">
                     <h2>Inicie sessão</h2>
                     <div class="login-container">
-                        <p class="registrate">Ainda não tem uma conta? <a href="/user/registro" class="form_link">Registre-se aqui</a></p>
+                        <p class="registrate">Ainda não tem uma conta? <a href="/register" class="form_link">Registre-se aqui</a></p>
                     </div>
                 </section>
                 <div>
@@ -105,14 +105,7 @@
                     <input type="checkbox" name="cookie" id="cookie"> 
                     <label for="cookie">Lembrar-me</label>
                 </div>
-                <div class="erroresLogin">
-                    <% if(locals.errors && errors.datosMal) { %>
-                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
-                        <% } %>
-                </div>
                 <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Entrar</button>                
-
-                <p class="olvideSenha"><a href="#">Esqueceu sua senha?</a></p>
             </form>
         </div>
     </div>

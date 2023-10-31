@@ -1,0 +1,164 @@
+.main-registro {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
+
+  .divRegistro{
+    display: flex;
+    justify-content: center;
+  }
+
+  .registroDelete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .leftRegister {
+    height: 200px;
+  }
+
+  .rightRegister {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+  }
+
+  .leftRegister, .rightRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   }
+
+  .leftRegister {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/temp/woman.jpg");
+    background-size: cover;
+  }
+
+  .leftRegister .copyRegister {
+    color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .leftRegister p {
+    font-weight: 400;
+  }
+
+  .rightRegister .copyRegister {
+    color: rgb(15, 15, 15);
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .rightRegister .copyRegister p {
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+  }
+
+  .rightRegister form {
+    width: 328px;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"]
+  {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 1.175rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .registro h5 {
+    font-size: 2rem;
+    margin-bottom: .5em;
+  }
+
+  .input-container .password {
+    position: relative;
+  }
+
+  p.error {
+    font-size: 14px;
+    color: #f4db8c;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 15px;
+    border: none;
+  }
+
+  .botEnter {
+    display: block;
+    width: 100%;
+    background:#fc6e51;
+    color: white;
+    font-weight: 400;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.175rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+  }
+
+  .parrafoSeguro {
+    margin-bottom: 40px;
+  }
+
+  .botEnter:hover{
+    background-color: black;
+  }
+
+  .registro a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+  }
+
+  .registro a:hover {
+    color: #fc6e51;
+  }
+
+@media(min-width: 900px){
+  .main-registro {
+    flex-direction: row;
+  }
+
+  .leftRegister {
+    display: flex;
+    width: 50%;
+    height: auto;
+  }
+
+  .rightRegister {
+    display: flex;
+    width: 50%;
+    
+  }
+
+}
+
+  
+  
+  
+  
+  
+  
