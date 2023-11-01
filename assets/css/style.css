@@ -350,6 +350,13 @@ p {
   font-weight: bold;
 }
 
+.icon-set{
+  font-size: 18px;
+}
+.icon-set:hover{
+  font-size: 20px;
+}
+
 .dropdown-menu {
   top: 117%;
   font-size: 12px;
@@ -2502,8 +2509,8 @@ ul.download li a img {
 /***********************************************************************************************/
 
 #footer-section {
-  padding: 80px 0;
-  background: #f7f7f7ae;
+  padding: 60px 0;
+  background: #f7f7f789;
   border-top: 1px solid #EEEEEE;
 }
 
