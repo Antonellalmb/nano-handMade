@@ -1609,6 +1609,10 @@ ul.features-list li {
   Screenshots
 ----------------------*/
 
+.frame-carrousel {
+  aspect-ratio: 1/1.45;
+}
+
 #screenshots-section .title-section {
   padding-bottom: 80px;
 }
@@ -1618,12 +1622,13 @@ ul.features-list li {
 }
 
 .screenshots-carousel .shot a.zoom {
-  display: block;
+  display: block;  
 }
 
 .screenshots-carousel .shot a img {
   border-radius: 10px;
   width: 100%;
+  aspect-ratio: 1/1.45;
 }
 
 /*--------------------
