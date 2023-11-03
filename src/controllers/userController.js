@@ -2,6 +2,7 @@ const db = require('../../database/models')
 const sequelize = db.sequelize;
 
 const Users = db.User;
+const Products = db.Product;
 
 module.exports = {
     login: (req, res) => {
@@ -10,8 +11,14 @@ module.exports = {
 
     loginProcess:async(req, res) => {
         try {
-            const usuarios = await Users.findAll()
-           console.log(usuarios); 
+            const [usuarios , productos] = await Promise.all([Users.findAll(), Products.findAll()])
+            console.log(usuarios);
+            console.log(productos);
+    /*        const usuarios = await Users.findAll()
+            console.log(usuarios); 
+            const productos = await Products.findAll()
+            console.log(productos);
+    */
         } catch (error) {
            console.log(error) 
         }
