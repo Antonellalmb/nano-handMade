@@ -1,8 +1,8 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Product'; 
+    let alias = 'Size'; 
     let cols = {
         id: {
-            type: dataTypes.BIGINT.UNSIGNED,
+            type: dataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
@@ -14,31 +14,20 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         description: {
-            type: dataTypes.STRING(255),
+            type: dataTypes.STRING(100),
             allowNull: false
-        },
-        
-        collection_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: false
-        },
-
-        discount_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: true
         }
-
     };
 
     let config = {
         timestamps: true,
         freezeTableName: true,
-        tableName: 'products',
+        tableName: 'sizes',
         paranoid: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at'
     }
-    const Product = sequelize.define(alias,cols,config);
-    return Product;
+    const Size = sequelize.define(alias,cols,config);
+    return Size;
     }
