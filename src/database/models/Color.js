@@ -29,5 +29,25 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: 'deleted_at'
     }
     const Color = sequelize.define(alias,cols,config);
+
+    Color.associate = (models) => {
+
+            Color.belongsToMany(models.Product , 
+                {
+                    through: "Characteristic",
+                    foreignKey: "color_id",
+                    otherKey: "product_id"
+                }),
+
+            Color.belongsToMany(models.Size , 
+                {
+                    through: "Characteristic",
+                    foreignKey: "color_id",
+                    otherKey: "size_id"
+                })
+
+    }
+
+
     return Color;
     }

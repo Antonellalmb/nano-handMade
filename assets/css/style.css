@@ -109,6 +109,18 @@ h1, .h1 {
   letter-spacing: 2px;
 }
 
+.titles {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 43px;
+  font-weight: 500;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  
+}
+
 h2 {
   font-size: 24px;
 }  

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+<body>
+  <!-- Preload the Whole Page -->
+    <div id="preloader">      
+        <div id="loading-animation">&nbsp;</div>
+    </div>
+      <!-- Navbar -->
+      <%- include('../partials/header') %>
+  <div class="main-registro">
+    <div class="leftRegister">
+      <section class="copyRegister">
+        <h2>Vamos sujar as mãos com amor e terra</h2>
+      </section>
+    </div>
+    <div class="rightRegister">
+      <form class="registro" action="/user/register" method="post" enctype="multipart/form-data">
+        <section class="copyRegister">
+          <h5>nano Made By Hand</h5>  
+        </section>                     
+          <div> 
+            <input class="form-usu" type="text" name="name"  value=""  placeholder="  Nome completo">                    
+          </div>
+          <div>
+            <input class="form-usu" type="text" name="email" value="" placeholder="  e-mail">
+          </div>
+          <div>
+            <input class="form-usu" type="text" name="address" value="" placeholder=" Endereço">
+          </div> 
+          <div>           
+            <div class="input-container password">
+              <input class="form-usu" type="password" name="password"  value="" placeholder="  Senha" >
+            </div> 
+            <div>
+              <input class="form-usu" type="password" name="confirmPassword"  value= "" placeholder="  Confirmar senha">
+            </div>
+          </div>
+          <div> 
+            <a href="#"> <button id="botonSubmit" class="botEnter" type="submit">Cadastre-se</button> </a>
+          </div>              
+        </form>
+    </div>
+  </div>
+  <!-- Footer
+    ================================================== -->
+    <%- include('../partials/footer') %>
+    <!-- End footer -->
+
+  </div> <!-- End wrapper -->
+
+  <!-- Back-to-top
+  ================================================== -->
+  <div class="back-to-top">
+    <i class="fa fa-angle-up fa-3x"></i>
+  </div> <!-- end back-to-top -->
+
+      
+     <!-- End Navbar -->
+     <!-- JS libraries and scripts -->
+  <script src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-hover-dropdown.min.js"></script>
+  <script src="/js/jquery.appear.min.js"></script>
+  <script src="/js/jquery.bxslider.min.js"></script>
+  <script src="/js/jquery.owl.carousel.min.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="/js/jquery.isotope.js"></script>
+  <script src="/js/jquery.placeholder.js"></script>
+  <script src="/js/jquery.smoothscroll.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/jquery.waypoints.js"></script>
+  <script src="/js/jquery.fitvids.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/js/jquery.countdown.js"></script>
+  <script src="/js/jquery.navbar-scroll.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="/js/jquery.gmaps.js"></script>
+  <script src="/js/main.js"></script>   
+</body>
+</html>

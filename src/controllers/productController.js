@@ -1,6 +1,6 @@
 module.exports = {
     products : (req, res) => {
-        return res.render('products')
+        return res.render('./products/products')
     }
 
 

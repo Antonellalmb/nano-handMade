@@ -10,7 +10,7 @@ const Photos = db.Photo;
 
 module.exports = {
     login: (req, res) => {
-        return res.render('login')
+        return res.render('./users/login')
     },
 
     loginProcess:async(req, res) => {
@@ -22,7 +22,7 @@ module.exports = {
             console.log(collections);
             console.log(sizes);
             console.log(photos);
-            res.send(photos)
+            res.send(products)
     /*        const usuarios = await Users.findAll()
             console.log(usuarios); 
             const productos = await Products.findAll()
@@ -40,7 +40,7 @@ module.exports = {
     },
 
     register: (req, res) => {
-        return res.render('register')
+        return res.render('./users/register')
     }
 
 
