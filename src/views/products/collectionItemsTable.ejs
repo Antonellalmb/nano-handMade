@@ -12,17 +12,51 @@
      <!-- End Navbar -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/collections" method="post" >
+            <div class="divTableTitle">
+                <h4 class="tableTitle">Coleções de Produtos</h4>
+                <a href="/product/collectionsTable" class="addItem"><i class="fa-solid fa-plus"></i></a>
+            </div>
+            <table>
+                <tr>
+                    <th>Coleção nome</th>
+                    <th>Detalhe</th>
+                    <th>Ação</th>
+                </tr>
+                <% collectionItems.forEach((collection) => { %>
+                    <tr>
+                        <td><%= collection.name  %></td>
+                        <td><%= collection.description  %></td>
+                        <td class="actionColumn">
+                            <a><i class="fa-solid fa-pen"></i></a>
+                            &nbsp &nbsp
+                            <a><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    
+                <%}) %>
+                
+            </table>
+            <div class="divTableTitle">
+                <h4 class="tableTitle">Coleções de Produtos</h4>
+                <a href="/product/collectionsTable" class="addItem"><i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+
+
+    <!--        <form class="tables" action="/product/collections" method="post" >
+                <% //console.log(collectionItems) %>
                 <h4>Categorias de Produtos</h4>                                
                 <div>
                     <input class="form-tablas" type="text" name="collectionName" placeholder="  Coleção nome">
                     <input class="form-tablas" type="text" name="detail" placeholder="  Detalhe">
                 </div>
                 <div> 
-                    <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Adicionar Coleção</button> </a>
-                    <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Editar Tabela de Coleções</button>  </a>
+                    <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Adicionar Categoria</button> </a>
+                    <a class="linkEditar" href="/product/categorias"> <button class="botEnterTablas" type="button">Editar Tabela de Categorias</button>  </a>
                 </div>
         </form>
+    -->
     </div>
         
     </main>

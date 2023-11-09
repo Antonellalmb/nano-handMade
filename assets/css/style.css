@@ -2558,6 +2558,38 @@ input.form-tablas {
   margin-bottom: 20px;
 }
 
+.divTableTitle {
+  display: flex;  
+  justify-content: space-between;
+}
+
+.tableTitle {
+  padding: 15px 0 5px 0;
+}
+
+.addItem {
+  margin-top: 5px;
+  padding: 15px 35px 5px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+table , th , tr , td {
+  border: 1px solid #ccc;
+  height: 30px;
+}
+
+table {
+  width: 100%;
+}
+
+th , td {
+  padding: 0 10px 0 10px;
+}
+
+.actionColumn {
+  text-align: center;
+}
 
 
 /***********************************************************************************************/
