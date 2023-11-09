@@ -2524,6 +2524,43 @@ ul.download li a img {
 }
 
 /***********************************************************************************************/
+/* =Data Base input views*/
+/***********************************************************************************************/
+
+.mainInput {
+  background-color: #f1e8df;
+}
+
+.tableInput {
+  margin-top: 30px;
+  margin-left: 30%;
+  width: 40%;
+
+}
+
+.tables {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+input.form-tablas {
+  height: 35px;
+  width: 100%;
+  border-radius: 7px;
+  border: 1px;
+  border-color: #ccc;
+  border-style: solid;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.botonsInput {
+  margin-bottom: 20px;
+}
+
+
+
+/***********************************************************************************************/
 /* =Footer */
 /***********************************************************************************************/
 
@@ -2786,6 +2823,12 @@ p.copyright {
     padding: 0 20px;
   }
 
+  .tableInput {
+    margin-left: 20%;
+    width: 60%;
+  }
+
+
 }
 
 @media screen and (max-width: 640px) {
@@ -2836,6 +2879,12 @@ p.copyright {
     width: 100%!important;
   }
 
+  .tableInput {
+    margin-left: 15%;
+    width: 70%;
+  }
+
+
 }
 
 @media screen and (max-width: 480px) {
@@ -2862,6 +2911,11 @@ p.copyright {
   .aulas-side {
     text-align: center;
     width: 55%;
+  }
+
+  .tableInput {
+    margin-left: 10%;
+    width: 80%;
   }
 
 
