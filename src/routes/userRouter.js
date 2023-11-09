@@ -12,4 +12,9 @@ router.post('/login', controller.loginProcess);
 router.get('/register', controller.register);
 
 
+//routes tables administration
+router.get('/usercategory', controller.categories);
+
+router.get('/usertaxes', controller.rates);
+
 module.exports = router;

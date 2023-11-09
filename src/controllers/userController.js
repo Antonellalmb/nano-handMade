@@ -1,4 +1,5 @@
-const db = require('../database/models')
+const db = require('../database/models');
+const Category = require('../database/models/Category');
 const sequelize = db.sequelize;
 
 const Users = db.User;
@@ -7,6 +8,8 @@ const Colors = db.Color;
 const Collections = db.Collection;
 const Sizes = db.Size;
 const Photos = db.Photo;
+const Categories = db. Category;
+const Taxes = db.Tax;
 
 module.exports = {
     login: (req, res) => {
@@ -41,8 +44,28 @@ module.exports = {
 
     register: (req, res) => {
         return res.render('./users/register')
-    }
+    },
 
+    categories: async(req, res) => {
+        console.log('entrando a categorias de usuario');
+        const roles = await Category.findAll();
+        console.log(roles)
+        return res.render('./user/userCategory')
+    },
+
+    rates: async(req, res) => {
+        try {
+            const [categories, taxes] = await Promise.all([Categories.findAll(),Taxes.findAll()])
+            console.log(categories);
+            console.log(taxes);
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+    return res.render('userTaxes')
+    
+    }
 
     
 };
