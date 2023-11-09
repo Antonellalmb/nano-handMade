@@ -8,5 +8,18 @@ const controller = require("../controllers/productController");
 router.get('/products', controller.products);
 
 
+//routes table's administration
+
+// Collection's Table *************************************
+router.get('/collectionsTable' , controller.collections);
+router.post('/collections' , controller.processCollections);
+// ********************************************************
+
+// Discount's Table ***************************************
+router.get('/discountsTable' , controller.discounts);
+router.post('/discounts' , controller.processDiscounts);
+// ********************************************************
+
+
 
 module.exports = router;
