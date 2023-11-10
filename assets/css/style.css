@@ -2554,6 +2554,23 @@ input.form-tablas {
   margin-bottom: 20px;
 }
 
+.textarea-tablas {
+  height: 60px;
+  width: 100%;
+  resize: none;
+  border-radius: 7px;
+  border: 1px;
+  border-color: #ccc;
+  border-style: solid;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .botonsInput {
   margin-bottom: 20px;
 }
@@ -2567,10 +2584,15 @@ input.form-tablas {
   padding: 15px 0 5px 0;
 }
 
+.addItemText {
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .addItem {
   margin-top: 5px;
-  padding: 15px 35px 5px 0;
-  font-size: 20px;
+  padding: 15px 15px 5px 0;
+  font-size: 16px;
   font-weight: 700;
 }
 

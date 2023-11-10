@@ -14,6 +14,7 @@ router.get('/products', controller.products);
 router.get('/collectionItemsTable' , controller.itemsCollections);
 router.get('/collectionsTable' , controller.collections);
 router.post('/collections' , controller.processCollections);
+router.get('/collectionItemEdit/:id' , controller.editItemCollection);
 // ********************************************************
 
 // Discount's Table ***************************************

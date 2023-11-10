@@ -13,16 +13,19 @@
     <main class="mainInput">
         <div class="tableInput">
             <form class="tables" action="/product/collections" method="post" >
-                <h4>Categorias de Produtos</h4>                                
+                <h4>Editar Categoria de Produto</h4>  
+                <% console.log (collectionItem.description);
+                let detailItem = collectionItem.description;%> 
+                                            
                 <div>
-                    <input class="form-tablas" type="text" name="collectionName" placeholder="  Coleção nome">
+                    <input class="form-tablas" type="text" name="collectionName" value=<%= collectionItem.name %>>
                     <!--
-                    <input class="form-tablas" type="text" name="detail" placeholder="  Detalhe">
-                    -->    
-                    <textarea class="form-tablas textarea-tablas" name="detail" placeholder="&nbsp &nbsp  Detalhe"></textarea>
+                    <input class="form-tablas" type="text" name="detail" value=<%= //detailItem %> maxlength="255">
+                    -->
+                    <textarea class="form-tablas textarea-tablas" name="detail">&nbsp &nbsp <%= detailItem %></textarea>
                 </div>
                 <div class="button-div"> 
-                    <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Adicionar Coleção</button> </a>
+                    <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Modificar Coleção</button> </a>
                     <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Coleções</button>  </a>
                 </div>
         </form>

@@ -29,12 +29,10 @@ module.exports = {
 
         } catch (error) {
             console.log(error)
-        };
-
-        
+        };        
     },
 
-    collections : async (req, res) => {
+    collections : (req, res) => {
         console.log("entraste a collectionsTable" );
         return res.render('./products/collectionsTable');
     },
@@ -51,9 +49,19 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-    
+        return res.redirect('/product/collectionsTable');
+    },
 
-        return res.redirect('/product/collectionsTable')
+    editItemCollection : async (req, res) => {
+        console.log("Entraste por get a editItemCollection");
+        console.log(req.params.id)
+        try {
+            const collectionItem = await Collections.findByPk(req.params.id);
+            return res.render('./products/collectionItem' , {collectionItem : collectionItem})
+        } catch (error) {
+            console.log(error);
+        }
+
     },
 
 
