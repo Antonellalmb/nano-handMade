@@ -10,7 +10,27 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-
+      <main class="mainInput">
+        <div class="tableInput">
+            <form class="tables" action="/user/users" method="post" >
+                <h4>Tabla de usuarios</h4>                                
+                  <div>
+                      <input class="form-tablas" type="text" name="userEmail" placeholder="  Email">
+                      <input class="form-tablas" type="text" name="contrasenia" placeholder="  Senha">
+                      <input class="form-tablas" type="text" name="userName" placeholder="  Nome">
+                      <div>
+                      <select name="selectTax"
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option> 
+                      </div>              
+                  </div>
+                  <div class="botonsInput">
+                    <button class="botEnterTablas tablasBoton" type="submit"> Mudar</button>                  
+                  </div>
+            </form>
+        </div>
+      </main>
 
      
      <!-- Footer

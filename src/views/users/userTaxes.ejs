@@ -10,12 +10,19 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-    <main>
-      <form action="user/usertaxes" method="post">
-        <h4>Taxes</h4>
-        <input type="text" name="tipo" value="">
-        <input type="text" name="porcentaje" value="">
-      </form>
+     <main class="mainInput">
+      <div class="tableInput">
+        <form class="tables" action="/user/Taxes" method="post">
+          <h4>Taxes</h4>
+          <div>
+            <input class="form-tablas"class="form-tablas"  type="text" name="tipo" placeholder=" Tipo de imposto">
+            <input class="form-tablas" type="number" name="porcentaje" placeholder=" porcentagem">
+          </div>
+          <div class="botonsInput"> 
+            <button class="botEnterTablas tablasBoton"type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
     </main>
 
      

@@ -1,5 +1,4 @@
 const db = require('../database/models');
-const Category = require('../database/models/Category');
 const sequelize = db.sequelize;
 
 const Users = db.User;
@@ -8,7 +7,7 @@ const Colors = db.Color;
 const Collections = db.Collection;
 const Sizes = db.Size;
 const Photos = db.Photo;
-const Categories = db. Category;
+const Categories = db.Category;
 const Taxes = db.Tax;
 
 module.exports = {
@@ -43,29 +42,60 @@ module.exports = {
     },
 
     register: (req, res) => {
-        return res.render('./users/register')
+        return res.render('./users/register');
     },
 
-    categories: async(req, res) => {
+    categories:(req, res) => {
         console.log('entrando a categorias de usuario');
-        const roles = await Category.findAll();
-        console.log(roles)
-        return res.render('./user/userCategory')
+
+        return res.render('./users/userCategory');
+    },
+    tablaUser:(req, res) => {
+        console.log('entraste por tablas de usuario');
+    },
+    cambiarRol:(req, res) => {
+        console.log('entraste a cambiar roles de usuario');
     },
 
-    rates: async(req, res) => {
+    processCategory:async(req, res) => {
+        console.log('entraste a process category');
+        console.log(req.body.categoria)
+
         try {
-            const [categories, taxes] = await Promise.all([Categories.findAll(),Taxes.findAll()])
-            console.log(categories);
-            console.log(taxes);
-            
+            await Categories.create({
+                roles: req.body.categoria 
+            })
+
+        return res.render('./users/userCategory');
+
         } catch (error) {
             console.log(error)
-            
         }
-    return res.render('userTaxes')
-    
-    }
 
-    
+    },
+
+    userTax:(req, res) => {
+        console.log('entrando a categoria de impuestos');
+
+        return res.render('./users/userTaxes');
+    },
+
+    taxes: async(req, res) => {
+        console.log('entraste a impuestos');
+     
+        try {
+            await Taxes.create({
+                type: req.body.tipo,
+                percent:req.body.porcentaje
+            })
+
+        return res.render('./users/userCategory');
+
+        } catch (error) {
+            console.log(error)
+        }
+        
+
+    },
+
 };

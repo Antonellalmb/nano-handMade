@@ -13,8 +13,21 @@ router.get('/register', controller.register);
 
 
 //routes tables administration
-router.get('/usercategory', controller.categories);
 
-router.get('/usertaxes', controller.rates);
+//categories
+
+router.get('/usercategory', controller.categories);
+router.post('/categories', controller.processCategory)
+
+//users
+
+router.get('/userTable', controller.tablaUser);
+router.post('/users', controller.cambiarRol);
+
+//taxes
+
+router.get('/userTaxes', controller.userTax)
+router.post('/taxes', controller.taxes)
+
 
 module.exports = router;

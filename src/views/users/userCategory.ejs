@@ -10,23 +10,17 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-     <main>
-        <form action="user/categories" method="post">
+     <main class="mainInput">
+      <div class="tableInput">
+        <form action="/user/categories" method="post">
             <h4>Categorias de usuario</h4>
             <div>
-                <input type="text" name="name" value="">
+              <input class="form-tablas" type="text" name="categoria" placeholder=" Ingrese categoria de usuario">
             </div>
-           <!-- <div>
-                iterar0 sobre la lista de usuarios  
-                <% users.forEach(user => { %>
-                    <div>
-                        <input type="checkbox" name="userRoles" value="<%= user.id %>">
-                        <span><%= user.username %></span>
-                    </div>
-                <% }); %>
-            </div> -->
-            <button type="submit">Mudar roles</button>
+            <div class="botonsInput"> 
+              <button class="botEnterTablas tablasBoton" type="submit">Mudar roles</button>
         </form>
+      </div>
     </main>
 
      
