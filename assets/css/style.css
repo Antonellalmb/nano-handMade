@@ -2554,10 +2554,64 @@ input.form-tablas {
   margin-bottom: 20px;
 }
 
+.textarea-tablas {
+  height: 60px;
+  width: 100%;
+  resize: none;
+  border-radius: 7px;
+  border: 1px;
+  border-color: #ccc;
+  border-style: solid;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .botonsInput {
   margin-bottom: 20px;
 }
 
+.divTableTitle {
+  display: flex;  
+  justify-content: space-between;
+}
+
+.tableTitle {
+  padding: 15px 0 5px 0;
+}
+
+.addItemText {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.addItem {
+  margin-top: 5px;
+  padding: 15px 15px 5px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+table , th , tr , td {
+  border: 1px solid #ccc;
+  height: 30px;
+}
+
+table {
+  width: 100%;
+}
+
+th , td {
+  padding: 0 10px 0 10px;
+}
+
+.actionColumn {
+  text-align: center;
+}
 
 
 /***********************************************************************************************/

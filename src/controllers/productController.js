@@ -1,3 +1,4 @@
+const { isError } = require('util');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require('sequelize');
@@ -11,15 +12,29 @@ module.exports = {
 // Product's Table  Controllers
 // *********************************  
     products : (req, res) => {
-        return res.render('./products/products')
+        console.log("entraste a productos" );
+        
+        return res.render('./products/products');
     },
-    
+
 
 // *********************************    
 // Collection's Table  Controllers
 // *********************************    
+    itemsCollections : async (req, res) => {
+        console.log("entraste a collectionItemsTable" );
+        try {
+            const collectionItems = await Collections.findAll();
+            return res.render('./products/collectionItemsTable' , {collectionItems : collectionItems});
+
+        } catch (error) {
+            console.log(error)
+        };        
+    },
+
     collections : (req, res) => {
-        return res.render('./products/collectionsTable')
+        console.log("entraste a collectionsTable" );
+        return res.render('./products/collectionsTable');
     },
 
     processCollections :  async (req, res) => {
@@ -34,9 +49,19 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-    
+        return res.redirect('/product/collectionsTable');
+    },
 
-        return res.redirect('/product/collectionsTable')
+    editItemCollection : async (req, res) => {
+        console.log("Entraste por get a editItemCollection");
+        console.log(req.params.id)
+        try {
+            const collectionItem = await Collections.findByPk(req.params.id);
+            return res.render('./products/collectionItem' , {collectionItem : collectionItem})
+        } catch (error) {
+            console.log(error);
+        }
+
     },
 
 

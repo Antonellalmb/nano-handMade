@@ -11,8 +11,10 @@ router.get('/products', controller.products);
 //routes table's administration
 
 // Collection's Table *************************************
+router.get('/collectionItemsTable' , controller.itemsCollections);
 router.get('/collectionsTable' , controller.collections);
 router.post('/collections' , controller.processCollections);
+router.get('/collectionItemEdit/:id' , controller.editItemCollection);
 // ********************************************************
 
 // Discount's Table ***************************************
