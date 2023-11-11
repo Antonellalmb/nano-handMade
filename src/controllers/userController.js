@@ -52,9 +52,11 @@ module.exports = {
     },
     tablaUser:(req, res) => {
         console.log('entraste por tablas de usuario');
+        return res.render('./users/userTable');
     },
     cambiarRol:(req, res) => {
         console.log('entraste a cambiar roles de usuario');
+        return res.render('./users/userTable');
     },
 
     processCategory:async(req, res) => {
