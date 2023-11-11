@@ -2552,6 +2552,7 @@ input.form-tablas {
   border-style: solid;
   align-self: center;
   margin-bottom: 20px;
+  text-indent: 0px;
 }
 
 .textarea-tablas {
@@ -2564,6 +2565,7 @@ input.form-tablas {
   border-style: solid;
   align-self: center;
   margin-bottom: 20px;
+  text-indent: 10px;
 }
 
 .button-div {

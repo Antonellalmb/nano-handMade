@@ -45,16 +45,15 @@ module.exports = {
                 description: req.body.detail,
                 discount_id: null
             })
-            
+            return res.redirect('/product/collectionsTable');
         } catch (error) {
             console.log(error);
         }
-        return res.redirect('/product/collectionsTable');
+        
     },
 
     editItemCollection : async (req, res) => {
-        console.log("Entraste por get a editItemCollection");
-        console.log(req.params.id)
+        console.log("Entraste por get a editItemCollection ----> id: ", req.params.id);
         try {
             const collectionItem = await Collections.findByPk(req.params.id);
             return res.render('./products/collectionItem' , {collectionItem : collectionItem})
@@ -62,6 +61,29 @@ module.exports = {
             console.log(error);
         }
 
+    },
+
+    processEditItemCollection : async (req, res) => {
+        console.log("Entraste por post a processEditItemCollection");
+        console.log(req.body)
+
+        
+        try {
+            await Collections.update({
+                name: req.body.collectionName,
+                description: req.body.detail,
+                discount_id: null
+            },{
+                where: {
+                    id: req.body.collectionId
+                }
+            })
+            return res.redirect('/product/collectionItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+        
+        
     },
 
 
