@@ -12,21 +12,15 @@
      <!-- End Navbar -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/collection/update/<%= collectionItem.id %>?_method=PUT" method="post" >
-                <h4>Editar coleção</h4>  
-                <% console.log (collectionItem.description);
-                let detailItem = collectionItem.description;%> 
-                                            
+            <form class="tables" action="/product/collection/delete/<%= deleteItemCollection.id %>?_method=DELETE" method="post" >
+                <h4>Excluir Coleção</h4>  
+                 <% console.log(deleteItemCollection.id )    %>                                        
                 <div>
-                    <input class="form-tablas" type="hidden" name="collectionId" value=<%= collectionItem.id %>>
-                    <input class="form-tablas" type="text" name="collectionName" value=<%= collectionItem.name %>>
-                    <!--
-                    <input class="form-tablas" type="text" name="detail" value=<%= //detailItem %> maxlength="255">
-                    -->
-                    <textarea class="form-tablas textarea-tablas" name="detail"><%= detailItem %></textarea>
+                    <p>Tem certeza de que deseja excluir a coleção <strong> <em>--  <%= deleteItemCollection.name%>  --</em> </strong>?</p>      
+                    
                 </div>
                 <div class="button-div"> 
-                    <a> <button class="botEnterTablas tablasBoton" type="submit">Modificar Coleção</button> </a>
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Coleção</button> </a>
                     <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Coleções</button>  </a>
                 </div>
         </form>

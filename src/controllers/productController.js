@@ -49,7 +49,6 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-        
     },
 
     editItemCollection : async (req, res) => {
@@ -60,10 +59,9 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-
     },
 
-    processEditItemCollection : async (req, res) => {
+    updateItemCollection : async (req, res) => {
         console.log("Entraste por post a processEditItemCollection");
         console.log(req.body)
 
@@ -81,9 +79,29 @@ module.exports = {
             return res.redirect('/product/collectionItemsTable');
         } catch (error) {
             console.log(error);
+        };
+    },
+
+    deleteItemCollection : async (req , res) => {
+        console.log("Entraste de delete de item: " , req.params.id);
+        try {
+            const deleteItemCollection = await Collections.findByPk(req.params.id);
+            return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
+        } catch (error) {
+            console.log(error)
         }
-        
-        
+    },
+
+    destroyItemCollection : async (req , res) => {
+        console.log("Entraste de destroy de item: " , req.params.id);
+        try {
+            await Collections.destroy({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/collectionItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
     },
 
 

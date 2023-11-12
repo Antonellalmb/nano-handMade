@@ -28,9 +28,9 @@
                         <td><%= collection.name  %></td>
                         <td><%= collection.description  %></td>
                         <td class="actionColumn">
-                            <a href="/product/collectionItemEdit/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
+                            <a href="/product/collection/update/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
                             &nbsp &nbsp
-                            <a><i class="fa-solid fa-trash"></i></a>
+                            <a href="/product/collection/delete/<%= collection.id%>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 <%}) %>

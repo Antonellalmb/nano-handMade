@@ -14,8 +14,10 @@ router.get('/products', controller.products);
 router.get('/collectionItemsTable' , controller.itemsCollections);
 router.get('/collectionsTable' , controller.collections);
 router.post('/collections' , controller.processCollections);
-router.get('/collectionItemEdit/:id' , controller.editItemCollection);
-router.post('/collectionsEditItem' , controller.processEditItemCollection);
+router.get('/collection/update/:id' , controller.editItemCollection);
+router.put('/collection/update/:id' , controller.updateItemCollection);
+router.get('/collection/delete/:id' , controller.deleteItemCollection);
+router.delete('/collection/delete/:id' , controller.destroyItemCollection);
 // ********************************************************
 
 // Discount's Table ***************************************
