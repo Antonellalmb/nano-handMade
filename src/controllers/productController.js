@@ -83,7 +83,7 @@ module.exports = {
     },
 
     deleteItemCollection : async (req , res) => {
-        console.log("Entraste de delete de item: " , req.params.id);
+        console.log("Entraste de delete de item de colección: " , req.params.id);
         try {
             const deleteItemCollection = await Collections.findByPk(req.params.id);
             return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
@@ -93,7 +93,7 @@ module.exports = {
     },
 
     destroyItemCollection : async (req , res) => {
-        console.log("Entraste de destroy de item: " , req.params.id);
+        console.log("Entraste a destroy de item de colecciones: " , req.params.id);
         try {
             await Collections.destroy({
                 where: { id: req.params.id}
@@ -107,7 +107,18 @@ module.exports = {
 
 // *********************************    
 // Discount's Table  Controllers
-// *********************************    
+// *********************************  
+    itemsDiscounts : async (req, res) => {
+        console.log("entraste a discountItemsTable" );
+        try {
+            const discountItems = await Discounts.findAll();
+            return res.render('./products/discountItemsTable' , {discountItems : discountItems});
+
+        } catch (error) {
+            console.log(error)
+        };        
+    },
+
     discounts : (req, res) => {
         return res.render('./products/discountsTable')
     },
@@ -128,6 +139,54 @@ module.exports = {
         return res.redirect('/product/discountsTable')
     },
 
+    editItemDiscount : async (req, res) => {
+        console.log("Entraste por get a editItemDiscount ----> id: ", req.params.id);
+        try {
+            const discountItem = await Discounts.findByPk(req.params.id);
+            return res.render('./products/discountItem' , {discountItem : discountItem})
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    updateItemDiscount : async (req, res) => {
+        console.log("Entraste por post a processEditItemDiscount");
+        try {
+            await Discounts.update({
+                discount_code: req.body.discountName,
+                discount: req.body.detail,
+            },{
+                where: {
+                    id: req.body.discountId
+                }
+            })
+            return res.redirect('/product/discountItemsTable');
+        } catch (error) {
+            console.log(error);
+        };
+    },
+
+    deleteItemDiscount : async (req , res) => {
+        console.log("Entraste de delete de item de descuento: " , req.params.id);
+        try {
+            const deleteItemDiscount = await Discounts.findByPk(req.params.id);
+            return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyItemDiscount : async (req , res) => {
+        console.log("Entraste a destroy de item de descuento: " , req.params.id);
+        try {
+            await Discounts.destroy({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/discountItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     

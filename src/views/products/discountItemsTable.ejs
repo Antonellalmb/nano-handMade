@@ -11,19 +11,37 @@
             <%- include('../partials/header') %>
      <!-- End Navbar -->
     <main class="mainInput">
+        <!-- Collection's table to add, modify o delete collection -->
         <div class="tableInput">
-            <form class="tables" action="/product/collection/delete/<%= deleteItemCollection.id %>?_method=DELETE" method="post" >
-                <h4>Excluir Coleção</h4>                
-                <div>
-                    <p>Tem certeza de que deseja excluir a coleção <strong> <em>--  <%= deleteItemCollection.name%>  --</em> </strong>?</p> 
-                </div>
-                <div class="button-div"> 
-                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Coleção</button> </a>
-                    <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Coleções</button>  </a>
-                </div>
-        </form>
-    </div>
-        
+            <div class="divTableTitle">
+                <h4 class="tableTitle">Descontos</h4>
+                <a href="/product/discountsTable" class="addItemText">Adicionar Desconto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+            </div>
+            <table>
+                <tr>
+                    <th>Código de desconto</th>
+                    <th>Detalhe</th>
+                    <th>Ação</th>
+                </tr>
+                <% discountItems.forEach((discount) => { %>
+                    <tr>
+                        <td><%= discount.discount_code  %></td>
+                        <td><%= discount.discount  %></td>
+                        <td class="actionColumn">
+                            <a href="/product/discount/update/<%= discount.id%>"><i class="fa-solid fa-pen"></i></a>
+                            &nbsp &nbsp
+                            <a href="/product/discount/delete/<%= discount.id%>"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                <%}) %>
+            </table>
+            <div class="divTableTitle">
+                <h4 class="tableTitle">Descontos</h4>
+                <a href="/product/discountsTable" class="addItemText">Adicionar Desconto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+                
+            </div>
+        </div>
+        <!-- Collection's table to add, modify o delete collection -->        
     </main>
 
      

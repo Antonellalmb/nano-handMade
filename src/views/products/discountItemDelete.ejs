@@ -12,14 +12,14 @@
      <!-- End Navbar -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/collection/delete/<%= deleteItemCollection.id %>?_method=DELETE" method="post" >
-                <h4>Excluir Coleção</h4>                
+            <form class="tables" action="/product/discount/delete/<%= deleteItemDiscount.id %>?_method=DELETE" method="post" >
+                <h4>Excluir desconto</h4>                
                 <div>
-                    <p>Tem certeza de que deseja excluir a coleção <strong> <em>--  <%= deleteItemCollection.name%>  --</em> </strong>?</p> 
+                    <p>Tem certeza de que deseja excluir a desconto <strong> <em>--  <%= deleteItemDiscount.discount_code%>  --</em> </strong>?</p> 
                 </div>
                 <div class="button-div"> 
-                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Coleção</button> </a>
-                    <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Coleções</button>  </a>
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Desconto</button> </a>
+                    <a class="linkEditar" href="/product/discountItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Descontos</button>  </a>
                 </div>
         </form>
     </div>

@@ -12,14 +12,22 @@
      <!-- End Navbar -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/collection/delete/<%= deleteItemCollection.id %>?_method=DELETE" method="post" >
-                <h4>Excluir Coleção</h4>                
+            <form class="tables" action="/product/discount/update/<%= discountItem.id %>?_method=PUT" method="post" >
+                <h4>Editar desconto</h4>  
+                <% console.log (discountItem.discount);
+                let detailItem = discountItem.discount;%> 
+                                            
                 <div>
-                    <p>Tem certeza de que deseja excluir a coleção <strong> <em>--  <%= deleteItemCollection.name%>  --</em> </strong>?</p> 
+                    <input class="form-tablas" type="hidden" name="discountId" value=<%= discountItem.id %>>
+                    <input class="form-tablas" type="text" name="discountName" value=<%= discountItem.discount_code %>>
+                    <!--
+                    <input class="form-tablas" type="text" name="detail" value=<%= //detailItem %> maxlength="255">
+                    -->
+                    <textarea class="form-tablas textarea-tablas" name="detail"><%= detailItem %></textarea>
                 </div>
                 <div class="button-div"> 
-                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Coleção</button> </a>
-                    <a class="linkEditar" href="/product/collectionItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Coleções</button>  </a>
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Modificar Desconto</button> </a>
+                    <a class="linkEditar" href="/product/discountItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Descontos</button>  </a>
                 </div>
         </form>
     </div>

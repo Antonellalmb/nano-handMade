@@ -21,8 +21,13 @@ router.delete('/collection/delete/:id' , controller.destroyItemCollection);
 // ********************************************************
 
 // Discount's Table ***************************************
+router.get('/discountItemsTable' , controller.itemsDiscounts);
 router.get('/discountsTable' , controller.discounts);
 router.post('/discounts' , controller.processDiscounts);
+router.get('/discount/update/:id' , controller.editItemDiscount);
+router.put('/discount/update/:id' , controller.updateItemDiscount);
+router.get('/discount/delete/:id' , controller.deleteItemDiscount);
+router.delete('/discount/delete/:id' , controller.destroyItemDiscount);
 // ********************************************************
 
 
