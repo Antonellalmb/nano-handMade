@@ -54,19 +54,19 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey: "product_id",
             }),
 
-            Product.belongsToMany(models.Color , 
-                {
-                    through: "Characteristic",
-                    foreignKey: "product_id",
-                    otherKey: "color_id"
-                }),
-            
-            Product.belongsToMany(models.Size , 
-                {
-                    through: "Characteristic",
-                    foreignKey: "product_id",
-                    otherKey: "size_id"
-                })
+        Product.belongsToMany(models.Color , 
+            {
+                through: "Characteristic",
+                foreignKey: "product_id",
+                otherKey: "color_id"
+            }),
+        
+        Product.belongsToMany(models.Size , 
+            {
+                through: "Characteristic",
+                foreignKey: "product_id",
+                otherKey: "size_id"
+            })
 
     }
 

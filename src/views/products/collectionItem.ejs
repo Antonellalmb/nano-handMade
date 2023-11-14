@@ -2,28 +2,40 @@
 <html lang="en">
   <%- include('../partials/head') %>
 <body>
-            <!-- Preload the Whole Page -->
-            <div id="preloader">      
-            <div id="loading-animation">&nbsp;</div>
-            </div>
-        
-            <!-- Navbar -->
-            <%- include('../partials/header') %>
+    <!-- Preload the Whole Page -->
+    <div id="preloader">      
+    <div id="loading-animation">&nbsp;</div>
+    </div>
+
+    <!-- Navbar -->
+    <%- include('../partials/header') %>
      <!-- End Navbar -->
+
+    <!-- Main del formulario de carga de la tabla de Colecciones --> 
     <main class="mainInput">
         <div class="tableInput">
             <form class="tables" action="/product/collection/update/<%= collectionItem.id %>?_method=PUT" method="post" >
                 <h4>Editar coleção</h4>  
-                <% console.log (collectionItem.description);
-                let detailItem = collectionItem.description;%> 
-                                            
                 <div>
                     <input class="form-tablas" type="hidden" name="collectionId" value=<%= collectionItem.id %>>
                     <input class="form-tablas" type="text" name="collectionName" value=<%= collectionItem.name %>>
-                    <!--
-                    <input class="form-tablas" type="text" name="detail" value=<%= //detailItem %> maxlength="255">
-                    -->
-                    <textarea class="form-tablas textarea-tablas" name="detail"><%= detailItem %></textarea>
+                    <textarea class="form-tablas textarea-tablas" name="detail"><%= collectionItem.description %></textarea>
+
+                    <!-- Select para elegir si la colección lleva descuento o no -->
+                    <p class="optionsSelect">Desconto</p>
+                    <label for="discountTable">Se nenhum desconto for aplicável, deixe desmarcado</label>
+                    <select class="form-tablas" name="discountSelected" id="discountTable">
+                        <option value="" required>- Selecione o desconto - </option>
+                        <!-- Recorre la tabla de descuentos y se compara con el valor del id de descuento que tiene el elemento a editar y si councide se le asigna el "selected" para que se muestre en la vista como el valor que ya trae el item-->
+                        <% discounts.forEach(discount => {%>
+                            <option value="<%= discount.id %>"
+                                <% if ( discount.id == collectionItem.discount_id) {%> selected <%}%>  
+                                ><%= discount.discount_code %>
+                            </option>
+                        <% }); %>
+                    </select>
+                    <!-- End Select-->
+
                 </div>
                 <div class="button-div"> 
                     <a> <button class="botEnterTablas tablasBoton" type="submit">Modificar Coleção</button> </a>
@@ -33,7 +45,7 @@
     </div>
         
     </main>
-
+    <!-- End main -->
      
      <!-- Footer
     ================================================== -->

@@ -20,32 +20,48 @@ module.exports = {
 
 // *********************************    
 // Collection's Table  Controllers
-// *********************************    
+// *********************************  
+
     itemsCollections : async (req, res) => {
         console.log("entraste a collectionItemsTable" );
         try {
-            const collectionItems = await Collections.findAll();
+            const collectionItems = await Collections.findAll(
+                {include: [
+                {association: 'collectionDiscount'}
+            ]}
+        );
             return res.render('./products/collectionItemsTable' , {collectionItems : collectionItems});
-
         } catch (error) {
             console.log(error)
         };        
     },
 
-    collections : (req, res) => {
+    collections : async(req, res) => {
         console.log("entraste a collectionsTable" );
-        return res.render('./products/collectionsTable');
+        try {
+            const discounts = await Discounts.findAll();
+            return res.render('./products/collectionsTable' , {discounts : discounts});
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     processCollections :  async (req, res) => {
         console.log("Entraste por post a processCollections");
         try {
+            //************************************************* */
+            // Si de la vista llega el campo de descuento vacío no se ejecuta el create
+            //************************************************* */
+            if (!req.body.discountSelected) {
+                return res.redirect('/product/collectionsTable')
+            }
+            //************************************************* */
             await Collections.create({
                 name: req.body.collectionName,
                 description: req.body.detail,
-                discount_id: null
+                discount_id: req.body.discountSelected
             })
-            return res.redirect('/product/collectionsTable');
+            return res.redirect('/product/collectionItemsTable');
         } catch (error) {
             console.log(error);
         }
@@ -54,8 +70,13 @@ module.exports = {
     editItemCollection : async (req, res) => {
         console.log("Entraste por get a editItemCollection ----> id: ", req.params.id);
         try {
-            const collectionItem = await Collections.findByPk(req.params.id);
-            return res.render('./products/collectionItem' , {collectionItem : collectionItem})
+            const [collectionItem , discounts]= await Promise.all([
+                Collections.findByPk(req.params.id, {
+                    include: [{ association: 'collectionDiscount' }]
+                    }),
+                Discounts.findAll()
+            ]) 
+            return res.render('./products/collectionItem' , {collectionItem : collectionItem , discounts : discounts})
         } catch (error) {
             console.log(error);
         }
@@ -63,14 +84,14 @@ module.exports = {
 
     updateItemCollection : async (req, res) => {
         console.log("Entraste por post a processEditItemCollection");
-        console.log(req.body)
-
-        
         try {
+            if (!req.body.discountSelected) {
+                return res.redirect('/product/collectionsTable')
+            }
             await Collections.update({
                 name: req.body.collectionName,
                 description: req.body.detail,
-                discount_id: null
+                discount_id: req.body.discountSelected
             },{
                 where: {
                     id: req.body.collectionId
@@ -104,10 +125,10 @@ module.exports = {
         }
     },
 
-
 // *********************************    
 // Discount's Table  Controllers
-// *********************************  
+// ********************************* 
+
     itemsDiscounts : async (req, res) => {
         console.log("entraste a discountItemsTable" );
         try {
@@ -134,8 +155,6 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-    
-
         return res.redirect('/product/discountsTable')
     },
 

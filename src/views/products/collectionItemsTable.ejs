@@ -21,12 +21,14 @@
                 <tr>
                     <th>Coleção nome</th>
                     <th>Detalhe</th>
+                    <th>Desconto</th>
                     <th>Ação</th>
                 </tr>
-                <% collectionItems.forEach((collection) => { %>
+                <% collectionItems.forEach((collection) => {%>
                     <tr>
                         <td><%= collection.name  %></td>
                         <td><%= collection.description  %></td>
+                        <td><%= collection.discount_id == null? collection.discount_id : collection.collectionDiscount.discount_code%></td>
                         <td class="actionColumn">
                             <a href="/product/collection/update/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
                             &nbsp &nbsp

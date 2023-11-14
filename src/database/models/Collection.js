@@ -40,7 +40,12 @@ module.exports = (sequelize, dataTypes) => {
             {
                 as: "collectionProduct",
                 foreignKey: "collection_id",
-            })
+            }),
+
+        Collection.belongsTo(models.Discount , {
+            as: "collectionDiscount",
+            foreignKey: "discount_id",
+        })
     }
 
     return Collection;

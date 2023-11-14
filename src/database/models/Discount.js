@@ -29,5 +29,14 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: 'deleted_at'
     }
     const Discount = sequelize.define(alias,cols,config);
+
+    Discount.associate = (models) => {
+        Discount.hasMany(models.Collection,
+            {
+                as: "discountCollection",
+                foreignKey: "discount_id",
+            })
+    }
+
     return Discount;
     }

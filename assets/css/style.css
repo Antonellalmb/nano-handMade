@@ -2568,6 +2568,21 @@ input.form-tablas {
   text-indent: 10px;
 }
 
+.tables div .optionsSelect {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.tables div label {
+  font-size: 10px;
+  font-weight: 100;
+}
+
+.tables div select {
+  margin-bottom: 50px;
+}
+
 .button-div {
   display: flex;
   justify-content: space-between;
