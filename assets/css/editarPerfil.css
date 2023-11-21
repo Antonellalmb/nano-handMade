@@ -1,0 +1,61 @@
+/* Estilos para editarPerfil.ejs */
+
+.mainLogin {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mainLogin .left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.mainLogin .right {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-form h2 {
+    color: #333;
+}
+
+.login-container {
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.log-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/*
+.botonLog {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #db5834c4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botonLog:hover {
+    background-color: #b96729;
+}

@@ -1,6 +1,8 @@
 
 @import 'login.css';
 @import 'register.css';
+@import 'perfil.css';
+@import 'editarPerfil.css';
 
 body {
   font-family: 'Raleway', sans-serif;

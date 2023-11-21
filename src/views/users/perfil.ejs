@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+    <!-- Preload the Whole Page -->
+    <div id="preloader">      
+    <div id="loading-animation">&nbsp;</div>
+    </div>
+        
+        <!-- Navbar -->
+        <%- include('../partials/header') %>
+
+        <!-- perfil.ejs -->
+
+        <div class="mainLogin">
+            <div class="left">
+                <section class="copy">
+                    <h2>Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
+                </section>
+            </div>
+            <div class="right">
+                <div class="login-form">
+                    <section class="copy">
+                        <h2>Perfil de <%= usuario.usr_name %></h2>
+                    </section>
+                    <div class="login-container">
+                        <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST">
+                        <ul>
+                            <li><strong>Nome:</strong> <%= usuario.usr_name %></li>
+                            <li><strong>Email:</strong> <%= usuario.usr_email %></li>
+                            <li><strong>Endereço:</strong> <%= usuario.usr_address %></li>
+                        </ul>
+                        </form>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/editarPerfil"> <button type="submit" class="botonLog">Editar Perfil</button> </a>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/eliminarPerfil"> <button type="button" class="botonLog botonLog-danger">Excluir perfil</button></a>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/logout"><button type="button" class="botonLog">Fechar Sessão</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer
+    ================================================== -->
+    <%- include('../partials/footer') %>
+      <!-- End footer -->
+  
+     <!-- End Navbar -->
+     <!-- JS libraries and scripts -->
+  <script src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-hover-dropdown.min.js"></script>
+  <script src="/js/jquery.appear.min.js"></script>
+  <script src="/js/jquery.bxslider.min.js"></script>
+  <script src="/js/jquery.owl.carousel.min.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="/js/jquery.isotope.js"></script>
+  <script src="/js/jquery.placeholder.js"></script>
+  <script src="/js/jquery.smoothscroll.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/jquery.waypoints.js"></script>
+  <script src="/js/jquery.fitvids.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/js/jquery.countdown.js"></script>
+  <script src="/js/jquery.navbar-scroll.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="/js/jquery.gmaps.js"></script>
+  <script src="/js/main.js"></script>   
+</body>
+</html>
