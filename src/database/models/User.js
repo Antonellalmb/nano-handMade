@@ -55,6 +55,15 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: 'deleted_at'
     }
     const User = sequelize.define(alias,cols,config);
-    return User;
+
+    User.associate = (models) => {
+    User.belongsTo(models.Category , 
+        {
+            as: "userCategory",
+            foreignKey: "category_id"
+        })
     }
+        return User;
+
+ }
 

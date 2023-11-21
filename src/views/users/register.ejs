@@ -15,25 +15,28 @@
       </section>
     </div>
     <div class="rightRegister">
-      <form class="registro" action="/user/register" method="post" enctype="multipart/form-data">
+      <form class="registro" action="/user/register" method="post">
         <section class="copyRegister">
           <h5>nano Made By Hand</h5>  
-        </section>                     
+        </section> 
+        <!--esto es para asignar el id de user=2, usuario comun cuando se registre cualquier usuario-->
+        <input name="rol" value="2" type="hidden" >             
+        <!--************-->      
           <div> 
-            <input class="form-usu" type="text" name="name"  value=""  placeholder="  Nome completo">                    
+            <input class="form-usu" type="text" name="name"   placeholder="  Nome completo">                    
           </div>
           <div>
-            <input class="form-usu" type="text" name="email" value="" placeholder="  e-mail">
+            <input class="form-usu" type="text" name="email"  placeholder="  e-mail">
           </div>
           <div>
-            <input class="form-usu" type="text" name="address" value="" placeholder=" Endereço">
+            <input class="form-usu" type="text" name="address"  placeholder=" Endereço">
           </div> 
           <div>           
             <div class="input-container password">
-              <input class="form-usu" type="password" name="password"  value="" placeholder="  Senha" >
+              <input class="form-usu" type="password" name="password"   placeholder="  Senha" >
             </div> 
             <div>
-              <input class="form-usu" type="password" name="confirmPassword"  value= "" placeholder="  Confirmar senha">
+              <input class="form-usu" type="password" name="confirmPassword"   placeholder="  Confirmar senha">
             </div>
           </div>
           <div> 
