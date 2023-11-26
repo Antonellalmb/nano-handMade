@@ -15,7 +15,7 @@ module.exports = {
 
     loginProcess:async(req, res) => {
         try {
-            const [users , products , colors , collections , sizes , photos] = await Promise.all([Users.findAll(), Products.findAll({include:[{association: 'productCollection'} , {association: 'productPhoto'}]}), Colors.findAll(), Collections.findAll({include:[{association: 'collectionProduct'}]}), Sizes.findAll(), Photos.findAll({include:[{association: 'photoProduct'}]})])
+            const [users , products , colors , collections , sizes , photos] = await Promise.all([Users.findAll(), Products.findAll({include:[{association: 'productCollection'} , {association: 'productPhoto'} , {association: 'productDiscount'}]}), Colors.findAll(), Collections.findAll({include:[{association: 'collectionProduct'} , {association: 'collectionDiscount'}]}), Sizes.findAll(), Photos.findAll({include:[{association: 'photoProduct'}]})])
             console.log(users);
             console.log(products);
             console.log(colors);

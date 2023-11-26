@@ -48,6 +48,12 @@ module.exports = (sequelize, dataTypes) => {
                 foreignKey: "collection_id",
             }),
 
+        Product.belongsTo(models.Discount , 
+            {
+                as: "productDiscount",
+                foreignKey: "discount_id",
+            }),
+
         Product.hasMany(models.Photo,
             {
                 as: "productPhoto",
@@ -56,17 +62,23 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.belongsToMany(models.Color , 
             {
-                through: "Characteristic",
+        //        as: "productColor",
+                through: models.Characteristic,
                 foreignKey: "product_id",
                 otherKey: "color_id"
             }),
         
         Product.belongsToMany(models.Size , 
             {
-                through: "Characteristic",
+        //        as: "productSize",
+                through: models.Characteristic,
                 foreignKey: "product_id",
                 otherKey: "size_id"
-            })
+            }), 
+
+        Product.hasMany(models.Characteristic, {
+            foreignKey: 'product_id',
+        })
 
     }
 

@@ -34,6 +34,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Size.belongsToMany(models.Product , 
             {
+            //    as: "sizeProduct",
                 through: "Characteristic",
                 foreignKey: "size_id",
                 otherKey: "product_id"
@@ -41,10 +42,15 @@ module.exports = (sequelize, dataTypes) => {
 
         Size.belongsToMany(models.Color , 
             {
+            //    as: "sizeColor",
                 through: "Characteristic",
                 foreignKey: "size_id",
                 otherKey: "color_id"
-            })
+            }),
+
+        Size.hasMany(models.Characteristic, {
+            foreignKey: 'size_id',
+        })
 
     }
     return Size;

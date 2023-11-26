@@ -3,12 +3,37 @@ const router = express.Router();
 const controller = require("../controllers/productController");
 
 
+// *****************************************************
+// ROUTES PRODUCTS
+// ***************************************************** 
 
-//routes products
+// Products views *************************************
 router.get('/products', controller.products);
+// ****************************************************
 
 
-//routes table's administration
+
+// *****************************************************
+// Products Data Base Tables Administration Routes
+// *****************************************************
+
+// Product's Table *************************************
+router.get('/productItemsTable' , controller.itemsProducts);
+router.get('/productsTable', controller.productsItem);
+router.post('/productsItem', controller.processProductsItem);
+router.get('/product/update/:id' , controller.editItemProduct);
+router.put('/product/update/:id' , controller.updateItemProduct);
+router.get('/product/delete/:id' , controller.deleteItemProduct);
+router.delete('/product/delete/:id' , controller.destroyItemProduct);
+
+//router.post('/collections' , controller.processCollections);
+//router.get('/collection/update/:id' , controller.editItemCollection);
+//router.put('/collection/update/:id' , controller.updateItemCollection);
+//router.get('/collection/delete/:id' , controller.deleteItemCollection);
+//delete('/collection/delete/:id' , controller.destroyItemCollection);
+// ****************************************************
+
+
 
 // Collection's Table *************************************
 router.get('/collectionItemsTable' , controller.itemsCollections);

@@ -2535,7 +2535,13 @@ ul.download li a img {
   margin-top: 30px;
   margin-left: 30%;
   width: 40%;
+}
 
+.separator {
+  width: 100%;
+  border-top: solid 2px #1F2021;
+  height: 1px;
+  padding-bottom: 15px;
 }
 
 .tables {
@@ -2543,7 +2549,34 @@ ul.download li a img {
   padding-bottom: 30px;
 }
 
+ /*
+.tableProducto {
+  width: 100%;
+}
+*/
+
+.columnColor, .colorSize, .columnDiscount {
+  width: 70px;
+}
+
+.columnPrize {
+  width: 80px;
+}
+
+.columnstock {
+  width: 60px;
+}
+
+.columnDetail {
+  width: 100%;
+}
+
+.columnNumber {
+  width: 12px;
+}
+
 input.form-tablas {
+  font-size: 12px;
   height: 35px;
   width: 100%;
   border-radius: 7px;
@@ -2556,6 +2589,7 @@ input.form-tablas {
 }
 
 .textarea-tablas {
+  font-size: 10px;
   height: 60px;
   width: 100%;
   resize: none;
@@ -2564,12 +2598,34 @@ input.form-tablas {
   border-color: #ccc;
   border-style: solid;
   align-self: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-indent: 10px;
 }
 
+td input::placeholder {
+  font-size: 10px;
+}
+
+td .input-tablas-prize {
+  margin-top: 20px;
+  width: 80px;
+}
+
+td .input-tablas-stock {
+  margin-top: 20px;
+  width: 50px;
+}
+
+/* -- Líneas de código para eliminar flechas de input de números --*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/* --------------------------------------------------------------- */
+
 .tables div .optionsSelect {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   margin-bottom: 0;
 }
@@ -2580,12 +2636,33 @@ input.form-tablas {
 }
 
 .tables div select {
-  margin-bottom: 50px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.tableProducto tr th {
+  font-size: 10px;
+}
+
+td select {
+  margin-top: 15px;
+  font-size: 10px;
+  width: 60px;
+}
+
+/*td select option {
+  font-size: 10px;
+}
+*/
+#textareaTabla {
+  margin: 5px 0;
+  padding: 0;
 }
 
 .button-div {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .botonsInput {
@@ -2620,19 +2697,51 @@ table , th , tr , td {
 
 table {
   width: 100%;
+  margin-bottom: 30px;
 }
 
 th , td {
-  padding: 0 10px 0 10px;
+  padding: 0 5px 0 5px;
 }
 
 .actionColumn {
   text-align: center;
+  min-width: 60px;
 }
 
 .tables div p {
   margin-bottom: 30px;
 }
+
+.tables div div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.tables div div .inputsNumber {
+  width: 32%;
+}
+
+.inputsNumber input {
+  width: 70%;
+  align-self: flex-start;
+}
+
+.tables div div div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.tables div div div select {
+  width: 70%;
+}
+
+
 
 
 /***********************************************************************************************/
