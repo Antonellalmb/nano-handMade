@@ -2704,6 +2704,10 @@ th , td {
   padding: 0 5px 0 5px;
 }
 
+.centerCell {
+  text-align: center;
+}
+
 .actionColumn {
   text-align: center;
   min-width: 60px;

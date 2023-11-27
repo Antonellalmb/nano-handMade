@@ -11,37 +11,38 @@
             <%- include('../partials/header') %>
      <!-- End Navbar -->
     <main class="mainInput">
-        <!-- Collection's table to add, modify o delete collection -->
+        <!-- Collection's table to add, modify o delete color -->
         <div class="tableInput">
             <div class="divTableTitle">
-                <h4 class="tableTitle">Coleções</h4>
-                <a href="/product/collectionsTable" class="addItemText">Adicionar Coleção &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+                <h4 class="tableTitle">Cores</h4>
+                <a href="/product/colorsTable" class="addItemText">Adicionar Cor &nbsp<i class="fa-solid fa-plus addItem"></i></a>
             </div>
             <table>
                 <tr>
-                    <th>Coleção nome</th>
-                    <th>Detalhe</th>
-                    <th>Desconto</th>
+                    <th>Nome da cor</th>
+                    <th>Descrição</th>
                     <th>Ação</th>
                     <th>Apagado</th>
                 </tr>
-                <% collectionItems.forEach((collection) => {%>
+                <% colorItems.forEach((color) => {%>
                     <tr>
-                        <td><%= collection.name  %></td>
-                        <td><%= collection.description  %></td>
-                        <td><%= collection.collectionDiscount.discount_code %></td>
+                        <td><%= color.name  %></td>
+                        <td><%= color.description  %></td>
                         <td class="actionColumn">
-                            <a href="/product/collection/update/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
+                            <a href="/product/color/update/<%= color.id%>"><i class="fa-solid fa-pen"></i></a>
                             &nbsp &nbsp
-                            <a href="/product/collection/delete/<%= collection.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <a href="/product/color/delete/<%= color.id%>"><i class="fa-solid fa-trash"></i></a>
                         </td>
-                        <td class="centerCell"><% if(collection.deleted_at != null) {%> <a href="/product/collection/restore/<%= collection.id%>">Restaurar</a><%}%></td>
+                        <td class="centerCell"><% if(color.deleted_at != null) {%> <a href="/product/color/restore/<%= color.id%>">Restaurar</a><%}%></td>
+
+
+
                     </tr>
                 <%}) %>
             </table>
             <div class="divTableTitle">
-                <h4 class="tableTitle">Coleções</h4>
-                <a href="/product/collectionsTable" class="addItemText">Adicionar Coleção &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+                <h4 class="tableTitle">Cores</h4>
+                <a href="/product/colorsTable" class="addItemText">Adicionar Cor &nbsp<i class="fa-solid fa-plus addItem"></i></a>
                 
             </div>
         </div>

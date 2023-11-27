@@ -11,39 +11,19 @@
             <%- include('../partials/header') %>
      <!-- End Navbar -->
     <main class="mainInput">
-        <!-- Collection's table to add, modify o delete collection -->
         <div class="tableInput">
-            <div class="divTableTitle">
-                <h4 class="tableTitle">Descontos</h4>
-                <a href="/product/discountsTable" class="addItemText">Adicionar Desconto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
-            </div>
-            <table>
-                <tr>
-                    <th>Código de desconto</th>
-                    <th>Detalhe</th>
-                    <th>Ação</th>
-                    <th>Apagado</th>
-                </tr>
-                <% discountItems.forEach((discount) => { %>
-                    <tr>
-                        <td><%= discount.discount_code  %></td>
-                        <td><%= discount.discount  %></td>
-                        <td class="actionColumn">
-                            <a href="/product/discount/update/<%= discount.id%>"><i class="fa-solid fa-pen"></i></a>
-                            &nbsp &nbsp
-                            <a href="/product/discount/delete/<%= discount.id%>"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                        <td class="centerCell"><% if(discount.deleted_at != null) {%> <a href="/product/discount/restore/<%= discount.id%>">Restaurar</a><%}%></td>
-                    </tr>
-                <%}) %>
-            </table>
-            <div class="divTableTitle">
-                <h4 class="tableTitle">Descontos</h4>
-                <a href="/product/discountsTable" class="addItemText">Adicionar Desconto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
-                
-            </div>
-        </div>
-        <!-- Collection's table to add, modify o delete collection -->        
+            <form class="tables" action="/product/color/delete/<%= deleteItemColor.id %>?_method=DELETE" method="post" >
+                <h4>Excluir Cor</h4>                
+                <div>
+                    <p>Tem certeza de que deseja excluir a cor <strong> <em>--  <%= deleteItemColor.name%>  --</em> </strong>?</p> 
+                </div>
+                <div class="button-div"> 
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Cor</button> </a>
+                    <a class="linkEditar" href="/product/colorItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Cores</button>  </a>
+                </div>
+        </form>
+    </div>
+        
     </main>
 
      

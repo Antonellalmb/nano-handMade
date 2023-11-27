@@ -407,6 +407,143 @@ module.exports = {
     },
 
 // *********************************    
+// Color's Table  Controllers
+// *********************************  
+
+    itemsColors : async (req, res) => {
+        console.log("entraste a colorItemsTable" );
+        try {
+            const colorItems = await Colors.findAll(
+                {
+                    paranoid:false,
+                    include: [
+                        {model: Products},
+                        {model: Sizes}
+                    ]
+                }
+            );
+    //    return res.send(colorItems)
+
+            return res.render('./products/colorItemsTable' , {colorItems : colorItems});
+        } catch (error) {
+            console.log(error)
+        };        
+    },
+
+    colors : async(req, res) => {
+        console.log("entraste a colorsTable" );
+        try {
+        //    const colors = await Colors.findAll();
+            return res.render('./products/colorsTable');
+        //    return res.render('./products/colorsTable' , {colors : colors});
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    processColors :  async (req, res) => {
+        console.log("Entraste por post a processColors");
+        try {
+            await Colors.create({
+                name: req.body.colorName,
+                description: req.body.detail
+            })
+            return res.redirect('/product/colorItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    editItemColor : async (req, res) => {
+        console.log("Entraste por get a editItemColor ----> id: ", req.params.id);
+        try {
+            colorItem = await Colors.findByPk(req.params.id) 
+            return res.render('./products/colorItem' , {colorItem : colorItem});
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    updateItemColor : async (req, res) => {
+        console.log("Entraste por post a updateItemColor");
+        try {
+            await Colors.update({
+                name: req.body.colorName,
+                description: req.body.detail,
+            },{
+                include: [
+                    {model: Products},
+                    {model: Sizes}
+                ],
+                where: {
+                    id: req.body.colorId
+                }
+            })
+            return res.redirect('/product/colorItemsTable');
+        } catch (error) {
+            console.log(error);
+        };
+    },
+
+    deleteItemColor : async (req , res) => {
+        console.log("Entraste de delete de item de color: " , req.params.id);
+        try {
+            const deleteItemColor = await Colors.findByPk(req.params.id,
+                {
+                    include: [
+                        {model: Products},
+                        {model: Sizes}
+                    ],
+                    where: {
+                        id: req.body.colorId
+                    }
+                });
+            const colorInProduct = deleteItemColor.Products.length;
+            const colorInSize = deleteItemColor.Sizes.length;
+            console.log(colorInProduct , " --" , colorInSize)
+            if(colorInProduct == 0 && colorInSize == 0) {
+                return res.render('./products/colorItemDelete' , {deleteItemColor : deleteItemColor})
+            } else {
+                return res.render('./products/colorItemDeleteImpossible' , { colorInProduct : colorInProduct , colorInSize : colorInSize})
+            }
+
+        //    return res.send(deleteItemColor)
+
+        //    return res.render('./products/colorItemDelete' , {deleteItemColor : deleteItemColor})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyItemColor : async (req , res) => {
+        console.log("Entraste a destroy de item de colores: " , req.params.id);
+        try {
+            await Colors.destroy({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/colorItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    restoreItemColor : async (req , res) => {
+        console.log("Entraste a restore de item de colores: " , req.params.id);
+        try {
+            await Colors.restore({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/colorItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+
+
+
+
+// *********************************    
 // Collection's Table  Controllers
 // *********************************  
 
@@ -414,10 +551,13 @@ module.exports = {
         console.log("entraste a collectionItemsTable" );
         try {
             const collectionItems = await Collections.findAll(
-                {include: [
-                {association: 'collectionDiscount'}
-            ]}
+                {
+                    include: [{association: 'collectionDiscount'}],
+                    paranoid:false
+            }
         );
+
+        console.log(collectionItems)
     //    return res.send(collectionItems)
 
             return res.render('./products/collectionItemsTable' , {collectionItems : collectionItems});
@@ -475,14 +615,15 @@ module.exports = {
     updateItemCollection : async (req, res) => {
         console.log("Entraste por post a updateItemCollection");
         try {
-            if (!req.body.collectionSelected) {
-                return res.redirect('/product/collectionsTable')
-            }
             await Collections.update({
                 name: req.body.collectionName,
                 description: req.body.detail,
                 discount_id: req.body.discountSelected
             },{
+                include: [
+                    {association: 'collectionProduct'},
+                    {association: 'collectionDiscount'}
+                ],
                 where: {
                     id: req.body.collectionId
                 }
@@ -496,8 +637,26 @@ module.exports = {
     deleteItemCollection : async (req , res) => {
         console.log("Entraste de delete de item de colección: " , req.params.id);
         try {
-            const deleteItemCollection = await Collections.findByPk(req.params.id);
-            return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
+            const deleteItemCollection = await Collections.findByPk(req.params.id,
+                {
+                    include: [
+                        {association: 'collectionProduct'}
+                    ]  
+                });
+            const collectionInProduct = deleteItemCollection.collectionProduct.length;
+            console.log(collectionInProduct);
+        //    res.send(deleteItemCollection)
+            if (collectionInProduct == 0) {
+                return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
+            } else {
+                return res.render('./products/collectionItemDeleteImpossible' , { collectionInProduct : collectionInProduct})
+            }
+
+
+
+
+
+            //return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
         } catch (error) {
             console.log(error)
         }
@@ -515,6 +674,18 @@ module.exports = {
         }
     },
 
+    restoreItemCollection : async (req , res) => {
+        console.log("Entraste a restore de item de colecciones: " , req.params.id);
+        try {
+            await Collections.restore({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/collectionItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
 // *********************************    
 // Discount's Table  Controllers
 // ********************************* 
@@ -522,7 +693,17 @@ module.exports = {
     itemsDiscounts : async (req, res) => {
         console.log("entraste a discountItemsTable" );
         try {
-            const discountItems = await Discounts.findAll();
+            const discountItems = await Discounts.findAll(
+                {
+                    paranoid:false,
+                    include: [
+                        {association: 'discountProduct'},
+                        {association: 'discountCollection'},
+                        {association: 'discountCharacteristic'}
+                    ]
+                }
+            );
+        //    return res.send(discountItems)
             return res.render('./products/discountItemsTable' , {discountItems : discountItems});
 
         } catch (error) {
@@ -565,6 +746,11 @@ module.exports = {
                 discount_code: req.body.discountName,
                 discount: req.body.detail,
             },{
+                include: [
+                    {association: 'discountProduct'},
+                    {association: 'discountCollection'},
+                    {association: 'discountCharacteristic'}
+                ],
                 where: {
                     id: req.body.discountId
                 }
@@ -578,8 +764,29 @@ module.exports = {
     deleteItemDiscount : async (req , res) => {
         console.log("Entraste de delete de item de descuento: " , req.params.id);
         try {
-            const deleteItemDiscount = await Discounts.findByPk(req.params.id);
-            return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
+            const deleteItemDiscount = await Discounts.findByPk(req.params.id,
+                {
+                    include: [
+                        {association: 'discountProduct'},
+                        {association: 'discountCollection'},
+                        {association: 'discountCharacteristic'}
+                    ],
+                    where: {
+                        id: req.body.discountId
+                    }
+                } 
+            );
+            const discountInProduct = deleteItemDiscount.discountProduct.length;
+            const discountInCollection = deleteItemDiscount.discountCollection.length;
+            const discountInCharacteristic = deleteItemDiscount.discountCharacteristic.length;
+            console.log(discountInProduct , " -- " , discountInCollection , " -- " , discountInCharacteristic)
+            if(discountInProduct == 0 && discountInCollection == 0 && discountInCharacteristic == 0 ) {
+                return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
+            } else {
+                return res.render('./products/discountItemDeleteImpossible' , { discountInProduct : discountInProduct , discountInCollection : discountInCollection , discountInCharacteristic : discountInCharacteristic})
+            }
+            
+        //    return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
         } catch (error) {
             console.log(error)
         }
@@ -589,6 +796,25 @@ module.exports = {
         console.log("Entraste a destroy de item de descuento: " , req.params.id);
         try {
             await Discounts.destroy({
+                include: [
+                    {
+                        association: 'discountProduct',
+                        association: 'discountCollection',
+                        association: 'discountCollection'
+                    }
+                ],
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/discountItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    restoreItemDiscount : async (req , res) => {
+        console.log("Entraste a restore de item de descuentos: " , req.params.id);
+        try {
+            await Discounts.restore({
                 where: { id: req.params.id}
             })
             return res.redirect('/product/discountItemsTable');
