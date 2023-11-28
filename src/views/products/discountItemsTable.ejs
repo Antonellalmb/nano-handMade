@@ -22,7 +22,6 @@
                     <th>Código de desconto</th>
                     <th>Detalhe</th>
                     <th>Ação</th>
-                    <th>Apagado</th>
                 </tr>
                 <% discountItems.forEach((discount) => { %>
                     <tr>
@@ -31,11 +30,12 @@
                         <td class="actionColumn">
                             <% if(discount.deleted_at == null) {%>
                                 <a href="/product/discount/update/<%= discount.id%>"><i class="fa-solid fa-pen"></i></a>
-                                &nbsp &nbsp
+                                &nbsp &nbsp &nbsp
                                 <a href="/product/discount/delete/<%= discount.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <%} else {%>
+                                <a href="/product/discount/restore/<%= discount.id%>">Restaurar</a>
                             <%}%>
                         </td>
-                        <td class="centerCell"><% if(discount.deleted_at != null) {%> <a href="/product/discount/restore/<%= discount.id%>">Restaurar</a><%}%></td>
                     </tr>
                 <%}) %>
             </table>

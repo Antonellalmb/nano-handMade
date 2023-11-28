@@ -22,7 +22,6 @@
                     <th>Nome da cor</th>
                     <th>Descrição</th>
                     <th>Ação</th>
-                    <th>Apagado</th>
                 </tr>
                 <% colorItems.forEach((color) => {%>
                     <tr>
@@ -31,11 +30,12 @@
                         <td class="actionColumn">
                             <% if(color.deleted_at == null) {%>
                                 <a href="/product/color/update/<%= color.id%>"><i class="fa-solid fa-pen"></i></a>
-                                &nbsp &nbsp
+                                &nbsp &nbsp &nbsp
                                 <a href="/product/color/delete/<%= color.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <%} else {%>
+                                <a href="/product/color/restore/<%= color.id%>">Restaurar</a>
                             <%}%>
                         </td>
-                        <td class="centerCell"><% if(color.deleted_at != null) {%> <a href="/product/color/restore/<%= color.id%>">Restaurar</a><%}%></td>
                     </tr>
                 <%}) %>
             </table>

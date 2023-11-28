@@ -22,7 +22,6 @@
                     <th>Nome do tamanho</th>
                     <th>Detalhe</th>
                     <th>Ação</th>
-                    <th>Apagado</th>
                 </tr>
                 <% sizeItems.forEach((size) => {%>
                     <tr>
@@ -31,12 +30,12 @@
                         <td class="actionColumn">
                             <% if(size.deleted_at == null) {%> 
                                 <a href="/product/size/update/<%= size.id%>"><i class="fa-solid fa-pen"></i></a>
-                                &nbsp &nbsp
+                                &nbsp &nbsp &nbsp
                                 <a href="/product/size/delete/<%= size.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <%} else {%>
+                                <a href="/product/size/restore/<%= size.id%>">Restaurar</a>
                             <%}%>
                         </td>
-                        <td class="centerCell"><% if(size.deleted_at != null) {%> <a href="/product/size/restore/<%= size.id%>">Restaurar</a><%}%></td>
-                    </tr>
                 <%}) %>
             </table>
             <div class="divTableTitle">
