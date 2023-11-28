@@ -3,6 +3,14 @@ const router = express.Router();
 const controller = require("../controllers/userController");
 const cookieExisteMiddleware = require('../middlewares/cookieExisteMiddleware');
 const logMiddleware = require('../middlewares/logMiddleware');
+const validationMiddleware = require('../middlewares/validationMiddleware');
+
+
+const registerValidationMiddleware = [
+    validationMiddleware.reglasValidacion,
+    validationMiddleware.validateRegister
+];
+
 
 
 
@@ -13,7 +21,7 @@ router.get('/logout',controller.logout);
 
 //routes register
 router.get('/register', controller.register);
-router.post('/register', controller.processRegister);
+router.post('/register', registerValidationMiddleware, controller.processRegister);
 
 //routes perfil
 router.get('/perfil', controller.perfil);

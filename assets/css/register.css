@@ -96,12 +96,13 @@
 
   p.error {
     font-size: 14px;
-    color: #f4db8c;
+    color: #f19307;
     text-align: center;
     padding: 0;
     margin-bottom: 15px;
     border: none;
   }
+
 
   .botEnter {
     display: block;

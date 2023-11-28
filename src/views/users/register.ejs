@@ -23,20 +23,35 @@
         <input name="rol" value="2" type="hidden" >             
         <!--************-->      
           <div> 
-            <input class="form-usu" type="text" name="name"   placeholder="  Nome completo">                    
+            <input class="form-usu" type="text" name="name" value="<%= locals.oldData ? oldData.name : null %>" placeholder=" Nome completo">
+            <% if(locals.errors && errors.name) { %>
+                <p class="errores"> <%= errors.name %> </p>
+            <% } %>                    
           </div>
           <div>
-            <input class="form-usu" type="text" name="email"  placeholder="  e-mail">
+            <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder=" Email">
+            <% if(locals.errors && errors.email) { %>
+                <p class="errores"> <%= errors.email %> </p>
+            <% } %>
           </div>
           <div>
-            <input class="form-usu" type="text" name="address"  placeholder=" Endereço">
+            <input class="form-usu" type="text" name="address" value="<%= locals.oldData ? oldData.address : null %>" placeholder=" Endereço">
+            <% if(locals.errors && errors.name) { %>
+                <p class="errores"> <%= errors.name %> </p>
+            <% } %>
           </div> 
           <div>           
             <div class="input-container password">
-              <input class="form-usu" type="password" name="password"   placeholder="  Senha" >
-            </div> 
-            <div>
-              <input class="form-usu" type="password" name="confirmPassword"   placeholder="  Confirmar senha">
+              <input class="form-usu" type="password" name="contrasenia" value="" placeholder=" Senha">
+              <% if(locals.errors && errors.contrasenia) { %>
+                  <p class="errores"> <%= errors.contrasenia %> </p>
+              <% } %>
+            </div>
+            <div class="input-container password">
+              <input class="form-usu" type="password" name="confirm-contrasenia" value="" placeholder=" Confirmar senha">
+              <% if(locals.errors && errors.confirmContrasenia) { %>
+                  <p class="errores"> <%= errors.confirmContrasenia %> </p>
+              <% } %>
             </div>
           </div>
           <div> 
