@@ -36,8 +36,15 @@ module.exports = {
                 }
 
                 return res.redirect('/');
-            } else {
-                return res.render('./users/login', { error: 'Correo electrónico o contraseña incorrectos.' });
+            }else{
+                console.log('error datos')
+                return res.render('./users/login', {
+                    errors: {
+                        datosMal: {
+                            msg: "Datos Incorrectos"
+                        }
+                    }
+                })
             }
         } catch (error) {
             console.log(error);
@@ -53,7 +60,7 @@ module.exports = {
     },
 
     register: (req, res) => {
-console.log('entraste a registro')
+        console.log('entraste a registro')
         return res.render('./users/register')
     },
 
@@ -67,7 +74,7 @@ console.log('entraste a registro')
             console.log('errores de validacion')
 
             if (resultErrors.errors.length > 0) {
-                return res.render('./users/registro', { errors: resultErrors.mapped(), oldData: req.body })
+                return res.render('./users/register', { errors: resultErrors.array(), oldData: req.body });
             }
 
             console.log('entraste por creacion de usuario con seña hasheada')
@@ -88,13 +95,22 @@ console.log('entraste a registro')
                 });
                 console.log('usuario creado')
                 return res.redirect('login');
+                
 
             } catch (error) {
-                console.error('Error al crear usuario:', error);
+                console.error(error);
+                console.log('error datos')
+                return res.render('./users/login', {
+                    errors: {
+                        datosMal: {
+                            msg: "Datos Incorrectos"
+                        }
+                    }
+                })
                 //return res.redirect('/user/register');
-                res.locals.errorMessage = 'Error al crear usuario. Por favor, intenta nuevamente.';
-                return res.render('./users/register', { errors: res.locals.errors, oldData: req.body });
-                //solo para ver donde esta el mierda de error
+               // res.locals.errorMessage = 'Error al crear usuario. Por favor, intenta nuevamente.';
+                /*return res.render('./users/register', { errors: res.locals.errors, oldData: req.body });
+                //solo para ver donde esta el mierda de error*/
         }
             
     },

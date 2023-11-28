@@ -25,7 +25,7 @@
                     </div>
                 </section>
                 <div>
-                    <input class="log-control" type="email" name="email" value="" placeholder=" Email">
+                    <input class="log-control" type="text" name="email" value="" placeholder=" Email">
                     <p id="errorEmail"  class="error"></p>
                 </div> 
                 <div class="input-container password">
@@ -35,6 +35,11 @@
                 <div class="recordameLogin">
                     <input type="checkbox" name="cookie" id="cookie"> 
                     <label for="cookie">Lembrar-me</label>
+                </div>
+                <div class="erroresLogin">
+                    <% if(locals.errors && errors.datosMal) { %>
+                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
+                        <% } %>
                 </div>
                 <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Entrar</button>                
             </form>
