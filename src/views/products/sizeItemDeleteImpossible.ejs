@@ -11,42 +11,23 @@
             <%- include('../partials/header') %>
      <!-- End Navbar -->
     <main class="mainInput">
-        <!-- Collection's table to add, modify o delete collection -->
         <div class="tableInput">
-            <div class="divTableTitle">
-                <h4 class="tableTitle">Produtos</h4>
-                <a href="/product/productsTable" class="addItemText">Adicionar Produto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+        
+            <h4>Impossível excuir tamanho</h4>                
+            <div>
+                <% if (sizeInProduct != 0) {%>
+                    <p>Tamanho utilizado no <strong> <em>--  produtos  --</em> </strong></p> 
+                <% } %>
+                <% if (sizeInColor != 0) {%>
+                    <p>Tamanho utilizado em <strong> <em>--  cores  --</em> </strong></p>
+                <% } %>
             </div>
-            <table>
-                <tr>
-                <!--    <th></th> -->
-                    <th>Nome do Produto</th>
-                    <th>Detalhe</th>
-                    <th>Coleção</th>
-                    <th>Desconto</th>
-                    <th>Ação</th>
-                </tr>
-                <% productItems.forEach((product) => {%>
-                    <tr>
-                <!--        <td>Foto</td>  -->
-                        <td><%= product.name  %></td>
-                        <td><%= product.description  %></td>
-                        <td><%= product.productCollection.name %></td>
-                        <td><%= product.productDiscount.discount_code %></td>
-                        <td class="actionColumn">
-                            <a href="/product/product/update/<%= product.id%>"><i class="fa-solid fa-pen"></i></a>
-                            &nbsp
-                            <a href="/product/product/delete/<%= product.id%>"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                <%}) %>
-            </table>
-            <div class="divTableTitle">
-                <h4 class="tableTitle">Produtos</h4>
-                <a href="/product/productsTable" class="addItemText">Adicionar Produto &nbsp<i class="fa-solid fa-plus addItem"></i></a>                
+            <div class="button-div"> 
+                <a class="linkEditar" href="/product/sizeItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Tamanhos</button>  </a>
             </div>
-        </div>
-        <!-- Collection's table to add, modify o delete collection -->        
+        
+    </div>
+        
     </main>
 
      

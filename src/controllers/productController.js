@@ -153,7 +153,6 @@ module.exports = {
             // *******************************************************************************
         };
             return res.redirect('/product/productsTable');
-            // return res.redirect('/product/collectionItemsTable');
         } catch (error) {
             console.log(error);
             return res.status(500).send("Error al procesar el producto");
@@ -197,11 +196,9 @@ module.exports = {
                 Colors.findAll(), 
                 Sizes.findAll()
             ]) 
-            
     //        return res.send(productItem)
     //        return res.send(collections)
     //        return res.send(discounts)
-
             return res.render('./products/productItem' , {productItem : productItem , collections : collections , discounts : discounts , colors : colors , sizes : sizes})
         } catch (error) {
             console.log(error);
@@ -407,6 +404,137 @@ module.exports = {
     },
 
 // *********************************    
+// Size's Table  Controllers
+// *********************************  
+
+    itemsSizes : async (req, res) => {
+        console.log("entraste a sezeItemsTable" );
+        try {
+            const sizeItems = await Sizes.findAll(
+                {
+                    paranoid:false,
+                    include: [
+                        {model: Products},
+                        {model: Colors}
+                    ]
+                }
+            );
+    //  return res.send(sizeItems)
+            return res.render('./products/sizeItemsTable' , {sizeItems : sizeItems});
+        } catch (error) {
+            console.log(error)
+        };        
+    },
+
+    sizes : async(req, res) => {
+        console.log("entraste a sizesTable" );
+        try {
+        //    const colors = await Colors.findAll();
+            return res.render('./products/sizesTable');
+        //    return res.render('./products/colorsTable' , {colors : colors});
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    processSizes :  async (req, res) => {
+        console.log("Entraste por post a processSizes");
+        try {
+            await Sizes.create({
+                name: req.body.sizeName,
+                description: req.body.detail
+            })
+            return res.redirect('/product/sizeItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    editItemSize : async (req, res) => {
+        console.log("Entraste por get a editItemSize ----> id: ", req.params.id);
+        try {
+            sizeItem = await Sizes.findByPk(req.params.id) 
+            return res.render('./products/sizeItem' , {sizeItem : sizeItem});
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    
+    updateItemSize : async (req, res) => {
+        console.log("Entraste por post a updateItemSize");
+        try {
+            await Sizes.update({
+                name: req.body.sizeName,
+                description: req.body.detail,
+            },{
+                include: [
+                    {model: Products},
+                    {model: Colors}
+                ],
+                where: {
+                    id: req.body.sizeId
+                }
+            })
+            return res.redirect('/product/sizeItemsTable');
+        } catch (error) {
+            console.log(error);
+        };
+    },
+    
+    deleteItemSize : async (req , res) => {
+        console.log("Entraste de delete de item de size: " , req.params.id);
+        try {
+            const deleteItemSize = await Sizes.findByPk(req.params.id,
+                {
+                    include: [
+                        {model: Products},
+                        {model: Colors}
+                    ],
+                    where: {
+                        id: req.body.sizeId
+                    }
+                });
+            // **************************************************************************************
+            // Verifica si el tamaño a borrar está siendo usado por la tabla pivot en 
+            // products y en colors. Si length >0 se está usando y no se puede borrar.
+            // **************************************************************************************
+            const sizeInProduct = deleteItemSize.Products.length;
+            const sizeInColor = deleteItemSize.Colors.length;
+            if(sizeInProduct == 0 && sizeInColor == 0) {
+                return res.render('./products/sizeItemDelete' , {deleteItemSize : deleteItemSize})
+            } else {
+                return res.render('./products/sizeItemDeleteImpossible' , { sizeInProduct : sizeInProduct , sizeInColor : sizeInColor})
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyItemSize : async (req , res) => {
+        console.log("Entraste a destroy de item de sizes: " , req.params.id);
+        try {
+            await Sizes.destroy({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/sizeItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    restoreItemSize : async (req , res) => {
+        console.log("Entraste a restore de item de sizes: " , req.params.id);
+        try {
+            await Sizes.restore({
+                where: { id: req.params.id}
+            })
+            return res.redirect('/product/sizeItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+// *********************************    
 // Color's Table  Controllers
 // *********************************  
 
@@ -555,8 +683,6 @@ module.exports = {
                     paranoid:false
             }
         );
-
-        console.log(collectionItems)
     //    return res.send(collectionItems)
 
             return res.render('./products/collectionItemsTable' , {collectionItems : collectionItems});

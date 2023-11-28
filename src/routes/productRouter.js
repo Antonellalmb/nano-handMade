@@ -27,6 +27,17 @@ router.get('/product/delete/:id' , controller.deleteItemProduct);
 router.delete('/product/delete/:id' , controller.destroyItemProduct);
 // *****************************************************************************
 
+// Size's Table ***************************************************************
+router.get('/sizeItemsTable' , controller.itemsSizes);
+router.get('/sizesTable' , controller.sizes);
+router.post('/sizes' , controller.processSizes);
+router.get('/size/update/:id' , controller.editItemSize);
+router.put('/size/update/:id' , controller.updateItemSize);
+router.get('/size/delete/:id' , controller.deleteItemSize);
+router.delete('/size/delete/:id' , controller.destroyItemSize);
+router.get('/size/restore/:id' , controller.restoreItemSize);
+// *****************************************************************************
+
 // Color's Table ***************************************************************
 router.get('/colorItemsTable' , controller.itemsColors);
 router.get('/colorsTable' , controller.colors);
@@ -59,7 +70,5 @@ router.get('/discount/delete/:id' , controller.deleteItemDiscount);
 router.delete('/discount/delete/:id' , controller.destroyItemDiscount);
 router.get('/discount/restore/:id' , controller.restoreItemDiscount);
 // *****************************************************************************
-
-
 
 module.exports = router;

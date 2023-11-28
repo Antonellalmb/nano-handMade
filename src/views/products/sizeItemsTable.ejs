@@ -11,39 +11,38 @@
             <%- include('../partials/header') %>
      <!-- End Navbar -->
     <main class="mainInput">
-        <!-- Collection's table to add, modify o delete collection -->
+        <!-- Sizes's table to add, modify o delete size -->
         <div class="tableInput">
             <div class="divTableTitle">
-                <h4 class="tableTitle">Produtos</h4>
-                <a href="/product/productsTable" class="addItemText">Adicionar Produto &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+                <h4 class="tableTitle">Tamanhos</h4>
+                <a href="/product/sizesTable" class="addItemText">Adicionar Tamanho &nbsp<i class="fa-solid fa-plus addItem"></i></a>
             </div>
             <table>
                 <tr>
-                <!--    <th></th> -->
-                    <th>Nome do Produto</th>
+                    <th>Nome do tamanho</th>
                     <th>Detalhe</th>
-                    <th>Coleção</th>
-                    <th>Desconto</th>
                     <th>Ação</th>
+                    <th>Apagado</th>
                 </tr>
-                <% productItems.forEach((product) => {%>
+                <% sizeItems.forEach((size) => {%>
                     <tr>
-                <!--        <td>Foto</td>  -->
-                        <td><%= product.name  %></td>
-                        <td><%= product.description  %></td>
-                        <td><%= product.productCollection.name %></td>
-                        <td><%= product.productDiscount.discount_code %></td>
+                        <td><%= size.name  %></td>
+                        <td><%= size.description  %></td>
                         <td class="actionColumn">
-                            <a href="/product/product/update/<%= product.id%>"><i class="fa-solid fa-pen"></i></a>
-                            &nbsp
-                            <a href="/product/product/delete/<%= product.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <% if(size.deleted_at == null) {%> 
+                                <a href="/product/size/update/<%= size.id%>"><i class="fa-solid fa-pen"></i></a>
+                                &nbsp &nbsp
+                                <a href="/product/size/delete/<%= size.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <%}%>
                         </td>
+                        <td class="centerCell"><% if(size.deleted_at != null) {%> <a href="/product/size/restore/<%= size.id%>">Restaurar</a><%}%></td>
                     </tr>
                 <%}) %>
             </table>
             <div class="divTableTitle">
-                <h4 class="tableTitle">Produtos</h4>
-                <a href="/product/productsTable" class="addItemText">Adicionar Produto &nbsp<i class="fa-solid fa-plus addItem"></i></a>                
+                <h4 class="tableTitle">Tamanhos</h4>
+                <a href="/product/sizesTable" class="addItemText">Adicionar Tamanho &nbsp<i class="fa-solid fa-plus addItem"></i></a>
+                
             </div>
         </div>
         <!-- Collection's table to add, modify o delete collection -->        

@@ -362,6 +362,10 @@ p {
   font-weight: bold;
 }
 
+.nav-admin li a {
+  font-size: 9px;
+}
+
 .icon-set{
   font-size: 18px;
   transition: all 0.25ms;

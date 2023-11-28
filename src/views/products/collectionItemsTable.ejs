@@ -31,9 +31,11 @@
                         <td><%= collection.description  %></td>
                         <td><%= collection.collectionDiscount.discount_code %></td>
                         <td class="actionColumn">
-                            <a href="/product/collection/update/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
-                            &nbsp &nbsp
-                            <a href="/product/collection/delete/<%= collection.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <% if(collection.deleted_at == null) {%>
+                                <a href="/product/collection/update/<%= collection.id%>"><i class="fa-solid fa-pen"></i></a>
+                                &nbsp &nbsp
+                                <a href="/product/collection/delete/<%= collection.id%>"><i class="fa-solid fa-trash"></i></a>
+                            <%}%>
                         </td>
                         <td class="centerCell"><% if(collection.deleted_at != null) {%> <a href="/product/collection/restore/<%= collection.id%>">Restaurar</a><%}%></td>
                     </tr>
