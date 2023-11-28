@@ -35,7 +35,20 @@ module.exports = (sequelize, dataTypes) => {
             {
                 as: "discountCollection",
                 foreignKey: "discount_id",
+            }),
+
+        Discount.hasMany(models.Product,
+            {
+                as: "discountProduct",
+                foreignKey: "discount_id",
+            }),
+
+        Discount.hasMany(models.Characteristic,
+            {
+                as: "discountCharacteristic",
+                foreignKey: "discount_id",
             })
+
     }
 
     return Discount;

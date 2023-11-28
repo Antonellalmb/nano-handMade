@@ -2,16 +2,35 @@
 <html lang="en">
   <%- include('../partials/head') %>
 <body>
-            <!-- Preload the Whole Page -->
-            <div id="preloader">      
-            <div id="loading-animation">&nbsp;</div>
-            </div>
-        
-            <!-- Navbar -->
-            <%- include('../partials/header') %>
-     <!-- End Navbar -->
-<% console.log(productTable)%>
+    <!-- Preload the Whole Page -->
+    <div id="preloader">      
+    <div id="loading-animation">&nbsp;</div>
+    </div>
 
+    <!-- Navbar -->
+    <%- include('../partials/header') %>
+     <!-- End Navbar -->
+
+    <!-- Main del formulario de carga de la tabla de Colores --> 
+    <main class="mainInput">
+        <div class="tableInput">
+            <form class="tables" action="/product/color/update/<%= colorItem.id %>?_method=PUT" method="post" >
+                <h4>Editar cor</h4>  
+                <div>
+                    <input class="form-tablas" type="hidden" name="colorId" value=<%= colorItem.id %>>
+                    <input class="form-tablas" type="text" name="colorName" value=<%= colorItem.name %>>
+                    <textarea class="form-tablas textarea-tablas" name="detail"><%= colorItem.description %></textarea>
+
+                </div>
+                <div class="button-div"> 
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Modificar Cor</button> </a>
+                    <a class="linkEditar" href="/product/colorItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Cores</button>  </a>
+                </div>
+        </form>
+    </div>
+        
+    </main>
+    <!-- End main -->
      
      <!-- Footer
     ================================================== -->

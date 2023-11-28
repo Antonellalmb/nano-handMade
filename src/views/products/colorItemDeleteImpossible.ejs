@@ -10,7 +10,25 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-<% console.log(productTable)%>
+    <main class="mainInput">
+        <div class="tableInput">
+        
+            <h4>Impossível excuir cor</h4>                
+            <div>
+                <% if (colorInProduct != 0) {%>
+                    <p>Cor utilizado no <strong> <em>--  produtos  --</em> </strong></p> 
+                <% } %>
+                <% if (colorInSize != 0) {%>
+                    <p>Cor utilizado em <strong> <em>--  tamanhos  --</em> </strong></p>
+                <% } %>
+            </div>
+            <div class="button-div"> 
+                <a class="linkEditar" href="/product/colorItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Cores</button>  </a>
+            </div>
+        
+    </div>
+        
+    </main>
 
      
      <!-- Footer

@@ -10,7 +10,21 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-<% console.log(productTable)%>
+    <main class="mainInput">
+        <div class="tableInput">
+            <form class="tables" action="/product/size/delete/<%= deleteItemSize.id %>?_method=DELETE" method="post" >
+                <h4>Excluir Tamanho</h4>                
+                <div>
+                    <p>Tem certeza de que deseja excluir a tamanho <strong> <em>--  <%= deleteItemSize.name%>  --</em> </strong>?</p> 
+                </div>
+                <div class="button-div"> 
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Tamanho</button> </a>
+                    <a class="linkEditar" href="/product/sizeItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Tamanhos</button>  </a>
+                </div>
+        </form>
+    </div>
+        
+    </main>
 
      
      <!-- Footer

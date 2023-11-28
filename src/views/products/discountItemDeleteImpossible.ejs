@@ -10,7 +10,28 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-<% console.log(productTable)%>
+    <main class="mainInput">
+        <div class="tableInput">
+        
+            <h4>Impossível excuir desconto</h4>                
+            <div>
+                <% if (discountInProduct != 0) {%>
+                    <p>Desconto utilizado no <strong> <em>--  produtos  --</em> </strong></p> 
+                <% } %>
+                <% if (discountInCollection != 0) {%>
+                    <p>Desconto utilizado em <strong> <em>--  coleções  --</em> </strong></p>
+                <% } %>
+                <% if (discountInCharacteristic != 0) {%>
+                    <p>Desconto usado no item do<strong> <em>--  produtos  --</em> </strong></p>
+                <% } %>
+            </div>
+            <div class="button-div"> 
+                <a class="linkEditar" href="/product/discountItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Descontos</button>  </a>
+            </div>
+        
+    </div>
+        
+    </main>
 
      
      <!-- Footer

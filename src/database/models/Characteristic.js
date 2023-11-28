@@ -40,8 +40,30 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Characteristic = sequelize.define(alias,cols,config);
 
+    Characteristic.associate = (models) => {
+        // Asociación con Product
+        Characteristic.belongsTo(models.Product, {
+            foreignKey: 'product_id',
+        });
+
+        // Asociación con Color
+        Characteristic.belongsTo(models.Color, {
+            foreignKey: 'color_id',
+        });
+
+        // Asociación con Size
+        Characteristic.belongsTo(models.Size, {
+            foreignKey: 'size_id',
+        });
+
+        Characteristic.belongsTo(models.Discount , 
+            {
+                as: "characteristicDiscount",
+                foreignKey: "discount_id",
+            })
 
 
-    
+    }
+
     return Characteristic;
     }

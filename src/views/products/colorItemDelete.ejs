@@ -10,7 +10,21 @@
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-<% console.log(productTable)%>
+    <main class="mainInput">
+        <div class="tableInput">
+            <form class="tables" action="/product/color/delete/<%= deleteItemColor.id %>?_method=DELETE" method="post" >
+                <h4>Excluir Cor</h4>                
+                <div>
+                    <p>Tem certeza de que deseja excluir a cor <strong> <em>--  <%= deleteItemColor.name%>  --</em> </strong>?</p> 
+                </div>
+                <div class="button-div"> 
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Cor</button> </a>
+                    <a class="linkEditar" href="/product/colorItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Cores</button>  </a>
+                </div>
+        </form>
+    </div>
+        
+    </main>
 
      
      <!-- Footer
