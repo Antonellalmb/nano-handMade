@@ -498,18 +498,17 @@ module.exports = {
                         id: req.body.colorId
                     }
                 });
+            // **************************************************************************************
+            // Verifica si el color a borrar está siendo usado por la tabla pivot en 
+            // products y en sizes. Si length >0 se está usando y no se puede borrar.
+            // **************************************************************************************
             const colorInProduct = deleteItemColor.Products.length;
             const colorInSize = deleteItemColor.Sizes.length;
-            console.log(colorInProduct , " --" , colorInSize)
             if(colorInProduct == 0 && colorInSize == 0) {
                 return res.render('./products/colorItemDelete' , {deleteItemColor : deleteItemColor})
             } else {
                 return res.render('./products/colorItemDeleteImpossible' , { colorInProduct : colorInProduct , colorInSize : colorInSize})
             }
-
-        //    return res.send(deleteItemColor)
-
-        //    return res.render('./products/colorItemDelete' , {deleteItemColor : deleteItemColor})
         } catch (error) {
             console.log(error)
         }
@@ -579,13 +578,13 @@ module.exports = {
     processCollections :  async (req, res) => {
         console.log("Entraste por post a processCollections");
         try {
-            //************************************************* */
+            // **************************************************************************** 
             // Si de la vista llega el campo de descuento vacío no se ejecuta el create
-            //************************************************* */
+            // **************************************************************************** 
             if (!req.body.discountSelected) {
                 return res.redirect('/product/collectionsTable')
             }
-            //************************************************* */
+            //*****************************************************************************
             await Collections.create({
                 name: req.body.collectionName,
                 description: req.body.detail,
@@ -643,20 +642,17 @@ module.exports = {
                         {association: 'collectionProduct'}
                     ]  
                 });
+            // ****************************************************************************
+            // Verifica si la colección a borrar está siendo usado por la tabla de 
+            // products. Si length >0 se está usando y no se puede borrar.
+            // ****************************************************************************
             const collectionInProduct = deleteItemCollection.collectionProduct.length;
             console.log(collectionInProduct);
-        //    res.send(deleteItemCollection)
             if (collectionInProduct == 0) {
                 return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
             } else {
                 return res.render('./products/collectionItemDeleteImpossible' , { collectionInProduct : collectionInProduct})
             }
-
-
-
-
-
-            //return res.render('./products/collectionItemDelete' , {deleteItemCollection : deleteItemCollection})
         } catch (error) {
             console.log(error)
         }
@@ -776,17 +772,18 @@ module.exports = {
                     }
                 } 
             );
+            // *****************************************************************************************
+            // Verifica si el descuento a borrar está siendo usado por la tabla pivot characteristics, 
+            // la tabla products y la collections. Si length >0 se está usando y no se puede borrar.
+            // *****************************************************************************************
             const discountInProduct = deleteItemDiscount.discountProduct.length;
             const discountInCollection = deleteItemDiscount.discountCollection.length;
             const discountInCharacteristic = deleteItemDiscount.discountCharacteristic.length;
-            console.log(discountInProduct , " -- " , discountInCollection , " -- " , discountInCharacteristic)
             if(discountInProduct == 0 && discountInCollection == 0 && discountInCharacteristic == 0 ) {
                 return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
             } else {
                 return res.render('./products/discountItemDeleteImpossible' , { discountInProduct : discountInProduct , discountInCollection : discountInCollection , discountInCharacteristic : discountInCharacteristic})
             }
-            
-        //    return res.render('./products/discountItemDelete' , {deleteItemDiscount : deleteItemDiscount})
         } catch (error) {
             console.log(error)
         }
