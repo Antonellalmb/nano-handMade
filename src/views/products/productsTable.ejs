@@ -14,16 +14,18 @@
     <!-- Main del formulario de carga de la tabla de Colecciones -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/productsItem" method="post" >
+            <form class="tables" action="/product/productsItem" method="post" enctype="multipart/form-data">
                 <h4>Adicionar Produto</h4> 
                 <div>
                     <input class="form-tablas" type="text" name="productName" placeholder="Nome do produto"> 
                     <textarea class="form-tablas textarea-tablas" name="detail" placeholder="Descrição do produto"></textarea>
+                    <div id="divFotos">
+                        <p class="imageTitle">Imagens do produto</p>
+                        <div id="inputFotos"></div>
+                    </div>
+                    
+                    
                     <div>
-            <!--            <div class="inputsNumber">
-                            <input class="form-tablas" type="number" name="productPrice" placeholder="   Preço do produto"> 
-                        </div>
-            -->
                         <div class="inputsNumber">
                             <!-- Select para elegir si el producto lleva descuento o no -->
                             <p class="optionsSelect">Coleção</p>
@@ -36,7 +38,6 @@
                             </select>
                             <!-- End Select-->
                         </div>
-    
                         <div class="inputsNumber">
                             <!-- Select para elegir si el producto lleva descuento o no -->
                             <p class="optionsSelect">Desconto</p>
@@ -53,8 +54,6 @@
                     <div class="separator">
                         <p></p>
                     </div>
-
-                    
                     <table class="tableProducto">
                         <tr>
                             <th class="columnNumber">It</th>
@@ -65,9 +64,7 @@
                             <th class="columnDiscount">Desconto</th>
                             <th class="columnDetail">Detalhes</th>
                         </tr>
-                        <% let items = 2 %>
-                        <% console.log(items)%>
-                        <% for(i = 1 ; i <= 5 ; i++) {%>
+                        <% for(i = 1 ; i < 1 ; i++) {%>
                             <tr>
                                 <td class="columnNumber"><%= i%></td>
                                 <td class="columnPrize">
@@ -103,16 +100,30 @@
                             </tr>
                         <%}%>
                     </table>
-                        
-                    
-                    
-                    
-                <div class="button-div"> 
-                    <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Adicionar Produto</button> </a>
-                    <a class="linkEditar" href="/product/productItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Produtos</button>  </a>
+                    <div id="button-add-item">
+                        <a><button class="botEnterTablas linkEditar" id="addItemBtn" type="button">Adicionar item</button></a>
+                    </div>    
+                    <div class="separator">
+                        <p></p>
+                    </div>
+                    <div class="button-div"> 
+                        <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Adicionar Produto</button> </a>
+                        <a class="linkEditar" href="/product/productItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Produtos</button>  </a>
+                    </div>
                 </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    <!-- 
+        ***************************************************************************************************************
+        En este div añado los datos como atributos de datos en el DOM para luego  poder acceder a ellos en el script
+        ***************************************************************************************************************
+    -->
+    <div id="initialData"
+        data-discounts="<%= JSON.stringify(discounts) %>"
+        data-collections="<%= JSON.stringify(collections) %>"
+        data-colors="<%= JSON.stringify(colors) %>"
+        data-sizes="<%= JSON.stringify(sizes) %>"
+    ></div>
         
     </main>
     <!-- End main -->
@@ -122,6 +133,7 @@
     <%- include('../partials/footer') %> 
     <!-- End footer -->
      <!-- JS libraries and scripts -->
+   
   <script src="/js/jquery-1.11.3.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/bootstrap-hover-dropdown.min.js"></script>
@@ -143,7 +155,8 @@
   <script src="/js/jquery.navbar-scroll.js"></script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="/js/jquery.gmaps.js"></script>
-  <script src="/js/main.js"></script>   
+  <script src="/js/main.js"></script> 
+  <script src="/js/productsTable.js"></script>   
 </body>
 </html>
 

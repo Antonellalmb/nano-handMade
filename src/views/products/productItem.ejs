@@ -14,13 +14,29 @@
     <!-- Main del formulario de edición de Producto -->
     <main class="mainInput">
         <div class="tableInput">
-            <form class="tables" action="/product/product/update/<%= productItem.id %>?_method=PUT" method="post" >
+            <form class="tables" action="/product/product/update/<%= productItem.id %>?_method=PUT" method="post" enctype="multipart/form-data">
                 <h4>Editar Produto</h4> 
                 <div>
                     <% //console.log(productItem)%>
                     <input type="hidden" name="productId" value="<%= productItem.id%>">
                     <input class="form-tablas" type="text" name="productName" value="<%= productItem.name%>"> 
                     <textarea class="form-tablas textarea-tablas" name="detail"><%= productItem.description%></textarea>
+                    <div id="divFotos">
+                        <p class="imageTitle">Imagens do produto</p>
+                        <div id="present-image-preview">
+                            <% for ( let i = 0 ; i < productItem.productPhoto.length ; i++) { %>
+                                <div id="photoId<%= productItem.productPhoto[i].id %>" class="present-image-container">
+                                    <img class="present-image-element" src="<%= productItem.productPhoto[i].product_image %>">
+                                    <% console.log(productItem.productPhoto[i].id) %>
+                                    <i class="fa fa-trash" onclick="deletePhoto('<%= productItem.productPhoto[i].id %>')"></i>
+                                    <input class="deletePhoto" id="idToDelete<%= productItem.productPhoto[i].id %>" name="photoDeleteId" type="hidden" >
+                                </div>
+                            <%}%>
+                        </div>
+                        <p class="imageTitle">Adicione mais imagens</p>
+                        <div id="inputFotos">
+                        </div> 
+                    </div>
                     <div>
                         <div class="inputsNumber">
                             <!-- Select para elegir si el producto lleva descuento o no -->
@@ -100,49 +116,29 @@
                                 </td>
                             </tr>
                         <%}%>
-                        <tr>
-                            <td class="columnNumber"><%= i%></td>
-                            <td class="columnPrize">
-                                <input class="form-tablas input-tablas-prize" type="number" name="productPrice" placeholder="   Preço do produto">
-                            </td>
-                            <td class="columnColor"><select class="form-tablas" type="number" name="colorSelected" id="colorTable">
-                                <option value="" required>Cor</option>
-                                    <!-- Se buscan los valores que completarán las opciones del select en la tabla de colores que recibe del controller-->
-                                    <% colors.forEach(color => { %>
-                                    <option value="<%= color.id %>"><%= color.name %></option>
-                                    <% }); %>
-                            </select></td>
-                            <td class="columnSize"><select class="form-tablas" type="number" name="sizeSelected" id="sizeTable">
-                                <option value="" required>Tamanho</option>
-                                    <!-- Se buscan los valores que completarán las opciones del select en la tabla de tamaños que recibe del controller-->
-                                    <% sizes.forEach(size => { %>
-                                    <option value="<%= size.id %>"><%= size.name %></option>
-                                    <% }); %>
-                            </select></td>
-                            <td class="columnStock">
-                                <input class="form-tablas input-tablas-stock" type="number" name="productStock" placeholder="   Etoque de produtos">
-                            </td>
-                            <td class="columnDiscount"><select class="form-tablas" type="number" name="discountSelected" id="discountTable">
-                                <option value="" required>Desconto</option>
-                                    <!-- Se buscan los valores que completarán las opciones del select en la tabla de descuentos que recibe del controller-->
-                                    <% discounts.forEach(discount => { %>
-                                    <option value="<%= discount.id %>"><%= discount.discount_code %></option>
-                                    <% }); %>
-                            </select></td>
-                            <td class="columnDetail">
-                                <textarea id="textareaTabla" class="form-tablas textarea-tablas" name="productDetail" placeholder="detalhes do produto"></textarea>
-                            </td>
-                        </tr>
-            
+                        
                     </table>
-                    
-                    
+                    <div id="button-add-item">
+                        <a><button class="botEnterTablas linkEditar" id="addItemBtn" type="button">Adicionar item</button></a>
+                    </div>    
+                    <div class="separator">
+                        <p></p>
+                    </div> 
                 <div class="button-div"> 
                     <a href="#"> <button class="botEnterTablas tablasBoton" type="submit">Modificar Produto</button> </a>
                     <a class="linkEditar" href="/product/productItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Produtos</button>  </a>
                 </div>
         </form>
     </div>
+    <div id="initialData"
+        data-discounts="<%= JSON.stringify(discounts) %>"
+        data-collections="<%= JSON.stringify(collections) %>"
+        data-colors="<%= JSON.stringify(colors) %>"
+        data-sizes="<%= JSON.stringify(sizes) %>"
+        data-productItem="<%= JSON.stringify(productItem) %>"
+    ></div>
+        
+
         
     </main>
     <!-- End main -->
@@ -152,6 +148,23 @@
     <%- include('../partials/footer') %> 
     <!-- End footer -->
      <!-- JS libraries and scripts -->
+  <script>
+    function deletePhoto(photoId) {
+        //console.log(photoId)
+        const inputPhotoDelete = document.getElementById(`idToDelete${photoId}`)
+        inputPhotoDelete.setAttribute("value" , photoId)
+        //console.log(inputPhotoDelete)
+        // Eliminar la imagen del DOM
+        const photoContainer = document.getElementById(`photoId${photoId}`);
+        photoContainer.className = 'hyde'
+        //photoContainer.setAttribute("type" , "hidden")
+        //console.log(photoContainer)
+        //if (photoContainer) {
+        //        photoContainer.remove();
+        //    }
+        
+}
+  </script>
   <script src="/js/jquery-1.11.3.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/bootstrap-hover-dropdown.min.js"></script>
@@ -173,6 +186,7 @@
   <script src="/js/jquery.navbar-scroll.js"></script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="/js/jquery.gmaps.js"></script>
-  <script src="/js/main.js"></script>   
+  <script src="/js/main.js"></script>  
+  <script src="/js/productItem.js"></script> 
 </body>
 </html>

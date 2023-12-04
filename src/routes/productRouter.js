@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const controller = require("../controllers/productController");
+const controller = require('../controllers/productController');
+const uploadFile = require ('../middlewares/multerMiddleware')
 
 
 // ******************************************************************************
@@ -20,9 +21,9 @@ router.get('/products', controller.products);
 // Product's Table **************************************************************
 router.get('/productItemsTable' , controller.itemsProducts);
 router.get('/productsTable', controller.productsItem);
-router.post('/productsItem', controller.processProductsItem);
+router.post('/productsItem', uploadFile.any('image'), controller.processProductsItem);
 router.get('/product/update/:id' , controller.editItemProduct);
-router.put('/product/update/:id' , controller.updateItemProduct);
+router.put('/product/update/:id', uploadFile.any('image') , controller.updateItemProduct);
 router.get('/product/delete/:id' , controller.deleteItemProduct);
 router.delete('/product/delete/:id' , controller.destroyItemProduct);
 // *****************************************************************************

@@ -2663,10 +2663,67 @@ td select {
   padding: 0;
 }
 
+#divFotos {
+  display: flex;
+  flex-direction: column;
+}
+
+#divFotos p.imageTitle {
+  margin: 0;
+  font-weight: 700;
+}
+
+#inputFotos {
+  width: 100%;
+  margin: 0 0 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#inputFotos #image-preview , #image-preview  , #present-image-preview {
+  margin-top: 5px 10px 0 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:left;
+}
+
+#inputFotos #image-preview .image-container , #image-preview .image-container  , #present-image-preview .present-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  margin-right: 15px;
+}
+
+#inputFotos #image-preview .image-container , #image-preview .image-container , #present-image-preview .present-image-container {
+  margin-bottom: 10px;
+  color: #eb7a5c;
+}
+
+#inputFotos #image-preview .image-container .image-element , #image-preview .image-container .image-element , #present-image-preview .present-image-container .present-image-element  {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  width: 80px;  
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.hyde {
+  position: absolute;
+  visibility: hidden;
+}
+
 .button-div {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+}
+
+#button-add-item {
+  display: flex;
+  margin: 10px 0 30px 0;
 }
 
 .botonsInput {
@@ -2701,7 +2758,7 @@ table , th , tr , td {
 
 table {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 th , td {
