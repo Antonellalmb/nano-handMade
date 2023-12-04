@@ -250,13 +250,20 @@ module.exports = {
             // En el body se recibe el array photoDeleteId con valor vacío si no 
             // hay que borrar y el id de la foto a borrar. 
             // ********************************************************************
-            for (let i = 0 ; i < req.body.photoDeleteId.length ; i++) {
-                if (req.body.photoDeleteId[i] != '') {
-                    await Photos.destroy(
-                        {where: {id : req.body.photoDeleteId[i]}}
-                    )
+            if (req.body.photoDeleteId != undefined) {
+                for (let i = 0 ; i < req.body.photoDeleteId.length ; i++) {
+                    if (req.body.photoDeleteId[i] != '') {
+                        await Photos.destroy(
+                            {where: {id : req.body.photoDeleteId[i]}}
+                        )
+                    }
                 }
             }
+            
+
+
+
+           
             let arrayPhotos = [];
             //console.log(req.files.length)
             if (req.files.length > 0) {
