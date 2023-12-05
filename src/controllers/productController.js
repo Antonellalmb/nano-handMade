@@ -11,6 +11,7 @@ const Discounts = db.Discount;
 const Colors = db.Color;
 const Sizes = db.Size;
 const Characteristics = db.Characteristic;
+const Photos = db.Photo;
 
 module.exports = {
 // *********************************    
@@ -25,8 +26,8 @@ module.exports = {
                     {association: 'productPhoto'}
                 ]}
             )
-        //        return res.send(productTable)
-            return res.render('./products/products' , { productTable : productTable});
+                return res.send(productTable)
+        //    return res.render('./products/products' , { productTable : productTable});
         } catch (error) {
             console.log(error)
         }
@@ -77,85 +78,116 @@ module.exports = {
 
     processProductsItem : async (req, res) => {
         console.log("Entraste por post a processProductsItem");
-        try {
-        //    console.log(req.body);
+        console.log(req.files)
+        console.log(req.body)
+        if (req.files.length > 0) {
             // ********************************************************************
-            // Para el Producto cargado, se crea el array con las combinaciones de 
-            // Precio, Color , Tamaño, Stock , Descuento y Detalles para llenar la
-            // tabla pivot de caracteristicas.
+            // Creo el array de photos con las rutas de cada una de ellas
             // ********************************************************************
-            let combinations = [];
-            for (i = 0 ; i < req.body.productPrice.length ; i++) {
-                if (req.body.productPrice[i] != '') {
+            let arrayPhotos = [];
+            for (let i = 0 ; i < req.files.length ; i++) {
+                    arrayPhotos.push({product_image: "/images/"+req.files[i].filename});
+                }  
+            // ********************************************************************
+            try {
+            //    console.log(req.body);
+                // ********************************************************************
+                // Para el Producto cargado, se crea el array con las combinaciones de 
+                // Precio, Color , Tamaño, Stock , Descuento y Detalles para llenar la
+                // tabla pivot de caracteristicas.
+                // ********************************************************************
+                let combinations = [];
+                if(!Array.isArray(req.body.productPrice)) { // Si productPrice no es un array al hacer .length se produce un error porque toma como longitud la cantidad de dígitos
                     combinations.push({
-                        price: req.body.productPrice[i],
-                        color_id: req.body.colorSelected[i],
-                        size_id: req.body.sizeSelected[i],
-                        stock: req.body.productStock[i],
-                        discount_id: req.body.discountSelected[i],
-                        details: req.body.productDetail[i]
+                        price: req.body.productPrice,
+                        color_id: req.body.colorSelected,
+                        size_id: req.body.sizeSelected,
+                        stock: req.body.productStock,
+                        discount_id: req.body.discountSelected,
+                        details: req.body.productDetail
                     })
+                } else {
+                    for (i = 0 ; i < req.body.productPrice.length ; i++) { // Como cada combinación del producto lleva un precio iteramos sobre el precio para saber la cantidad de combinaciones que tiene el producto
+                        if (req.body.productPrice[i] != '') {
+                            combinations.push({
+                                price: req.body.productPrice[i],
+                                color_id: req.body.colorSelected[i],
+                                size_id: req.body.sizeSelected[i],
+                                stock: req.body.productStock[i],
+                                discount_id: req.body.discountSelected[i],
+                                details: req.body.productDetail[i]
+                            })
+                        }
+                    }
                 }
+                // ********************************************************************
+        /*        console.log(combinations);
+                console.log(req.body.productName);
+                console.log(req.body.detail);
+                console.log(req.body.collectionSelected);
+                console.log(req.body.discountSelectedItem);
+                console.log(req.body.colorSelected);
+                console.log(req.body.sizeSelected);
+                console.log(req.body.productPrice);
+                console.log(req.body.productDetail);
+                console.log(req.body.productStock);
+                console.log(req.body.discountSelected)
+        */    
+                //************************************************************************** 
+                // Si de la vista llega el campo de descuento vacío no se ejecuta el create
+                //************************************************************************** 
+                if (!req.body.discountSelected) {
+                    return res.redirect('/product/productsTable')
+                }
+                //**************************************************************************
+                const productCreated = await Products.create({
+                    name: req.body.productName,
+                    description: req.body.detail,
+                    collection_id: req.body.collectionSelected,
+                    discount_id: req.body.discountSelectedItem
+                } ,
+                {
+                    include: [{ association: "productPhoto" }],
+                }
+                );
+
+                for (let i = 0 ; i < arrayPhotos.length ; i++) {
+                    await productCreated.createProductPhoto(arrayPhotos[i]);
+                } 
+            //    console.log(productCreated);
+                for (const combination of combinations) {
+                    // **************************************************************************
+                    // Acá cargamos la tabla pivot caracteristicas con el array "combinations" 
+                    // **************************************************************************
+        /*            console.log(combination)
+                    console.log(parseInt(combination.color_id))
+                    console.log(parseInt(combination.size_id))
+                    console.log(combination.stock)
+                    console.log(combination.price)
+                    console.log(combination.details)
+                    console.log(parseInt(combination.discount_id))
+        */    
+                    const characteristic = await Characteristics.create({
+                        product_id: productCreated.id,
+                        color_id: parseInt(combination.color_id),
+                        size_id: parseInt(combination.size_id),
+                        stock: combination.stock,
+                        price: combination.price,
+                        details: combination.details,
+                        discount_id: parseInt(combination.discount_id)
+                    });
+                    // *******************************************************************************
+                    // Usa addCharacteristic para agregar cada combinación. Así le pasamos a products  
+                    // la asociación con las tablas colors y sizes por medio de characteristics.
+                    // *******************************************************************************
+                    await productCreated.addCharacteristic(characteristic);
+                    // *******************************************************************************
+                };
+                return res.redirect('/product/productsTable');
+            } catch (error) {
+                console.log(error);
+                return res.status(500).send("Error al procesar el producto");
             }
-            // ********************************************************************
-        /*    console.log(combinations);
-            console.log(req.body.productName);
-            console.log(req.body.detail);
-            console.log(req.body.collectionSelected);
-            console.log(req.body.discountSelectedItem);
-            console.log(req.body.colorSelected);
-            console.log(req.body.sizeSelected);
-            console.log(req.body.productPrice);
-            console.log(req.body.productDetail);
-            console.log(req.body.productStock);
-            console.log(req.body.discountSelected)
-        */
-            //************************************************************************** 
-            // Si de la vista llega el campo de descuento vacío no se ejecuta el create
-            //************************************************************************** 
-            if (!req.body.discountSelected) {
-                return res.redirect('/product/productsTable')
-            }
-            //**************************************************************************
-            const productCreated = await Products.create({
-                name: req.body.productName,
-                description: req.body.detail,
-                collection_id: req.body.collectionSelected,
-                discount_id: req.body.discountSelectedItem
-            });
-        //    console.log(productCreated);
-        for (const combination of combinations) {
-            // **************************************************************************
-            // Acá cargamos la tabla pivot caracteristicas con el array "combinations" 
-            // **************************************************************************
-    /*        console.log(combination)
-            console.log(parseInt(combination.color_id))
-            console.log(parseInt(combination.size_id))
-            console.log(combination.stock)
-            console.log(combination.price)
-            console.log(combination.details)
-            console.log(parseInt(combination.discount_id))
-    */
-            const characteristic = await Characteristics.create({
-                product_id: productCreated.id,
-                color_id: parseInt(combination.color_id),
-                size_id: parseInt(combination.size_id),
-                stock: combination.stock,
-                price: combination.price,
-                details: combination.details,
-                discount_id: parseInt(combination.discount_id)
-            });
-            // *******************************************************************************
-            // Usa addCharacteristic para agregar cada combinación. Así le pasamos a products  
-            // la asociación con las tablas colors y sizes por medio de characteristics.
-            // *******************************************************************************
-            await productCreated.addCharacteristic(characteristic);
-            // *******************************************************************************
-        };
-            return res.redirect('/product/productsTable');
-        } catch (error) {
-            console.log(error);
-            return res.status(500).send("Error al procesar el producto");
         }
     },
 
@@ -214,6 +246,42 @@ module.exports = {
             console.log(Array.isArray(req.body.productPrice))
             console.log(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         */
+            // ********************************************************************
+            // En el body se recibe el array photoDeleteId con valor vacío si no 
+            // hay que borrar y el id de la foto a borrar. 
+            // ********************************************************************
+            if (req.body.photoDeleteId != undefined) {
+                for (let i = 0 ; i < req.body.photoDeleteId.length ; i++) {
+                    if (req.body.photoDeleteId[i] != '') {
+                        await Photos.destroy(
+                            {where: {id : req.body.photoDeleteId[i]}}
+                        )
+                    }
+                }
+            }
+            
+
+
+
+           
+            let arrayPhotos = [];
+            //console.log(req.files.length)
+            if (req.files.length > 0) {
+                // ********************************************************************
+                // Creo el array de photos con las rutas de cada una de ellas
+                // ********************************************************************
+                for (let i = 0 ; i < req.files.length ; i++) {
+                    arrayPhotos.push("/images/"+req.files[i].filename);
+                } 
+            }
+            for (let i = 0 ; i < arrayPhotos.length ; i++) {
+                await Photos.create({
+                    product_id: req.body.productId,
+                    product_image: arrayPhotos[i]
+                    }
+                );
+            } 
+
              // ********************************************************************
             // Para el Producto cargado, se crea el array con las combinaciones de 
             // Precio, Color , Tamaño, Stock , Descuento y Detalles para llenar la
