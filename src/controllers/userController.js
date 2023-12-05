@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 
 
 const Users = db.User;
+const Category = db.Category;
 
 
 module.exports = {
@@ -131,8 +132,47 @@ module.exports = {
         }
     },
 
-
     processEditarPerfil: async (req, res) => {
+        try {
+            if (res.locals.isLogged) {
+                const usuarioId = res.locals.userLogged.id;
+
+                // Con desestructuración extraigo los datos del formulario
+                const { email, contrasenia, address } = req.body;
+
+                // Creo un objeto con los campos que voy a actualizar
+                const datosActualizados = {
+                    usr_email: email,
+                    usr_password: contrasenia,
+                    usr_address: address
+                };
+
+                // Con este update actualiza el perfil en la base de datos
+                await Users.update(datosActualizados, { where: { id: usuarioId } });
+
+                const usuario = await Users.findOne({
+                    where: {
+                        usr_email: datosActualizados.usr_email
+                        
+                    }
+                });
+                console.log(usuario)
+    
+
+                delete usuario.usr_password;// borro la contraseña para guardarlo en la session
+                req.session.usuarioLogeado = usuario;
+                
+                res.redirect('/');
+            } else {
+                res.redirect('/user/perfil');
+            }
+        } catch (error) {
+            console.log(error);
+            res.redirect('/user/editarPerfil');
+        }
+    },
+
+    /*processEditarPerfil: async (req, res) => {
         try {
             if (res.locals.isLogged) {
                 const usuarioId = res.locals.userLogged.id;
@@ -160,7 +200,7 @@ module.exports = {
         console.log(error);
         res.redirect('/user/editarPerfil');//si hay error que me lleve de nuevo a editar perfil
     }
-},
+},*/
 
 
     eliminarPerfil: async (req, res) => {
@@ -183,7 +223,64 @@ module.exports = {
             res.redirect('/user/login');
         }
     },
+
+     adminUsers : async (req, res) => {
+        console.log('entrando por admin user');
+        try {
+            const users = await Users.findAll({
+                include: [{ model: Category, as: 'userCategory' }],
+            });
+    
+            const categories = await Category.findAll();
+    
+            res.render('./users/adminUsers', { users, categories });
+        } catch (error) {
+            console.log(error);
+            res.redirect('/');
+        }
+    },
+
+    updateCategories :async (req, res) => {
+        try {
+            console.log(req.body);
+            const userIds = req.body.userId;//obtengo el array con valores de userId del body
+            const categoryIds = Object.keys(req.body).filter(key => key.startsWith('categoryId_')).map(key => req.body[key]);
+            //object.keys para obtener todas las claves del body y despues filtro las claves que comienzan con categoryid--y me da el array con las categorias
+
+            
+            for (let i = 0; i < userIds.length; i++) {
+                const userId = userIds[i];
+                const categoryId = categoryIds[i];
+    
+                await Users.update({ category_id: categoryId }, { where: { id: userId } });
+            }
+    
+           return res.render('./users/adminUsers');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/');
+        }
+    
+    
+     /*updateCategories: async (req, res) => {
+        try {
+            const { userId, categoryId } = req.body;
+    
+            await Users.update({ category_id: categoryId }, { where: { id: userId } });
+    
+            res.redirect('/user/adminUsers');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/');
+        }
+
+    }*/
+    }
+};
+
+
+    
     
 
     
-};
+
