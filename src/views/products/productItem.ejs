@@ -150,19 +150,11 @@
      <!-- JS libraries and scripts -->
   <script>
     function deletePhoto(photoId) {
-        //console.log(photoId)
         const inputPhotoDelete = document.getElementById(`idToDelete${photoId}`)
         inputPhotoDelete.setAttribute("value" , photoId)
-        //console.log(inputPhotoDelete)
         // Eliminar la imagen del DOM
         const photoContainer = document.getElementById(`photoId${photoId}`);
         photoContainer.className = 'hyde'
-        //photoContainer.setAttribute("type" , "hidden")
-        //console.log(photoContainer)
-        //if (photoContainer) {
-        //        photoContainer.remove();
-        //    }
-        
 }
   </script>
   <script src="/js/jquery-1.11.3.min.js"></script>

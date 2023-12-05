@@ -21,13 +21,41 @@ module.exports = {
         console.log("entraste a productos" );
         try {
             const productTable = await Products.findAll(
-                {include:[
-                    {association: 'productCollection'} , 
-                    {association: 'productPhoto'}
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
                 ]}
             )
-                return res.send(productTable)
-        //    return res.render('./products/products' , { productTable : productTable});
+        //        return res.send(productTable)
+            return res.render('./products/products' , { productTable : productTable});
         } catch (error) {
             console.log(error)
         }
