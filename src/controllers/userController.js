@@ -224,6 +224,20 @@ module.exports = {
         }
     },
 
+
+    adminUsers: async (req, res) => {
+        try {
+          const users = await Users.findAll({
+            include: [{ model: Category, as: 'userCategory' }],
+          });
+      
+          res.render('./users/adminUsers', { users });
+        } catch (error) {
+          console.log(error);
+          res.redirect('/');
+        }
+      },
+/*
      adminUsers : async (req, res) => {
         console.log('entrando por admin user');
         try {
@@ -262,7 +276,7 @@ module.exports = {
         }
     
     
-     /*updateCategories: async (req, res) => {
+     updateCategories: async (req, res) => {
         try {
             const { userId, categoryId } = req.body;
     
@@ -275,8 +289,99 @@ module.exports = {
         }
 
     }*/
+    
+    /*
+    categorias: async (req, res) => {
+        try {
+            const categorias = await Category.findAll();
+    
+            // Si se proporciona un ID de categoría para editar, obtén esa categoría
+            const categoriaEditarId = req.params.id;
+            const categoriaEditar = categoriaEditarId ? await Category.findByPk(categoriaEditarId) : null;
+    
+            res.render('categorias', { categorias, categoriaEditar });
+        } catch (error) {
+            console.log(error);
+            res.redirect('/');
+        }
+    },
+
+      guardarCategorias: async (req, res) => {
+        try {
+          const { rol, nuevaCategoria, categoriaIdEditar } = req.body;
+    
+          if (categoriaIdEditar) {
+            // Si hay un ID de categoría para editar, actualiza la categoría existente
+            await Category.update({ roles: nuevaCategoria }, { where: { id: categoriaIdEditar } });
+          } else {
+            // Si no hay un ID de categoría para editar, crea una nueva categoría
+            await Category.create({ roles: nuevaCategoria });
+          }
+    
+          res.redirect('/user/categorias');
+        } catch (error) {
+          console.log(error);
+          res.redirect('/');
+        }
+      }
+    };*/
+
+    obtenerCategorias: async (req, res) => {
+        try {
+          const categorias = await db.Category.findAll();
+          res.render('users/categorias', { categorias });
+
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
+    },
+    
+      editarCategoria: async (req, res) => {
+        const categoriaId = req.params.id;
+        try {
+          const categoria = await db.Category.findByPk(categoriaId);
+          res.render('users/editarCategoria', { categoria });
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
+    },
+    
+      guardarEdicionCategoria: async (req, res) => {
+        const categoriaId = req.body.categoriaIdEditar;
+        const nuevaCategoria = req.body.nuevaCategoria;
+        try {
+          await db.Category.update({ roles: nuevaCategoria }, { where: { id: categoriaId } });
+          res.redirect('/user/categorias');
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
+    },
+    
+      agregarCategoria: async (req, res) => {
+        const nuevaCategoria = req.body.nuevaCategoria;
+        try {
+          await db.Category.create({ roles: nuevaCategoria });
+          res.redirect('/user/categorias');
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
+    },
+
+    eliminarCategoria: async (req, res) => {
+        const categoriaId = req.params.id;
+        try {
+          await db.Category.destroy({ where: { id: categoriaId } });
+          res.redirect('/user/categorias');
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
     }
-};
+}; 
 
 
     

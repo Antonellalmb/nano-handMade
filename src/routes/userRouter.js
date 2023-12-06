@@ -32,9 +32,29 @@ router.get('/eliminarPerfil', controller.eliminarPerfil);
 router.post('/eliminarPerfil/:id', controller.eliminarPerfil);
 
 // routes adminUsers
-router.get('/adminUsers', controller.adminUsers);
-router.post('/adminUsers/updateCategories', controller.updateCategories);
 
+router.get('/adminUsers', controller.adminUsers);
+
+//router.get('/adminUsers', controller.adminUsers);
+//router.post('/adminUsers/updateCategories', controller.updateCategories);
+
+//router.get('/categorias/:id?', controller.categorias);
+//router.post('/categorias', controller.guardarCategorias);
+
+// Ruta para obtener y mostrar categorías
+router.get('/categorias', controller.obtenerCategorias);
+
+// Ruta para editar una categoría específica
+router.get('/editarCategoria/:id', controller.editarCategoria);
+
+// Ruta para agregar una nueva categoría
+router.post('/agregarCategoria', controller.agregarCategoria);
+
+//ruta para guardar edicion de categoriA
+router.post('/guardarEdicionCategoria', controller.guardarEdicionCategoria);
+
+// Ruta para eliminar una categoría específica
+router.get('/eliminarCategoria/:id', controller.eliminarCategoria);
 
 
 module.exports = router;
