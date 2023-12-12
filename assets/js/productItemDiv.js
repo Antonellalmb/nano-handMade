@@ -19,6 +19,7 @@ function ready() {
             <p>${productItem.description}</p>
             <p id="clickText">Clique na imagem para mostrar<p>
             <div class="imagesProduct"></div>
+            <a href="/product/products">Voltar aos produtos</a>
         </div>`;
     }
 
