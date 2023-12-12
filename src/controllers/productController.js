@@ -61,6 +61,52 @@ module.exports = {
         }
     },
 
+    product : async (req, res) => {
+        console.log("entraste a producto" , req.params.id );
+        try {
+            const productItem = await Products.findByPk( req.params.id ,
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
+                ]}
+            )
+        //        return res.send(productItem)
+            return res.render('./products/product' , { productItem : productItem});
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+
+
 // *********************************    
 // Product's Table  Controllers
 // ********************************* 

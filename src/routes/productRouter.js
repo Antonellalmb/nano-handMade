@@ -10,6 +10,8 @@ const uploadFile = require ('../middlewares/multerMiddleware')
 
 // Products views **************************************************************
 router.get('/products', controller.products);
+router.get('/product/:id', controller.product);
+
 // *****************************************************************************
 
 
