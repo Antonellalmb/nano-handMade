@@ -31,8 +31,9 @@ module.exports = {
             if (usuario) { //si encuentro el usuarioi
                 delete usuario.usr_password;// borro la contraseña para guardarlo en la session
                 req.session.usuarioLogeado = usuario; //y almaceno al usuario en la session
+                  
 
-                if (req.body.cookie) {//si dio checkk en recordame se hace la cookie
+                if (req.body.cookie) {
                     res.cookie('recordame', usuario.usr_email, { maxAge: 1000*60*60 });
                 }
 
@@ -172,37 +173,6 @@ module.exports = {
         }
     },
 
-    /*processEditarPerfil: async (req, res) => {
-        try {
-            if (res.locals.isLogged) {
-                const usuarioId = res.locals.userLogged.id;
-            
-                // con desestructuring extraigo los  datos del formulario----del req.body
-                const { email, contrasenia, address } = req.body;
-
-                // cree un objeto con los campos que quieres actualizar
-                const datosActualizados = {
-                    usr_email: email,
-                    usr_password: contrasenia,
-                    usr_address: address
-                   
-        };
-
-            //  con este update actualizo el perfil en la base de datos
-            await Users.update(datosActualizados, { where: { id: usuarioId } });
-
-            res.redirect('/user/perfil');
-        } else {
-            res.redirect('/user/login');
-        }
-
-    } catch (error) {
-        console.log(error);
-        res.redirect('/user/editarPerfil');//si hay error que me lleve de nuevo a editar perfil
-    }
-},*/
-
-
     eliminarPerfil: async (req, res) => {
         if (res.locals.isLogged) {
             try {
@@ -224,7 +194,6 @@ module.exports = {
         }
     },
 
-
     adminUsers: async (req, res) => {
         try {
           const users = await Users.findAll({
@@ -236,95 +205,7 @@ module.exports = {
           console.log(error);
           res.redirect('/');
         }
-      },
-/*
-     adminUsers : async (req, res) => {
-        console.log('entrando por admin user');
-        try {
-            const users = await Users.findAll({
-                include: [{ model: Category, as: 'userCategory' }],
-            });
-    
-            const categories = await Category.findAll();
-    
-            res.render('./users/adminUsers', { users, categories });
-        } catch (error) {
-            console.log(error);
-            res.redirect('/');
-        }
     },
-
-    updateCategories :async (req, res) => {
-        try {
-            console.log(req.body);
-            const userIds = req.body.userId;//obtengo el array con valores de userId del body
-            const categoryIds = Object.keys(req.body).filter(key => key.startsWith('categoryId_')).map(key => req.body[key]);
-            //object.keys para obtener todas las claves del body y despues filtro las claves que comienzan con categoryid--y me da el array con las categorias
-
-            
-            for (let i = 0; i < userIds.length; i++) {
-                const userId = userIds[i];
-                const categoryId = categoryIds[i];
-    
-                await Users.update({ category_id: categoryId }, { where: { id: userId } });
-            }
-    
-           return res.render('./users/adminUsers');
-        } catch (error) {
-            console.log(error);
-            res.redirect('/');
-        }
-    
-    
-     updateCategories: async (req, res) => {
-        try {
-            const { userId, categoryId } = req.body;
-    
-            await Users.update({ category_id: categoryId }, { where: { id: userId } });
-    
-            res.redirect('/user/adminUsers');
-        } catch (error) {
-            console.log(error);
-            res.redirect('/');
-        }
-
-    }*/
-    
-    /*
-    categorias: async (req, res) => {
-        try {
-            const categorias = await Category.findAll();
-    
-            // Si se proporciona un ID de categoría para editar, obtén esa categoría
-            const categoriaEditarId = req.params.id;
-            const categoriaEditar = categoriaEditarId ? await Category.findByPk(categoriaEditarId) : null;
-    
-            res.render('categorias', { categorias, categoriaEditar });
-        } catch (error) {
-            console.log(error);
-            res.redirect('/');
-        }
-    },
-
-      guardarCategorias: async (req, res) => {
-        try {
-          const { rol, nuevaCategoria, categoriaIdEditar } = req.body;
-    
-          if (categoriaIdEditar) {
-            // Si hay un ID de categoría para editar, actualiza la categoría existente
-            await Category.update({ roles: nuevaCategoria }, { where: { id: categoriaIdEditar } });
-          } else {
-            // Si no hay un ID de categoría para editar, crea una nueva categoría
-            await Category.create({ roles: nuevaCategoria });
-          }
-    
-          res.redirect('/user/categorias');
-        } catch (error) {
-          console.log(error);
-          res.redirect('/');
-        }
-      }
-    };*/
 
     obtenerCategorias: async (req, res) => {
         try {

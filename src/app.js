@@ -7,11 +7,8 @@ const productRouter = require('./routes/productRouter');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieExisteMiddleware = require('./middlewares/cookieExisteMiddleware');
-const logMiddleware = require('./middlewares/logMiddleware');
-//const checkAuth = require('./middlewares/checkAuth')
-//const checkAdminAuth = require('./middlewares/checkAdminAuth')
 const cookie = require('cookie-parser');
-
+const logMiddleware = require('./middlewares/logMiddleware');
 
 
 app.use(express.static("./assets"));
@@ -26,8 +23,8 @@ app.use(session({
 
 app.use(cookieExisteMiddleware);
 app.use(logMiddleware);
-//app.use(checkAuth);
-//app.use(checkAdminAuth);
+
+
 
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json());

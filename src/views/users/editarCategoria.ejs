@@ -14,22 +14,24 @@
     <div class="tableInput">
   
         <h4>Editar Categoría</h4>
-        <form action="/user/guardarEdicionCategoria" method="post">
-          <div>
-            <input type="hidden" name="categoriaIdEditar" value="<%= categoria.id %>">
-            <label for="nuevaCategoria">Nueva Categoría</label>
-            <input type="text" name="nuevaCategoria" value="<%= categoria.roles %>" required>
-          </div>
-          <div class="botonsInput">
-            <button class="botEnterTablas tablasBoton" type="submit">Guardar Cambios</button>
-          </div>
-        </form>
+        <div class="formCategorias">
+          <form action="/user/guardarEdicionCategoria" method="post">
+            <div>
+              <input type="hidden" name="categoriaIdEditar" value="<%= categoria.id %>">
+              <label class="labelNovaCategoria" for="nuevaCategoria"> Editar</label>
+              <input type="text" name="nuevaCategoria" value="<%= categoria.roles %>" required>
+            </div>
+            <div class="botonsInput">
+              <button class="botEnterTablas tablasBoton" type="submit">Salvar alterações</button>
+            </div>
+          </form>
+        </div>
         
         <!-- para eliminar la categoría -->
-        <a href="/user/eliminarCategoria/<%= categoria.id %>">Eliminar Categoría</a>
+        <button class="botEnterTablas tablasBoton" type="submit"> <a href="/user/eliminarCategoria/<%= categoria.id %>">Eliminar Categoría</a> </button>
         
         <!--  para volver a la lista de categorías -->
-        <a href="/user/categorias">Retornar à tabela de categorias</a>
+        <button class="botEnterTablas tablasBoton" type="submit"> <a href="/user/categorias">Retornar à tabela de categorias</a> </button>
  <!-- Footer
     ================================================== -->
     <%- include('../partials/footer') %> 
