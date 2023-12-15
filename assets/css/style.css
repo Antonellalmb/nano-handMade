@@ -2559,7 +2559,7 @@ ul.download li a img {
 #productDivView {
   display: flex;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content:space-evenly;
   width: 80%;
   margin: 40px 20px 20px 20px;
   background-color: #baa18e;
@@ -2583,13 +2583,36 @@ ul.download li a img {
 }
 
 .productInfoView {
-  width: 45%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
+}
+
+#divSeleccion p {
+  margin-block-start: unset;
+  margin-block-end: unset;
+  margin-inline-start: unset;
+  margin-inline-end: unset;
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+#quantity, #optionsProduct, #optionQuantity {
+  margin: 20px 0 30px 0;
+  width: 75%;
+  height: 35px;
+}
+
+.productInfoView p.summaryText {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
 }
 
 .productInfo p {
@@ -2603,13 +2626,13 @@ ul.download li a img {
   font-size: 17px;
   color: #000;
   text-align: center;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
 }
 
 #clickText {
   font-size: 12px;
   color: #000;
-  padding: 10px 0 0 0;
+  padding: 3px 0 0 0;
   margin-block-start: unset;
   margin-block-end: unset;
   margin-inline-start: unset;
@@ -2635,10 +2658,12 @@ ul.download li a img {
   width: 75%;
   margin-right: 15px;
   margin-bottom: 8px;
+  transition: all .25s;
 }
 
 .productInfoView a:hover {
   color: #23527c;
+  font-size: 13.3px;
 }
 
 .productoImage {
@@ -2658,10 +2683,16 @@ ul.download li a img {
 }
 
 .productImageSmall {
-  width: 25%;
+  width: 24.3%;
   aspect-ratio: 1/1;
   padding: 0 5px 10px 5px;
   align-self: center;
+  transition: all .25s;
+}
+
+.productImageSmall:hover {
+  opacity: .65;
+  width: 25%;
 }
 
 
