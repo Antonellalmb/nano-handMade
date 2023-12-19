@@ -17,6 +17,7 @@
         <div class="formCategorias">
           <form action="/user/guardarEdicionCategoria" method="post">
             <div>
+              
               <input type="hidden" name="categoriaIdEditar" value="<%= categoria.id %>">
               <label class="labelNovaCategoria" for="nuevaCategoria"> Editar</label>
               <input type="text" name="nuevaCategoria" value="<%= categoria.roles %>" required>

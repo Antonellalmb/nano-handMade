@@ -27,6 +27,8 @@
 
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav nav-admin">
+              <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
+                <!-- para mostrar estos enlaces solo si el  admin esta logueado -->
               <li><a href="/product/productItemsTable">Produtos</a></li>
               <li><a href="/product/collectionItemsTable">Coleções</a></li>
               <li><a href="/product/discountItemsTable">Descontos</a></li>
@@ -35,6 +37,7 @@
               <li><a href="/user/adminUsers">Usuarios</a></li>
               <li><a href="/user/categorias">Roles</a></li>
             </ul>
+            <% } %>
     
           </div>
 
