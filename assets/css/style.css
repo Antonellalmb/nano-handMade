@@ -2541,6 +2541,13 @@ ul.download li a img {
   background-color: #baa18e;
 }
 
+.mainProductView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #baa18e;
+}
+
 #productDiv {
   display: flex;
   flex-wrap: wrap;
@@ -2552,6 +2559,22 @@ ul.download li a img {
   font-weight: 700;
 }
 
+#productDivView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  width: 80%;
+  margin: 40px 20px 20px 20px;
+  background-color: #baa18e;
+  
+  font-weight: 700;
+}
+
+#productDivView h4 {
+  font-size: 20px;
+}
+
+
 .productInfo {
   width: 22%;
   display: flex;
@@ -2562,6 +2585,39 @@ ul.download li a img {
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
 }
 
+.productInfoView {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  /* background-color: #faefe7; */
+  background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
+}
+
+#divSeleccion p {
+  margin-block-start: unset;
+  margin-block-end: unset;
+  margin-inline-start: unset;
+  margin-inline-end: unset;
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+#quantity, #optionsProduct, #optionQuantity {
+  margin: 20px 0 30px 0;
+  width: 75%;
+  height: 35px;
+}
+
+.productInfoView p.summaryText {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
 .productInfo p {
   font-size: 14px;
   color: #000;
@@ -2569,17 +2625,77 @@ ul.download li a img {
   margin: 0 10px;
 }
 
-.productInfo a {
+.productInfoView p {
+  font-size: 17px;
+  color: #000;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+#clickText {
+  font-size: 12px;
+  color: #000;
+  padding: 3px 0 0 0;
+  margin-block-start: unset;
+  margin-block-end: unset;
+  margin-inline-start: unset;
+  margin-inline-end: unset;
+  align-self: flex-start;
+  margin-left: 14%;
+}
+
+.productInfo a , .productInfo div {
   align-self: center;
   width: 75%;
 }
 
+.productInfoView div {
+  align-self: center;
+  width: 75%;
+}
+
+.productInfoView a {
+  color: #000;
+  align-self: flex-end;
+  text-align: right;
+  width: 75%;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  transition: all .25s;
+}
+
+.productInfoView a:hover {
+  color: #23527c;
+  font-size: 13.3px;
+}
 
 .productoImage {
   width: 100%;
   aspect-ratio: 1/1;
   align-self: center;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
+}
+
+.imagesProduct{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 0 10px 0;
+
+}
+
+.productImageSmall {
+  width: 24.3%;
+  aspect-ratio: 1/1;
+  padding: 0 5px 10px 5px;
+  align-self: center;
+  transition: all .25s;
+}
+
+.productImageSmall:hover {
+  opacity: .65;
+  width: 25%;
 }
 
 

@@ -23,7 +23,7 @@ function ready() {
                 divProductos.innerHTML += `
                 <div class="productInfo">
                     <h4>${productItems[i].name}</h4>
-                    <a href="#"><img class="productoImage" src="${productItems[i].productPhoto[0].product_image}"></a>
+                    <a href="/product/product/${productItems[i].id}"><img class="productoImage" src="${productItems[i].productPhoto[0].product_image}"></a>
                     <p>$ ${productItems[i].Characteristics[0].price}</p>
                     <p>${productItems[i].description}</p>
                 </div>`
