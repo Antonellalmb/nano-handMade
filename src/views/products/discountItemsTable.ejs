@@ -29,9 +29,9 @@
                         <td><%= discount.discount  %></td>
                         <td class="actionColumn">
                             <% if(discount.deleted_at == null) {%>
-                                <a href="/product/discount/update/<%= discount.id%>"><i class="fa-solid fa-pen"></i></a>
+                                <a href="/product/discount/update/<%= discount.id%>"><i class="fa-solid fa-pen"></i> Editar</a>
                                 &nbsp &nbsp &nbsp
-                                <a href="/product/discount/delete/<%= discount.id%>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="/product/discount/delete/<%= discount.id%>"><i class="fa-solid fa-trash"></i> Eliminar</a>
                             <%} else {%>
                                 <a href="/product/discount/restore/<%= discount.id%>">Restaurar</a>
                             <%}%>

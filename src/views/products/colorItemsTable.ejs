@@ -29,9 +29,9 @@
                         <td><%= color.description  %></td>
                         <td class="actionColumn">
                             <% if(color.deleted_at == null) {%>
-                                <a href="/product/color/update/<%= color.id%>"><i class="fa-solid fa-pen"></i></a>
+                                <a href="/product/color/update/<%= color.id%>"><i class="fa-solid fa-pen"></i> Editar</a>
                                 &nbsp &nbsp &nbsp
-                                <a href="/product/color/delete/<%= color.id%>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="/product/color/delete/<%= color.id%>"><i class="fa-solid fa-trash"></i> Eliminar</a>
                             <%} else {%>
                                 <a href="/product/color/restore/<%= color.id%>">Restaurar</a>
                             <%}%>

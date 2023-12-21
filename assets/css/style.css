@@ -2734,7 +2734,7 @@ ul.download li a img {
 .tableInput {
   margin-top: 30px;
   margin-left: 30%;
-  width: 40%;
+  width: 50%;
 }
 
 .separator {
@@ -2959,6 +2959,10 @@ table {
 
 th , td {
   padding: 0 5px 0 5px;
+}
+
+td a {
+  font-size: 10px;
 }
 
 .centerCell {
