@@ -2608,11 +2608,32 @@ ul.download li a img {
   height: 35px;
 }
 
+#summary{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnAddItem {
+  background-color: #efddd0;
+  color: #84563d;
+  width: 100%;
+  height: 45px;
+}
+
+.btnAddItem:hover {
+  background-color: #84563d;
+  color: #efddd0;
+  width: 100%;
+  height: 45px;
+}
+
 .productInfoView p.summaryText {
   width: 100%;
   font-size: 12px;
   font-weight: 600;
-  text-align: left;
+  text-align: center;
 }
 
 .productInfo p {
