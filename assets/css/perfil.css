@@ -1,0 +1,59 @@
+
+
+.perfil-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-container h2 {
+    color: #333;
+}
+
+.perfil-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.perfil-container li {
+    margin-bottom: 10px;
+}
+
+.botonDiv {
+    margin-bottom: 10px;
+}
+
+.botonLog {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px; 
+    background-color: #9f5520;
+    font-weight: lighter ; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botonLog:hover {
+    background-color: #000; 
+    font-weight: bold;
+}
+
+
+.botonLog-danger {
+    background-color: #8b1f13; 
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.botonLog-danger:hover {
+    background-color: #000; 
+    font-weight: bold; 
+}
+
+

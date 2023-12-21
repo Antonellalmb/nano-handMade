@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+<body>
+    <!-- Preload the Whole Page -->
+  <div id="preloader">      
+      <div id="loading-animation">&nbsp;</div>
+  </div>
+        
+  <!-- Navbar -->
+  <%- include('../partials/header') %>
+  <!-- End Navbar -->
+  <main class="mainInput">
+    <div class="tableInput">
+      <h4>Usuarios Registrados</h4>
+      <!-- Tabla para mostrar usuarios -->
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Categoría</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.usr_name %></td>
+              <td><%= user.usr_email %></td>
+              <td><%= user.userCategory.roles %></td>
+              <td>
+                <a href="/user/editarCategoria/<%= user.id %>"><i class="fa-solid fa-pen"></i> Editar Categoría</a>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Botones de acción fuera del formulario -->
+    <div class="botonsInput"> 
+      <a class="linkEditar" href="/user/categorias">
+        <button class="botEnterTablas" type="button">Tabela de Funções de Usuário</button>
+      </a>
+    </div>
+  </main>
+    
+  <!-- Footer -->
+  <%- include('../partials/footer') %> 
+  <!-- End footer -->
+
+  <!-- JS libraries and scripts -->
+</body>
+</html>
+  <script src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-hover-dropdown.min.js"></script>
+  <script src="/js/jquery.appear.min.js"></script>
+  <script src="/js/jquery.bxslider.min.js"></script>
+  <script src="/js/jquery.owl.carousel.min.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="/js/jquery.isotope.js"></script>
+  <script src="/js/jquery.placeholder.js"></script>
+  <script src="/js/jquery.smoothscroll.js"></script>
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script src="/js/jquery.waypoints.js"></script>
+  <script src="/js/jquery.fitvids.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/js/jquery.countdown.js"></script>
+  <script src="/js/jquery.navbar-scroll.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="/js/jquery.gmaps.js"></script>
+  <script src="/js/main.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ 
+</body>
+</html>

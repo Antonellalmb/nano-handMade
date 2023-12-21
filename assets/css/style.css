@@ -1,6 +1,8 @@
 
 @import 'login.css';
 @import 'register.css';
+@import 'perfil.css';
+@import 'editarPerfil.css';
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -19,6 +21,7 @@ body {
 
 .navbar-header {
   height: fit-content;
+  padding-bottom: 20px;
 }
 
 .navbar-brand {
@@ -2725,6 +2728,7 @@ ul.download li a img {
 
 .mainInput {
   background-color: #f1e8df;
+  padding-top: 80px;
 }
 
 .tableInput {
@@ -2998,15 +3002,58 @@ th , td {
   width: 70%;
 }
 
+/************* formulario categorias de usuario *************************************************/
+
+.formCategorias {
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f1e8df;
+}
+
+.labelNovaCategoria {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.adicionarCategoria {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.adicionarCategoria:hover {
+  background-color: #45a049;
+}
 
 
 
+
+
+
+/************************************************************************************************/
 /***********************************************************************************************/
 /* =Footer */
 /***********************************************************************************************/
 
 #footer-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background: #f7f7f789;
   border-top: 1px solid #EEEEEE;
 }
@@ -3326,6 +3373,12 @@ p.copyright {
   }
 
 
+}
+
+@media screen and (max-width: 600px) {
+  .formCategorias {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 480px) {

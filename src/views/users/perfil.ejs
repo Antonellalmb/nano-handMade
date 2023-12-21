@@ -10,41 +10,41 @@
         <!-- Navbar -->
         <%- include('../partials/header') %>
 
-    <div class="mainLogin">
-        <div class="left">
-            <section class="copy">
-                <h2>Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
-            </section>
-        </div>
-        <div class="right">
-            <form class="login-form" action="/user/login" method="post" >
+        <!-- perfil.ejs -->
+
+        <div class="mainLogin">
+            <div class="left">
                 <section class="copy">
-                    <h2>Inicie sessão</h2>
-                    <div class="login-container">
-                        <p class="registrate">Ainda não tem uma conta? <a href="/user/register" class="form_link">Registre-se aqui</a></p>
-                    </div>
+                    <h2>Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
                 </section>
-                <div>
-                    <input class="log-control" type="text" name="email" value="" placeholder=" Email">
-                    <p id="errorEmail"  class="error"></p>
-                </div> 
-                <div class="input-container password">
-                    <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
-                    <p id="errores"  class="error"></p>
+            </div>
+            <div class="right">
+                <div class="login-form">
+                    <section class="copy">
+                        <h2>Benvindo  <%= usuario.usr_name %></h2>
+                    </section>
+                    <div class="login-container">
+                        <form class="registroPerfil" action="/user/perfil/<%=usuario.id%>?_method=PUT" method="POST">
+                        <ul>
+                            <li><strong>Nome:</strong> <%= usuario.usr_name %></li>
+                            <li><strong>Email:</strong> <%= usuario.usr_email %></li>
+                            <li><strong>Endereço:</strong> <%= usuario.usr_address %></li>
+                        </ul>
+                        </form>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/editarPerfil"> <button type="submit" class="botonLog">Editar Perfil</button> </a>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/eliminarPerfil"> <button type="button" class="botonLog botonLog-danger">Excluir perfil</button></a>
+                    </div>
+                    <div class="botonDiv">
+                        <a href="/user/logout"><button type="button" class="botonLog">Fechar Sessão</button> </a>
+                    </div>
                 </div>
-                <div class="recordameLogin">
-                    <input type="checkbox" name="cookie" id="cookie"> 
-                    <label for="cookie">Lembrar-me</label>
-                </div>
-                <div class="erroresLogin">
-                    <% if(locals.errors && errors.datosMal) { %>
-                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
-                        <% } %>
-                </div>
-                <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Entrar</button>                
-            </form>
+            </div>
         </div>
-    </div>
+
     <!-- Footer
     ================================================== -->
     <%- include('../partials/footer') %>

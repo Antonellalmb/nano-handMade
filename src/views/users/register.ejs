@@ -15,27 +15,50 @@
       </section>
     </div>
     <div class="rightRegister">
-      <form class="registro" action="/user/register" method="post" enctype="multipart/form-data">
+      <form class="registro" action="/user/register" method="post">
         <section class="copyRegister">
           <h5>nano Made By Hand</h5>  
-        </section>                     
+        </section> 
+        <!--esto es para asignar el id de user=2, usuario comun cuando se registre cualquier usuario-->
+        <input name="rol" value="2" type="hidden" >             
+        <!--************-->      
           <div> 
-            <input class="form-usu" type="text" name="name"  value=""  placeholder="  Nome completo">                    
+            <input class="form-usu" type="text" name="name" value="<%= locals.oldData ? oldData.name : null %>" placeholder=" Nome completo">
+            <% if(locals.errors && errors.name) { %>
+                <p class="errores"> <%= errors.name.msg %> </p>
+            <% } %>                    
           </div>
           <div>
-            <input class="form-usu" type="text" name="email" value="" placeholder="  e-mail">
+            <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder=" Email">
+            <% if(locals.errors && errors.email) { %>
+                <p class="errores"> <%= errors.email.msg %> </p>
+            <% } %>
           </div>
           <div>
-            <input class="form-usu" type="text" name="address" value="" placeholder=" Endereço">
+            <input class="form-usu" type="text" name="address" value="<%= locals.oldData ? oldData.address : null %>" placeholder=" Endereço">
+            <% if(locals.errors && errors.name) { %>
+                <p class="errores"> <%= errors.name.msg %> </p>
+            <% } %>
           </div> 
           <div>           
             <div class="input-container password">
-              <input class="form-usu" type="password" name="password"  value="" placeholder="  Senha" >
-            </div> 
-            <div>
-              <input class="form-usu" type="password" name="confirmPassword"  value= "" placeholder="  Confirmar senha">
+              <input class="form-usu" type="password" name="contrasenia" value="" placeholder=" Senha">
+              <% if(locals.errors && errors.contrasenia) { %>
+                  <p class="errores"> <%= errors.contrasenia.msg %> </p>
+              <% } %>
+            </div>
+            <div class="input-container password">
+              <input class="form-usu" type="password" name="confirm-contrasenia" value="" placeholder=" Confirmar senha">
+              <% if(locals.errors && errors.confirmContrasenia) { %>
+                  <p class="errores"> <%= errors.confirmContrasenia.msg %> </p>
+              <% } %>
             </div>
           </div>
+          <div class="erroresRegistro">
+            <% if(locals.errors && errors.datosMal) { %>
+                <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
+                <% } %>
+        </div>
           <div> 
             <a href="#"> <button id="botonSubmit" class="botEnter" type="submit">Cadastre-se</button> </a>
           </div>              

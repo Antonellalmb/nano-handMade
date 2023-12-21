@@ -10,6 +10,9 @@
         <!-- Navbar -->
         <%- include('../partials/header') %>
 
+       
+    <!-- editarPerfil.ejs -->
+
     <div class="mainLogin">
         <div class="left">
             <section class="copy">
@@ -17,34 +20,30 @@
             </section>
         </div>
         <div class="right">
-            <form class="login-form" action="/user/login" method="post" >
+            <form class="login-form" action="/user/editarPerfil/<%=usuario.id%>?_method=PUT" method="POST">
                 <section class="copy">
-                    <h2>Inicie sessão</h2>
-                    <div class="login-container">
-                        <p class="registrate">Ainda não tem uma conta? <a href="/user/register" class="form_link">Registre-se aqui</a></p>
-                    </div>
+                    <h2>Editar Perfil</h2>
                 </section>
-                <div>
-                    <input class="log-control" type="text" name="email" value="" placeholder=" Email">
-                    <p id="errorEmail"  class="error"></p>
-                </div> 
-                <div class="input-container password">
-                    <input class="log-control" type="password" name="contrasenia" value="" placeholder=" Password">
-                    <p id="errores"  class="error"></p>
+                <div class="login-container">
+                    <div>
+                        <label for="email">Email:</label>
+                        <input class="log-control" type="email" name="email" value="<%= usuario.usr_email %>" placeholder=" Email" required>
+                    </div>
+                    <div class="input-container password">
+                        <label for="contrasenia">Nova Senha:</label>
+                        <input class="log-control" type="password" name="contrasenia" placeholder=" Nova Senha">
+                    </div>
+                    <div>
+                        <label for="direccion">Endereço:</label>
+                        <input class="log-control" type="text" name="address" value="<%= usuario.usr_address %>" placeholder=" Endereço">
+                    </div>
                 </div>
-                <div class="recordameLogin">
-                    <input type="checkbox" name="cookie" id="cookie"> 
-                    <label for="cookie">Lembrar-me</label>
-                </div>
-                <div class="erroresLogin">
-                    <% if(locals.errors && errors.datosMal) { %>
-                        <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
-                        <% } %>
-                </div>
-                <button class="botonLog" type="submit" name="ingresar" value="Ingresar">Entrar</button>                
+                <button class="botonLog" type="submit" name="guardar" value="Guardar">Guardar </button>
             </form>
         </div>
     </div>
+
+
     <!-- Footer
     ================================================== -->
     <%- include('../partials/footer') %>

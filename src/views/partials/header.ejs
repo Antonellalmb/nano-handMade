@@ -22,16 +22,22 @@
             <li><a href="/#footer-section">Contact</a></li>
             <li><a href="/user/login"><i class="fa-regular fa-user icon-set" ></i></a></li>
             <li><a href="#"><i class="fa-solid fa-bag-shopping icon-set"></i></a></li>
+            <li><a href="/user/perfil">Perfil</a></li>
           </ul>
 
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav nav-admin">
+              <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
+                <!-- para mostrar estos enlaces solo si el  admin esta logueado -->
               <li><a href="/product/productItemsTable">Produtos</a></li>
               <li><a href="/product/collectionItemsTable">Coleções</a></li>
               <li><a href="/product/discountItemsTable">Descontos</a></li>
               <li><a href="/product/colorItemsTable">Cores</a></li>
               <li><a href="/product/sizeItemsTable">Tamanhos</a></li>
+              <li><a href="/user/adminUsers">Usuarios</a></li>
+              <li><a href="/user/categorias">Roles</a></li>
             </ul>
+            <% } %>
     
           </div>
 
