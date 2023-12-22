@@ -32,7 +32,10 @@
               <td><%= user.usr_email %></td>
               <td><%= user.userCategory.roles %></td>
               <td>
-                <a href="/user/editarCategoria/<%= user.id %>"><i class="fa-solid fa-pen"></i> Editar Categoría</a>
+                <!-- En caso de id =1 no se permite modificar por ser el administrador principal-->
+                <% if (user.id != 1){ %>
+                  <a href="/user/editUser/<%= user.id %>"><i class="fa-solid fa-pen"></i> Editar Categoría</a>
+                <%}%>
               </td>
             </tr>
           <% }); %>
