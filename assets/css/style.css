@@ -19,20 +19,44 @@ body {
   min-height: 80px;
 }
 
+.container .navbar-menues {
+  width: 80%;
+  height: 95px;
+  margin-left: 5%;
+  justify-self: right;
+}
+
+
 .navbar-header {
+  width: 15%;
   height: fit-content;
-  padding-bottom: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: left;
+}
+
+#navigation-nav , #admin-nav {
+  height: 45px!important;
+}
+
+
+a.navbar-brand {
+  margin: 0!important;
 }
 
 .navbar-brand {
+  width: 100px;
   height: fit-content;
-  padding: 10px;
-
+  padding: 5px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
 
 .navbar-logo {
   max-height: 75px;
-
 }
 
 a {
@@ -332,6 +356,8 @@ p {
   position: absolute;
   top: 0;
   border-bottom: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
 }
 .navbar.active {
   position: fixed;
@@ -339,8 +365,17 @@ p {
   border: 1px solid #E8E8E8;
 }
 
+ /*
 .navbar-nav {
-  margin: 7.5px -10px;
+ margin: 7.5px -10px;
+}
+*/
+
+.navbar .container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: unset;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -2728,7 +2763,7 @@ ul.download li a img {
 
 .mainInput {
   background-color: #f1e8df;
-  padding-top: 80px;
+  padding-top: 15px;
 }
 
 .tableInput {
