@@ -207,6 +207,48 @@ module.exports = {
         }
     },
 
+    editUser: async (req, res) => {
+        console.log("Entraste por get a editUser ----> id: ", req.params.id)
+        const userId = req.params.id;
+        try {
+            const [user , categorias] = await Promise.all([Users.findByPk(userId) , Category.findAll()]);
+
+    //        return res.send(categorias)
+
+          res.render('users/editUser', {user : user , categorias : categorias});
+        } catch (error) {
+          console.error(error);
+          res.status(500).send('Error interno del servidor');
+        }
+    },
+
+    updateUser : async (req, res) => {
+        console.log("Entraste por post a updateUser ----> id: ", req.params.id);
+        console.log(req.body)
+        
+        try {
+            const user = await Users.findByPk(req.body.id);
+            console.log(user)
+            await Users.update({
+                usr_email: user.usr_email,
+                usr_password: user.usr_password,
+                usr_name: user.usr_name,
+                usr_address: user.usr_address,
+                tax_id: user.tax_id,
+                usr_tax_number: user.usr_tax_number,
+                category_id: req.body.rolSelected,
+            },{
+                where: {
+                    id: req.body.id
+                }
+            })
+            return res.redirect('/user/adminUsers');
+        } catch (error) {
+            console.log(error);
+        };
+    },
+    
+
     obtenerCategorias: async (req, res) => {
         try {
           const categorias = await db.Category.findAll();
@@ -218,7 +260,7 @@ module.exports = {
         }
     },
     
-      editarCategoria: async (req, res) => {
+    editarCategoria: async (req, res) => {
         const categoriaId = req.params.id;
         try {
           const categoria = await db.Category.findByPk(categoriaId);

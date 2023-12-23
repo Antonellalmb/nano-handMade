@@ -19,20 +19,44 @@ body {
   min-height: 80px;
 }
 
+.container .navbar-menues {
+  width: 80%;
+  height: 95px;
+  margin-left: 5%;
+  justify-self: right;
+}
+
+
 .navbar-header {
+  width: 15%;
   height: fit-content;
-  padding-bottom: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: left;
+}
+
+#navigation-nav , #admin-nav {
+  height: 45px!important;
+}
+
+
+a.navbar-brand {
+  margin: 0!important;
 }
 
 .navbar-brand {
+  width: 100px;
   height: fit-content;
-  padding: 10px;
-
+  padding: 5px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
 
 .navbar-logo {
   max-height: 75px;
-
 }
 
 a {
@@ -332,6 +356,8 @@ p {
   position: absolute;
   top: 0;
   border-bottom: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
 }
 .navbar.active {
   position: fixed;
@@ -339,8 +365,17 @@ p {
   border: 1px solid #E8E8E8;
 }
 
+ /*
 .navbar-nav {
-  margin: 7.5px -10px;
+ margin: 7.5px -10px;
+}
+*/
+
+.navbar .container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: unset;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -2611,11 +2646,32 @@ ul.download li a img {
   height: 35px;
 }
 
+#summary{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnAddItem {
+  background-color: #efddd0;
+  color: #84563d;
+  width: 100%;
+  height: 45px;
+}
+
+.btnAddItem:hover {
+  background-color: #84563d;
+  color: #efddd0;
+  width: 100%;
+  height: 45px;
+}
+
 .productInfoView p.summaryText {
   width: 100%;
   font-size: 12px;
   font-weight: 600;
-  text-align: left;
+  text-align: center;
 }
 
 .productInfo p {
@@ -2707,13 +2763,13 @@ ul.download li a img {
 
 .mainInput {
   background-color: #f1e8df;
-  padding-top: 80px;
+  padding-top: 15px;
 }
 
 .tableInput {
   margin-top: 30px;
   margin-left: 30%;
-  width: 40%;
+  width: 50%;
 }
 
 .separator {
@@ -2938,6 +2994,10 @@ table {
 
 th , td {
   padding: 0 5px 0 5px;
+}
+
+td a {
+  font-size: 10px;
 }
 
 .centerCell {

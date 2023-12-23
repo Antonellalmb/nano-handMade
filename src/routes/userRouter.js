@@ -39,6 +39,12 @@ router.post('/eliminarPerfil/:id', authMiddleware, controller.eliminarPerfil);
 // routes adminUsers
 router.get('/adminUsers', adminMiddleware, controller.adminUsers);
 
+// Ruta para editar el usuario y cambiarle el rol
+router.get('/editUser/:id', adminMiddleware, controller.editUser);
+router.put('/user/update/:id', adminMiddleware, controller.updateUser);
+
+
+
 // Ruta para obtener y mostrar categorías
 router.get('/categorias', adminMiddleware, controller.obtenerCategorias);
 

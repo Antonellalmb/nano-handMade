@@ -16,8 +16,8 @@ function ready() {
         <div class="productInfoView">
             <h4>${productItem.name}</h4>
             <div id="divImage"></div>
-            <p>$ ${productItem.Characteristics[0].price}</p>
             <p>${productItem.description}</p>
+            <br>
             <p id="clickText">Clique na imagem para mostrar<p>
             <div class="imagesProduct"></div>
             <a href="/product/products">Voltar aos produtos</a>
@@ -79,7 +79,12 @@ function ready() {
 
         summary.innerHTML = `<p class="summaryText">Precio unitario = $ ${productItem.Characteristics[selectOptions.value].price} </p>`
         summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ ${productItem.Characteristics[selectOptions.value].price * selectQuantity.value } </p>`
-
+        summary.innerHTML += `
+            <br>
+            <br>
+            <button type="button" class="btnAddItem">
+            Adicionar ao carrinho</button>
+            `
     })
     console.log(productItem.Characteristics[selectOptions.value].prize)
  
