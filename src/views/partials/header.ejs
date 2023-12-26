@@ -35,7 +35,18 @@
             <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
               <!-- Menú hambuerguesa para desplegar o esconder el nav del administrador -->
               <div class="collapse navbar-collapse" id="burger-menu">
-                <i id="logo-burguer" class="fas fa-bars"></i>
+                <div id="logo-burguer">
+                  <!-- Menú hamburguesa con flecha para abajo para idicar que baje el menú -->
+                  <div id="down-burguer" class="visible-burguer">
+                    <i class="fas fa-bars"></i>
+                    <i class="fa-solid fa-arrow-down-long"></i>
+                  </div> 
+                  <!-- Menú hamburguesa con flecha para arriba para idicar que se oculte el menú -->
+                  <div id="up-burguer" class="invisible-burguer">
+                    <i class="fas fa-bars"></i>
+                    <i class="fa-solid fa-arrow-up-long"></i>
+                  </div>
+                </div>
               </div>
               <!-- Nav del administrador, inicialmente está invisible -->
               <div class="collapse navbar-collapse invisible" id="admin-nav-manu">

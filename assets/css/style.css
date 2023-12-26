@@ -44,6 +44,8 @@ body {
 #admin-nav-manu {
   position: relative;;
   background-color: #fff;
+/*  border: dashed .5px #613f23; */
+  box-shadow: -5px -2px 5px #895c44; 
   transition: all .5s;
 }
 
@@ -54,7 +56,7 @@ body {
 
 .visible {
   z-index: 10;
-  top: 7px;
+  top: 12px;
 }
 
 
@@ -64,6 +66,26 @@ body {
 
 #logo-burguer:hover {
   cursor: pointer;
+}
+
+.fa-solid.fa-arrow-down-long {
+  font-size: 20px;
+  margin-left: -10px;
+}
+
+.fa-solid.fa-arrow-up-long {
+  font-size: 20px;
+  margin-left: -10px;
+}
+
+.visible-burguer {
+  display: contents;
+  z-index: 1;
+}
+
+.invisible-burguer {
+  display: none;
+  z-index: -1;
 }
 
 a.navbar-brand {
