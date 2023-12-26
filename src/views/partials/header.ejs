@@ -31,18 +31,24 @@
           </div>
 
           <div class="collapse navbar-collapse" id="admin-nav">
-            <ul class="nav navbar-nav nav-admin">
-              <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
-                <!-- para mostrar estos enlaces solo si el  admin esta logueado -->
-              <li><a href="/product/productItemsTable">Produtos</a></li>
-              <li><a href="/product/collectionItemsTable">Coleções</a></li>
-              <li><a href="/product/discountItemsTable">Descontos</a></li>
-              <li><a href="/product/colorItemsTable">Cores</a></li>
-              <li><a href="/product/sizeItemsTable">Tamanhos</a></li>
-              <li><a href="/user/adminUsers">Usuarios</a></li>
-              <li><a href="/user/categorias">Roles</a></li>
-            </ul>
-            <% } %>
+            <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
+              <div class="collapse navbar-collapse" id="burger-menu">
+                <i id="logo-burguer" class="fas fa-bars"></i>
+              </div>
+              <div class="collapse navbar-collapse invisible" id="admin-nav-manu">
+                <ul class="nav navbar-nav nav-admin" id="nav-admin">
+                
+                    <!-- para mostrar estos enlaces solo si el  admin esta logueado -->
+                  <li><a href="/product/productItemsTable">Produtos</a></li>
+                  <li><a href="/product/collectionItemsTable">Coleções</a></li>
+                  <li><a href="/product/discountItemsTable">Descontos</a></li>
+                  <li><a href="/product/colorItemsTable">Cores</a></li>
+                  <li><a href="/product/sizeItemsTable">Tamanhos</a></li>
+                  <li><a href="/user/adminUsers">Usuarios</a></li>
+                  <li><a href="/user/categorias">Roles</a></li>
+                </ul>
+            </div>
+            <% } %>           
           </div><!-- /.navbar-collapse -->
           
         </div>
@@ -53,4 +59,5 @@
       
 
     </nav>
+    <script src="/js/header.js"></script>
   </header>

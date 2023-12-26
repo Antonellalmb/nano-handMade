@@ -34,7 +34,7 @@ module.exports = {
                   
 
                 if (req.body.cookie) {
-                    res.cookie('recordame', usuario.usr_email, { maxAge: 1000*60*60 });
+                    res.cookie('recordame', usuario.usr_email, { maxAge: 1000*60*60*72 });
                 }
 
                 return res.redirect('/');
