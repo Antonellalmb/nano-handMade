@@ -31,14 +31,15 @@
           </div>
 
           <div class="collapse navbar-collapse" id="admin-nav">
+            <!-- Para mostrar estos el nav del administrador solo si el admin esta logueado -->
             <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
+              <!-- Menú hambuerguesa para desplegar o esconder el nav del administrador -->
               <div class="collapse navbar-collapse" id="burger-menu">
                 <i id="logo-burguer" class="fas fa-bars"></i>
               </div>
+              <!-- Nav del administrador, inicialmente está invisible -->
               <div class="collapse navbar-collapse invisible" id="admin-nav-manu">
                 <ul class="nav navbar-nav nav-admin" id="nav-admin">
-                
-                    <!-- para mostrar estos enlaces solo si el  admin esta logueado -->
                   <li><a href="/product/productItemsTable">Produtos</a></li>
                   <li><a href="/product/collectionItemsTable">Coleções</a></li>
                   <li><a href="/product/discountItemsTable">Descontos</a></li>
@@ -53,11 +54,11 @@
           
         </div>
 
-        
-
       </div><!-- /.container -->
       
 
     </nav>
+    <!-- Script para mostrar o esconder el nav del administrador al hacer click
+         en el menú hamburgueas-->
     <script src="/js/header.js"></script>
   </header>

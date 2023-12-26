@@ -7,7 +7,6 @@ else {
 
 function ready() {
     let burguerMenu = document.getElementById('logo-burguer')
-    let navAdminMenu = document.getElementById('nav-admin')
     let navAdminDiv = document.getElementById('admin-nav-manu')
     burguerMenu.addEventListener('click' , () => { 
         navAdminDiv.classList.toggle("visible");
