@@ -141,10 +141,23 @@ module.exports = {
                 // Con desestructuración extraigo los datos del formulario
                 const { email, contrasenia, address } = req.body;
 
-                // Creo un objeto con los campos que voy a actualizar
+               /* // Creo un objeto con los campos que voy a actualizar
                 const datosActualizados = {
                     usr_email: email,
                     usr_password: contrasenia,
+                    usr_address: address
+                };*/
+
+                // Si se cambia la contraseña, hashearla
+                let hashedPassword = null;
+                if (contrasenia) {
+                hashedPassword = await bcrypt.hash(contrasenia, 10);
+                }
+
+                 // Creo un objeto con los campos que voy a actualizar
+                const datosActualizados = {
+                    usr_email: email,
+                    usr_password: hashedPassword, // null si no se proporciona una nueva contraseña
                     usr_address: address
                 };
 
