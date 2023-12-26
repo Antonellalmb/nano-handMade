@@ -41,6 +41,30 @@ body {
   height: 45px!important;
 }
 
+#admin-nav-manu {
+  position: relative;;
+  background-color: #fff;
+  transition: all .5s;
+}
+
+.invisible {
+  z-index: -1;
+  top: -160px;
+}
+
+.visible {
+  z-index: 10;
+  top: 7px;
+}
+
+
+#logo-burguer {
+  font-size: 40px;
+}
+
+#logo-burguer:hover {
+  cursor: pointer;
+}
 
 a.navbar-brand {
   margin: 0!important;
