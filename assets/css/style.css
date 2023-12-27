@@ -2663,8 +2663,18 @@ ul.download li a img {
   align-items: center;
   margin: 10px;
   /* background-color: #faefe7; */
-  background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
+  background-image: url("../images/papier-textur-hintergrund-beige.jpg");  
+  box-shadow: 6px 6px 10px #6a422d;
 }
+
+.imageContainer {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1/1;
+  justify-items: center;
+  align-items: center;
+}
+
 
 .productInfoView {
   width: 30%;
@@ -2674,6 +2684,7 @@ ul.download li a img {
   margin: 10px;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
+  box-shadow: 6px 6px 10px #6a422d;
 }
 
 #divSeleccion p {
@@ -2724,7 +2735,7 @@ ul.download li a img {
   font-size: 14px;
   color: #000;
   text-align: center;
-  margin: 0 10px;
+  margin: 7px 10px 0 10px;
 }
 
 .productInfoView p {
@@ -2751,6 +2762,11 @@ ul.download li a img {
   width: 75%;
 }
 
+div.imageContainer a {
+  width: 100%;
+  text-align: center;
+}
+
 .productInfoView div {
   align-self: center;
   width: 75%;
@@ -2772,10 +2788,23 @@ ul.download li a img {
 }
 
 .productoImage {
+  width: 95%;
+  aspect-ratio: 1/1;
+  justify-self: center;
+  align-self: center;
+  box-shadow: 5px 5px 10px #6a422d; 
+}
+
+.productoImageSelected {
   width: 100%;
   aspect-ratio: 1/1;
+  justify-self: center;
   align-self: center;
-  margin-bottom: 7px;
+  box-shadow: 5px 5px 10px #6a422d; 
+}
+
+.productoImage:hover {
+  width: 100%; 
 }
 
 .imagesProduct{
