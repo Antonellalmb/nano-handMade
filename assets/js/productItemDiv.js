@@ -16,6 +16,7 @@ function ready() {
         <div class="productInfoView">
             <h4>${productItem.name}</h4>
             <div id="divImage"></div>
+            <br>
             <p>${productItem.description}</p>
             <br>
             <p id="clickText">Clique na imagem para mostrar<p>
@@ -94,5 +95,5 @@ function ready() {
 // Función para cargar la imágen principal
 function showProduct(photoSelected) {
     let divDisplay = document.getElementById('divImage');
-    divDisplay.innerHTML = `<img class="productoImage" src="${photoSelected}">`;
+    divDisplay.innerHTML = `<img class="productoImageSelected" src="${photoSelected}">`;
 }

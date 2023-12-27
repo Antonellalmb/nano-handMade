@@ -13,7 +13,6 @@
           -->
            <a class="navbar-brand" href="/"><img class="navbar-logo" src="/images/logo_nano.png" alt="" ></a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-menues">
           <div class="collapse navbar-collapse" id="navigation-nav">
@@ -24,9 +23,16 @@
               <li><a href="/#team-section">Coleções</a></li>
               <li><a href="/#screenshots-section">Nós</a></li>
               <li><a href="/#footer-section">Contact</a></li>
-              <li><a href="/user/login"><i class="fa-regular fa-user icon-set" ></i></a></li>
+              <% if (locals.userLogged == undefined) { %>
+                <li><a href="/user/login"><i class="fa-regular fa-user icon-set" ></i></a></li>
+              <%} else { %>
+                <li><a href="/user/perfil">Perfil</a></li>
+              <%}%>
               <li><a href="#"><i class="fa-solid fa-bag-shopping icon-set"></i></a></li>
-              <li><a href="/user/perfil">Perfil</a></li>
+              <% if (locals.userLogged != undefined) { %>
+                <li><a href="/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+              <%}%>
+              
             </ul>
           </div>
 
@@ -35,7 +41,18 @@
             <% if(locals.isLogged && locals.userLogged.category_id == 1) {%>
               <!-- Menú hambuerguesa para desplegar o esconder el nav del administrador -->
               <div class="collapse navbar-collapse" id="burger-menu">
-                <i id="logo-burguer" class="fas fa-bars"></i>
+                <div id="logo-burguer">
+                  <!-- Menú hamburguesa con flecha para abajo para idicar que baje el menú -->
+                  <div id="down-burguer" class="visible-burguer">
+                    <i class="fas fa-bars"></i>
+                    <i class="fa-solid fa-arrow-down-long"></i>
+                  </div> 
+                  <!-- Menú hamburguesa con flecha para arriba para idicar que se oculte el menú -->
+                  <div id="up-burguer" class="invisible-burguer">
+                    <i class="fas fa-bars"></i>
+                    <i class="fa-solid fa-arrow-up-long"></i>
+                  </div>
+                </div>
               </div>
               <!-- Nav del administrador, inicialmente está invisible -->
               <div class="collapse navbar-collapse invisible" id="admin-nav-manu">

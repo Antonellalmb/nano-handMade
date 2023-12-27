@@ -8,8 +8,14 @@ else {
 function ready() {
     let burguerMenu = document.getElementById('logo-burguer')
     let navAdminDiv = document.getElementById('admin-nav-manu')
+    let downBurguer = document.getElementById('down-burguer')
+    let upBurguer = document.getElementById('up-burguer')
     burguerMenu.addEventListener('click' , () => { 
         navAdminDiv.classList.toggle("visible");
         navAdminDiv.classList.toggle("invisible");
+        downBurguer.classList.toggle('visible-burguer');
+        downBurguer.classList.toggle('invisible-burguer');
+        upBurguer.classList.toggle('invisible-burguer');
+        upBurguer.classList.toggle('visible-burguer');
     })
 }
