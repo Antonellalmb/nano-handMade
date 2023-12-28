@@ -87,6 +87,12 @@ function ready() {
             Adicionar ao carrinho</button>
             `
     })
+
+    
+
+
+
+
     console.log(productItem.Characteristics[selectOptions.value].prize)
  
     console.log(selectOptions.value)

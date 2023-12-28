@@ -12,6 +12,20 @@
      <!-- End Navbar -->
   <main class="mainProducts">
     <% //console.log(productTable)%>
+    <section class="filterProducts">
+      <a href="/product/products"><button type="button" class="collectionSelect">Todos os produtos</button></a>
+      <a href="/product/products/mar"><button type="button" class="collectionSelect">Coleção Mar</button></a>
+      <a href="/product/products/terra"><button type="button" class="collectionSelect">Coleção Terra</button></a>
+      <a href="/product/products/luminarias"><button type="button" class="collectionSelect">Decoração e Luminárias</button></a>
+      <div>
+        <input id="searchProducts" type="text" name="searchText" placeholder="Texto para pesquisar">
+        <div id="searchIcon">
+          <i class="fa-solid fa-magnifying-glass icon"></i>
+        </div>
+      </div>
+      
+
+    </section>
     <div id="productDiv"></div>
     <div id="initialData"
         data-products="<%= JSON.stringify(productTable) %>"

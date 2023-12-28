@@ -2634,7 +2634,7 @@ ul.download li a img {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 95%;
-  margin: 40px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
   background-color: #baa18e;
   font-size: 17px;
   font-weight: 700;
@@ -2655,6 +2655,47 @@ ul.download li a img {
   font-size: 20px;
 }
 
+.filterProducts {
+  margin-top: 50px;
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collectionSelect {
+  width: 165px;
+}
+
+.collectionSelect:hover {
+  background-color: #84563d;
+  color: #efddd0;
+}
+
+.filterProducts div {
+  display: inline-flex;
+  width: 165px;
+  height: 40px;
+}
+
+.filterProducts div input {
+  height: 30px;
+  padding: 0 0 0 4px;
+  margin: 0;
+  border-radius: 0;
+}
+
+div#searchIcon {
+  width: 30px;
+  height: 30px;
+  aspect-ratio: 1/1;
+  margin-left: -30px;
+}
+
+.icon {
+  font-size: 16px;
+  margin-left: 7px;
+  margin-top: 7px;
+}
 
 .productInfo {
   width: 22%;
@@ -2788,7 +2829,7 @@ div.imageContainer a {
 }
 
 .productoImage {
-  width: 95%;
+  width: 99%;
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;

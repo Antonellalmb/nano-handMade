@@ -6,6 +6,14 @@ else {
 }
 
 function ready() {
+    let searchText = document.getElementById('searchProducts');
+    let searchData = document.getElementById('searchIcon');
+    searchData.addEventListener("click" , ()=> {
+    //    console.log(searchText.value)
+        // Redirige a la ruta "/product/search" y agrega el valor de searchText como parámetro
+        window.location.href = "/product/products/search?query=" + searchText.value;
+    })
+
     let divProductos = document.getElementById('productDiv')
     var initialDataElement = document.getElementById('initialData');
     var productItems = JSON.parse(initialDataElement.getAttribute('data-products'));
