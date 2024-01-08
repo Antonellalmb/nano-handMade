@@ -14,6 +14,9 @@ function ready() {
         // Acá paso la estructura html al div de Id 'productDivView'
         divProducto.innerHTML += `
         <div class="productInfoView">
+            <div class="divPin">
+                <img class="pinImage" src="/images/Alfiler.png">
+            </div>
             <h4>${productItem.name}</h4>
             <div id="divImage"></div>
             <br>
@@ -24,6 +27,9 @@ function ready() {
             <a href="/product/products">Voltar aos produtos</a>
         </div>
         <div id="divSeleccion" class="productInfoView">
+            <div class="divPin">
+                <img class="pinImage" src="/images/Alfiler.png">
+            </div>
             <p>Selecione</p>
             <select id="optionsProduct">
                 <option required>- Escolher -</option>
@@ -87,6 +93,12 @@ function ready() {
             Adicionar ao carrinho</button>
             `
     })
+
+    
+
+
+
+
     console.log(productItem.Characteristics[selectOptions.value].prize)
  
     console.log(selectOptions.value)

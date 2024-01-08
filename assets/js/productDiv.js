@@ -6,6 +6,14 @@ else {
 }
 
 function ready() {
+    let searchText = document.getElementById('searchProducts');
+    let searchData = document.getElementById('searchIcon');
+    searchData.addEventListener("click" , ()=> {
+    //    console.log(searchText.value)
+        // Redirige a la ruta "/product/search" y agrega el valor de searchText como parámetro
+        window.location.href = "/product/products/search?query=" + searchText.value;
+    })
+
     let divProductos = document.getElementById('productDiv')
     var initialDataElement = document.getElementById('initialData');
     var productItems = JSON.parse(initialDataElement.getAttribute('data-products'));
@@ -22,19 +30,25 @@ function ready() {
                 console.log(productItems[i].productPhoto[0].product_image)
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPin">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <h4>${productItems[i].name}</h4>
                     <div class="imageContainer">
                         <a href="/product/product/${productItems[i].id}"><img class="productoImage" src="${productItems[i].productPhoto[0].product_image}"></a>
                     </div>
-                    <p>$ ${productItems[i].Characteristics[0].price}</p>
+            <!--        <p>$ ${productItems[i].Characteristics[0].price}</p>     -->
                     <p>${productItems[i].description}</p>
                 </div>`
             } else {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPin">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <h4>${productItems[i].name}</h4>
                     <br>
-                    <p>$ ${productItems[i].Characteristics[0].price}</p>
+            <!--        <p>$ ${productItems[i].Characteristics[0].price}</p>     -->
                     <p>${productItems[i].description}</p>
                 </div>`
 
@@ -44,6 +58,9 @@ function ready() {
             if(productItems[i].productPhoto.length != 0 ) {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPin">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <h4>${productItems[i].name}</h4>
                     <a href="#"><img class="productoImage" src="${productItems[i].productPhoto[0].product_image}"></a>
                     <br>
@@ -54,6 +71,9 @@ function ready() {
             } else {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPin">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <h4>${productItems[i].name}</h4>
                     <br>
                     <br>

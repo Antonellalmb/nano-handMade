@@ -10,6 +10,10 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 
 // Products views **************************************************************
 router.get('/products', controller.products);
+router.get('/products/mar', controller.productsMar);
+router.get('/products/terra', controller.productsTerra);
+router.get('/products/luminarias', controller.productsLuminarias);
+router.get('/products/search', controller.productsSearch);
 router.get('/product/:id', controller.product);
 
 // *****************************************************************************

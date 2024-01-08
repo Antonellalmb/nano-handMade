@@ -2634,7 +2634,7 @@ ul.download li a img {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 95%;
-  margin: 40px 20px 20px 20px;
+  margin: 20px 20px 20px 20px;
   background-color: #baa18e;
   font-size: 17px;
   font-weight: 700;
@@ -2655,6 +2655,57 @@ ul.download li a img {
   font-size: 20px;
 }
 
+.filterProducts {
+  margin-top: 50px;
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collectionSelect {
+  width: 165px;
+}
+
+.collectionSelect:hover {
+  background-color: #84563d;
+  color: #efddd0;
+}
+
+.filterProducts div {
+  display: inline-flex;
+  width: 165px;
+  height: 40px;
+}
+
+.filterProducts div input {
+  height: 30px;
+  padding: 0 0 0 4px;
+  margin: 0;
+  border-radius: 0;
+  border-width: 0.5px;
+  border-style: outset;
+  border-color: #888;
+}
+
+div#searchIcon {
+  width: 30px;
+  height: 30px;
+  aspect-ratio: 1/1;
+  margin-left: -30px;
+}
+
+.icon {
+  font-size: 16px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-right: 7px;
+  color: #fc6e51;
+}
+
+.icon:hover {
+  background-color: #84563d;
+  color: #efddd0;
+}
 
 .productInfo {
   width: 22%;
@@ -2664,7 +2715,19 @@ ul.download li a img {
   margin: 10px;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");  
-  box-shadow: 6px 6px 10px #6a422d;
+  box-shadow: -6px 6px 10px #6a422d;
+  position: relative;
+}
+
+.divPin {
+  position: absolute;
+  left: 83%;
+  top: 1%;
+}
+
+.pinImage {
+  position: absolute;
+  width: 20%;
 }
 
 .imageContainer {
@@ -2684,7 +2747,8 @@ ul.download li a img {
   margin: 10px;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
-  box-shadow: 6px 6px 10px #6a422d;
+  box-shadow: -6px 6px 10px #6a422d;
+  position: relative;
 }
 
 #divSeleccion p {
@@ -2788,11 +2852,11 @@ div.imageContainer a {
 }
 
 .productoImage {
-  width: 95%;
+  width: 98.5%;
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;
-  box-shadow: 5px 5px 10px #6a422d; 
+  box-shadow: -5px 5px 10px #6a422d; 
 }
 
 .productoImageSelected {
@@ -2800,7 +2864,7 @@ div.imageContainer a {
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;
-  box-shadow: 5px 5px 10px #6a422d; 
+  box-shadow: -5px 5px 10px #6a422d; 
 }
 
 .productoImage:hover {

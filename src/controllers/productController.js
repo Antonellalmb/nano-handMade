@@ -61,6 +61,209 @@ module.exports = {
         }
     },
 
+    productsMar : async (req, res) => {
+        console.log("entraste a productos filtro colección Mar" );
+        try {
+            const collectionId = await Collections.findAll({where:{name:"Mar"}})
+            const productTable = await Products.findAll(
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
+                ],
+                where: {collection_id: collectionId[0].id }
+                }
+            )
+        //        return res.send(productTable)
+            return res.render('./products/products' , { productTable : productTable});
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    productsTerra : async (req, res) => {
+        console.log("entraste a productos filtro colección Terra" );
+        try {
+            const collectionId = await Collections.findAll({where:{name:"Terra"}})
+            const productTable = await Products.findAll(
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
+                ],
+                where: {collection_id: collectionId[0].id }
+                }
+            )
+        //        return res.send(productTable)
+            return res.render('./products/products' , { productTable : productTable});
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    productsLuminarias : async (req, res) => {
+        console.log("entraste a productos filtro Luminarias y Decoración" );
+        try {
+            const collectionId = await Collections.findAll({where:{name:"Luminarias"}})
+            const productTable = await Products.findAll(
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
+                ],
+                where: {collection_id: collectionId[0].id }
+                }
+            )
+        //        return res.send(productTable)
+            return res.render('./products/products' , { productTable : productTable});
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    productsSearch : async (req, res) => {
+        console.log("entraste a productos por buscador" );
+        try {
+            console.log(req.query.query)
+            const productTable = await Products.findAll(
+                {   attributes: ['id' , 'name' , 'description' , 'collection_id' , 'discount_id'] , 
+                    include:[
+                        {association: 'productDiscount',
+                        attributes: ['id' , 'discount_code' , 'discount']} , 
+                        {association: 'productCollection',
+                        attributes: ['name' , 'description']} , 
+                        {association: 'productPhoto',
+                        attributes: ['product_id' , 'product_image']}, 
+                        
+                        {model: Characteristics,
+                            //as: 'productCharacteristic',
+                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                        
+                            include: [
+                                {
+                                    association: 'characteristicDiscount',
+                                    attributes: ['id' , 'discount_code' , 'discount']},
+                                {
+                                    model: Colors,
+                                    //as: 'color',
+                                    attributes: ['name', 'description']
+                                },
+                                {
+                                    model: Sizes,
+                                    //as: 'size',
+                                    attributes: ['name', 'description']
+                                },
+                                {association: 'characteristicDiscount',
+                                attributes: ['id' , 'discount_code' , 'discount']} 
+                            ]
+                        }
+                ],
+                where: {
+                    [Op.or]: [
+                        {
+                            name: {
+                                [Op.like]: `%${req.query.query}%`
+                            }
+                        },
+                        {
+                            description: {
+                                [Op.like]: `%${req.query.query}%`
+                            }
+                        }
+                    ]
+                }
+
+                
+                }
+            )
+        //        return res.send(productTable)
+            return res.render('./products/products' , { productTable : productTable});
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     product : async (req, res) => {
         console.log("entraste a producto" , req.params.id );
         try {
