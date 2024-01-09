@@ -103,7 +103,7 @@ function add(id) {
     console.log("aumentar" , id)
     const updatedChart = chart.map(item => {
         if (item.id == id && item.productQuantity < item.productStock) {
-            // Si el id coincide y la cantidad es mayor que 1, reducir en 1
+            // Si el id coincide y la cantidad es menor que el stock, aumentar en 1
             return { ...item, productQuantity: item.productQuantity + 1 };
         }
         return item; // para otros elementos, devolver sin cambios
