@@ -30,6 +30,9 @@ function ready() {
                 console.log(productItems[i].productPhoto[0].product_image)
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPinLeft">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <div class="divPin">
                         <img class="pinImage" src="/images/Alfiler.png">
                     </div>
@@ -43,6 +46,9 @@ function ready() {
             } else {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPinLeft">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <div class="divPin">
                         <img class="pinImage" src="/images/Alfiler.png">
                     </div>
@@ -58,6 +64,9 @@ function ready() {
             if(productItems[i].productPhoto.length != 0 ) {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPinLeft">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <div class="divPin">
                         <img class="pinImage" src="/images/Alfiler.png">
                     </div>
@@ -71,6 +80,9 @@ function ready() {
             } else {
                 divProductos.innerHTML += `
                 <div class="productInfo">
+                    <div class="divPinLeft">
+                        <img class="pinImage" src="/images/Alfiler.png">
+                    </div>
                     <div class="divPin">
                         <img class="pinImage" src="/images/Alfiler.png">
                     </div>

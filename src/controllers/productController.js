@@ -308,6 +308,14 @@ module.exports = {
         }
     },
 
+// *********************************    
+// Chart  Controllers
+// *********************************    
+    chart : (req,res) => {
+        return res.render('./products/chart')
+    },
+
+
 
 
 // *********************************    
