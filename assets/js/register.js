@@ -144,12 +144,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Mostrar errores generales
-        if (errores.length > 0) {
+        /*if (errores.length > 0) {
             errores.innerHTML = '';
             errores.forEach(error => {
                 errores.innerHTML += `<p class="errorDatos">${error}</p>`;
             });
         } else {
+            errores.innerHTML = '';*/
+        console.log(errores)
+        if (errores.length == 0){
             errores.innerHTML = '';
 
             Swal.fire({
@@ -163,3 +166,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+

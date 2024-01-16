@@ -13,9 +13,16 @@
   <main class="mainProductView">
     <% //console.log(productTable)%>
     <div id="productDivView"></div>
+
+    <!-- Pasamos el endPoint de la API por medio de el atributo api-data -->  
+    <% console.log(apiEndPoint)%>
+    <div id="apiData" api-data="<%= apiEndPoint%>"></div>
+
+  <!-- Código para usar sin APIs  
     <div id="initialData"
-        data-product="<%= JSON.stringify(productItem) %>"
+        data-product="<%= //JSON.stringify(productItem) %>"
     ></div>
+  -->  
 
   </main>      
      <!-- Footer
@@ -46,6 +53,6 @@
   <script src="/js/jquery.gmaps.js"></script>
   <script src="/js/main.js"></script> 
   <script src="/js/productItemDiv.js"></script>  
-  <script src="/js/addChart.js"></script>
+<!--  <script src="/js/addChart.js"></script>  -->
 </body>
 </html>

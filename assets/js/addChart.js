@@ -18,6 +18,7 @@ function ready() {
 
 
 function addItem() {
+    console.log("hizo click en agregar a carrito")
     // Leo en el localStorage el contenido del "carrito" 
     let chart = JSON.parse(localStorage.getItem('chart'));
     // Utilizo une regular expression para poder sacar de la url el id del artículo

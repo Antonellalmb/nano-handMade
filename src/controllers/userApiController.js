@@ -6,6 +6,7 @@ const Users = db.User;
 module.exports = {
     
     list: async (req , res) => {
+        //Inicializa un objeto response que contendrá datos sobre la respuesta de la API.
         const response = { data : {
             success : true,
             endPoint: '/api/user',
@@ -18,7 +19,9 @@ module.exports = {
             const data  = await Users.findAll({
             });
             console.log(data)
+            //Establece la propiedad count del objeto response.data con la longitud de la matriz de usuarios.
             response.data.count = data.length;
+            //Crea un nuevo array usuario mediante el mapeo de los usuarios obtenidos, seleccionando solo algunas propiedades específicas.
             const usuario = data.map(user => ({
                 id: user.id,
                 name: user.usr_name, 
@@ -26,9 +29,10 @@ module.exports = {
                 detail: `/api/user/${user.id}`,
              
             }));
-            response.data.data = usuario;
+            response.data.data = usuario;//Establece la propiedad data del objeto response.data con la matriz usuario.
             console.log(data)
-            return res.json(response);
+    
+            return res.json(response);//Devuelve la respuesta JSON que contiene los datos del objeto response.
 
         } catch (error) {
             response.data.success = false;
