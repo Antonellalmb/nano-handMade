@@ -14,6 +14,9 @@ function ready() {
         // Acá paso la estructura html al div de Id 'productDivView'
         divProducto.innerHTML += `
         <div class="productInfoView">
+            <div class="divPinLeft">
+                <img class="pinImage" src="/images/Alfiler.png">
+            </div>
             <div class="divPin">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
@@ -27,6 +30,9 @@ function ready() {
             <a href="/product/products">Voltar aos produtos</a>
         </div>
         <div id="divSeleccion" class="productInfoView">
+            <div class="divPinLeft">
+                <img class="pinImage" src="/images/Alfiler.png">
+            </div>
             <div class="divPin">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
@@ -37,7 +43,23 @@ function ready() {
             <select id="optionQuantity">
                 <option required>- Selecione a quantidade -</option>
             </select>
-            <div id="summary"></div>            
+            <div id="divColorSelected">
+                <input type="hidden" id="colorSelected">
+            </div>
+            <div id="divSizeSelected">
+                <input type="hidden" id="sizeSelected">
+            </div>
+            <div id="divMaxQuantity">
+                <input type="hidden" id="maxQuantity">
+            </div>
+            <div id="summary">
+                <p class="summaryText">Precio unitario = $ </p>
+                <p class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ </p>
+            </div> 
+            <div id="sendBtn">
+                <button type="button" class="btnAddItem" id="btnAddToChart">
+                Adicionar à sacola</button>
+            </div>
         </div>`;
     }
 
@@ -52,12 +74,12 @@ function ready() {
     selectedImg.forEach(img => {
         // LLamo a la función "showProduct" y muestro por imágen de array en la que se cliqueó
         img.addEventListener("click", function () {
-            showProduct(img.src); 
+            showProduct(img.src, productItem.productPhoto[0].product_image); 
         });
     });
 
     // LLamo a la función "showProduct" y muestro por defecto la primera imágen de array
-    showProduct(productItem.productPhoto[0].product_image);
+    showProduct(productItem.productPhoto[0].product_image , productItem.productPhoto[0].product_image);
     let summary = document.getElementById('summary');
 
     let selectOptions = document.getElementById('optionsProduct');
@@ -67,45 +89,47 @@ function ready() {
         
     };
 
+    let divColorSelected = document.getElementById('divColorSelected');
+    let divSizeSelected = document.getElementById('divSizeSelected');
+
 //    let quantityOption = document.getElementById('quantity');
+    let divMaxQuantity = document.getElementById('divMaxQuantity')
+    let maxQuantity = document.getElementById('maxQuantity')
     let selectQuantity = document.getElementById('optionQuantity');    
     selectOptions.addEventListener("change" , (event) => {
         event.preventDefault();
-        summary.innerHTML = ''
+//        summary.innerHTML = ''
         selectQuantity.innerHTML = '<option required>- Selecione a quantidade -</option>'
-        console.log(selectOptions.value)
-        console.log(productItem.Characteristics[selectOptions.value].stock)
+        console.log(selectOptions.value);
+        console.log(productItem.Characteristics[selectOptions.value]);
+        console.log(productItem.Characteristics[selectOptions.value].Color.description);
+        console.log(productItem.Characteristics[selectOptions.value].Size.description);
+        console.log(productItem.Characteristics[selectOptions.value].stock);
+
         for (let i = 1 ; i <= productItem.Characteristics[selectOptions.value].stock ; i++) {
             selectQuantity.innerHTML += `<option value ="${i}"> ${i}</option> `
         }
+        divMaxQuantity.innerHTML = `<input type="hidden" id="maxQuantity" value= '${productItem.Characteristics[selectOptions.value].stock}'>`;
+        divColorSelected.innerHTML = `<input type="hidden" id="colorSelected" value= '${productItem.Characteristics[selectOptions.value].Color.description}'>`;
+        divSizeSelected.innerHTML = `<input type="hidden" id="sizeSelected" value= '${productItem.Characteristics[selectOptions.value].Size.description}'>`;
+
     })
     selectQuantity.addEventListener("change" , (event) => {
         event.preventDefault();
         console.log(productItem.Characteristics[selectOptions.value])
         console.log(selectQuantity.value)
-
         summary.innerHTML = `<p class="summaryText">Precio unitario = $ ${productItem.Characteristics[selectOptions.value].price} </p>`
         summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ ${productItem.Characteristics[selectOptions.value].price * selectQuantity.value } </p>`
-        summary.innerHTML += `
-            <br>
-            <br>
-            <button type="button" class="btnAddItem">
-            Adicionar ao carrinho</button>
-            `
     })
-
     
-
-
-
-
-    console.log(productItem.Characteristics[selectOptions.value].prize)
- 
-    console.log(selectOptions.value)
 }
 
+
+
+
+
 // Función para cargar la imágen principal
-function showProduct(photoSelected) {
+function showProduct(photoSelected , photoPpal) {
     let divDisplay = document.getElementById('divImage');
-    divDisplay.innerHTML = `<img class="productoImageSelected" src="${photoSelected}">`;
+    divDisplay.innerHTML = `<img class="productoImageSelected" src="${photoSelected}" alt="${photoPpal}">`;
 }
