@@ -110,7 +110,22 @@
     margin: 15px;
     border: none;
   }
-  
+
+  /* Estilos para indicar validación  de frontend*/
+  .is-valid {
+    border-color: #28a745 !important; /* Borde verde para indicar validación correcta */
+  }
+
+  .is-invalid {
+    border-color: #dc3545 !important; /* Borde rojo para indicar validación incorrecta */
+  }
+
+
+  .errores {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+  }
 
 
   .botEnter {

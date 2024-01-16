@@ -26,19 +26,22 @@
             <input class="form-usu" type="text" name="name" value="<%= locals.oldData ? oldData.name : null %>" placeholder=" Nome completo">
             <% if(locals.errors && errors.name) { %>
                 <p class="errores"> <%= errors.name.msg %> </p>
-            <% } %>                    
+            <% } %>  
+                <p id="errorNombre" class="errorDatos"></p>                  
           </div>
           <div>
             <input class="form-usu" type="text" name="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder=" Email">
             <% if(locals.errors && errors.email) { %>
                 <p class="errores"> <%= errors.email.msg %> </p>
             <% } %>
+                <p id="errorEmail" class="errorDatos"></p>
           </div>
           <div>
             <input class="form-usu" type="text" name="address" value="<%= locals.oldData ? oldData.address : null %>" placeholder=" Endereço">
             <% if(locals.errors && errors.name) { %>
                 <p class="errores"> <%= errors.name.msg %> </p>
             <% } %>
+                <p id="errorDireccion" class="errorDatos"></p>
           </div> 
           <div>           
             <div class="input-container password">
@@ -46,19 +49,21 @@
               <% if(locals.errors && errors.contrasenia) { %>
                   <p class="errores"> <%= errors.contrasenia.msg %> </p>
               <% } %>
+              <p id="errorContrasenia" class="errorDatos"></p>
             </div>
             <div class="input-container password">
               <input class="form-usu" type="password" name="confirm-contrasenia" value="" placeholder=" Confirmar senha">
               <% if(locals.errors && errors.confirmContrasenia) { %>
                   <p class="errores"> <%= errors.confirmContrasenia.msg %> </p>
               <% } %>
+                  <p id="errorConfirmContrasenia" class="errorDatos"></p>
             </div>
           </div>
           <div class="erroresRegistro">
             <% if(locals.errors && errors.datosMal) { %>
                 <p class="errorDatos"> <%= errors.datosMal.msg %> </p>
                 <% } %>
-        </div>
+                </div>
           <div> 
             <a href="#"> <button id="botonSubmit" class="botEnter" type="submit">Cadastre-se</button> </a>
           </div>              
@@ -102,6 +107,8 @@
   <script src="/js/jquery.navbar-scroll.js"></script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="/js/jquery.gmaps.js"></script>
-  <script src="/js/main.js"></script>   
+  <script src="/js/main.js"></script>
+  <script src="/js/register.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </body>
 </html>
