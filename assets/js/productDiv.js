@@ -5,18 +5,36 @@ else {
     ready()
 }
 
-function ready() {
+// function ready() {
+
+// Al usar APIs como al usar await con elfetch a la API tengo que hacer la función ready asincróna
+async function ready() {
     let searchText = document.getElementById('searchProducts');
-    let searchData = document.getElementById('searchIcon');
-    searchData.addEventListener("click" , ()=> {
-    //    console.log(searchText.value)
+    let searchDataIcon = document.getElementById('searchIcon');
+    searchDataIcon.addEventListener("click" , ()=> {
         // Redirige a la ruta "/product/search" y agrega el valor de searchText como parámetro
         window.location.href = "/product/products/search?query=" + searchText.value;
     })
 
     let divProductos = document.getElementById('productDiv')
+
+    /* Líneas de código sin usar APIs --------------------------------------------------------
     var initialDataElement = document.getElementById('initialData');
     var productItems = JSON.parse(initialDataElement.getAttribute('data-products'));
+    */
+
+    // Las líneas anteriores comentadas, las reemplazo por las siguientes para usar APIs ------
+    // De la vista se recibe el endPoint de la API que vamos a utilizar  
+    // a traves del atributo api-data del div con id apiData
+    var initialDataApi = document.getElementById('apiData');
+    var apiEndPoint = initialDataApi.getAttribute('api-data');
+    console.log("End Point de la API") ;  
+    console.log(apiEndPoint)
+    const initialDataElement = await fetch(apiEndPoint);
+    const products = await initialDataElement.json();
+    var productItems = products.data.data
+    // ----------------------------------------------------------------------------------------
+
     console.log(productItems);
     console.log(productItems.length);
     for (let i = 0 ; i < productItems.length ; i++){

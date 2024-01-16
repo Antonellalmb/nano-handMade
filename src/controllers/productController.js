@@ -3,6 +3,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require('sequelize');
 const { isStringObject } = require('util/types');
+const { URL } = require('url');
 //const { validationResult } = require("express-validator");
 
 const Products = db.Product;
@@ -17,6 +18,14 @@ module.exports = {
 // *********************************    
 // Products views  Controllers
 // *********************************  
+
+    products : (req, res) => {
+        console.log("entraste a productos" );
+        
+            return res.render('./products/products', { apiEndPoint : '/api/product'});
+    },
+
+/*  products sin APIs --------------------------------------------------------------------------------------
     products : async (req, res) => {
         console.log("entraste a productos" );
         try {
@@ -60,7 +69,16 @@ module.exports = {
             console.log(error)
         }
     },
+---------------------------------------------------------------------------------------------------------------*/
 
+productsMar : (req, res) => {
+    console.log("entraste a productos filtro colección Mar" );
+    
+        return res.render('./products/products', { apiEndPoint : '/api/product/mar'});
+},
+
+
+/*  productsMar sin APIs --------------------------------------------------------------------------------------
     productsMar : async (req, res) => {
         console.log("entraste a productos filtro colección Mar" );
         try {
@@ -107,7 +125,16 @@ module.exports = {
             console.log(error)
         }
     },
+---------------------------------------------------------------------------------------------------------------*/
 
+productsTerra : (req, res) => {
+    console.log("entraste a productos filtro colección Terra" );
+    
+        return res.render('./products/products' , { apiEndPoint : '/api/product/terra'});
+},
+
+
+/*  productsTerra sin APIs --------------------------------------------------------------------------------------
     productsTerra : async (req, res) => {
         console.log("entraste a productos filtro colección Terra" );
         try {
@@ -154,7 +181,17 @@ module.exports = {
             console.log(error)
         }
     },
+---------------------------------------------------------------------------------------------------------------*/
 
+productsLuminarias : (req, res) => {
+    console.log("entraste a productos filtro Luminarias y Decoración" );
+    
+        return res.render('./products/products' , { apiEndPoint : '/api/product/luminarias'});
+    
+},
+
+
+/*  productsLuminarias sin APIs ----------------------------------------------------------------------------------
     productsLuminarias : async (req, res) => {
         console.log("entraste a productos filtro Luminarias y Decoración" );
         try {
@@ -201,7 +238,19 @@ module.exports = {
             console.log(error)
         }
     },
+---------------------------------------------------------------------------------------------------------------*/
 
+productsSearch : (req, res) => {
+    console.log("entraste a productos por buscador" );
+    let searchData = req.query.query ;
+    console.log(searchData);
+    let apiEndPoint = `/api/product/search?query=${req.query.query}`
+    console.log(apiEndPoint);
+
+    return res.render('./products/products' , { apiEndPoint : apiEndPoint});    
+},
+
+/*  productsSearch sin APIs ----------------------------------------------------------------------------------
     productsSearch : async (req, res) => {
         console.log("entraste a productos por buscador" );
         try {
@@ -263,7 +312,17 @@ module.exports = {
             console.log(error)
         }
     },
+------------------------------------------------------------------------------------------------------------*/
 
+    product : (req, res) => {
+        console.log("entraste a producto" , req.params.id );
+        let urlApi = '/api/product/'+req.params.id ;
+            return res.render('./products/product' , { apiEndPoint : urlApi});
+    },
+
+
+
+/*  product sin APIs ----------------------------------------------------------------------------------
     product : async (req, res) => {
         console.log("entraste a producto" , req.params.id );
         try {
@@ -307,6 +366,8 @@ module.exports = {
             console.log(error)
         }
     },
+-----------------------------------------------------------------------------------------------------*/
+
 
 // *********************************    
 // Chart  Controllers

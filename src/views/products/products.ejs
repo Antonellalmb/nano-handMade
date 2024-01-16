@@ -26,10 +26,19 @@
       
 
     </section>
+
     <div id="productDiv"></div>
+
+  <!-- Pasamos el endPoint de la API por medio de el atributo api-data -->  
+    <% console.log(apiEndPoint)%>
+    
+    <div id="apiData" api-data="<%= apiEndPoint%>"></div>  
+
+  <!-- Código para usar sin APIs
     <div id="initialData"
-        data-products="<%= JSON.stringify(productTable) %>"
+        data-products="<%=// JSON.stringify(productTable) %>"
     ></div>
+  -->
 
   </main>      
      <!-- Footer

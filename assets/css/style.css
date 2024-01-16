@@ -2886,6 +2886,16 @@ div.imageContainer a {
   width: 90%;
 }
 
+.productInfoView #chartItems h2 {
+  text-align: center;
+}
+
+.productInfoView #chartItems h3 {
+  text-align: center;
+}
+
+
+
 .productInfoView #chartItems #chartItem{
   display: flex;
   flex-direction: column;
@@ -3019,7 +3029,7 @@ div.imageContainer a {
 }
 
 #chartData #chartSummary .emptyChart {
-  width: 60%; 
+  width: 70%; 
   justify-self: center;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -3031,6 +3041,10 @@ div.imageContainer a {
   font-size: 12px;
   height: 35px;
   border-radius: 6px;
+}
+
+#chartData #chartSummary .emptyChart .buttonEmpty i {
+  font-size: 15px;
 }
 
 #chartData #chartSummary .emptyChart .buttonEmpty:hover {
