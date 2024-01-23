@@ -84,4 +84,11 @@ router.delete('/discount/delete/:id', adminMiddleware, controller.destroyItemDis
 router.get('/discount/restore/:id', adminMiddleware, controller.restoreItemDiscount);
 // *****************************************************************************
 
+// Characteristic's Table ************************************************************
+router.get('/characteristic/delete/:id', adminMiddleware, controller.deleteItemCharacteristic);
+router.delete('/characteristic/delete/:id', adminMiddleware, controller.destroyItemCharacteristic);
+//router.get('/discount/restore/:id', adminMiddleware, controller.restoreItemDiscount);
+// *****************************************************************************
+
+
 module.exports = router;

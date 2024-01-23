@@ -549,7 +549,7 @@ productsSearch : (req, res) => {
                         {
                             model: Characteristics,
                             //as: 'productCharacteristic',
-                            attributes: ['stock', 'price', 'details', 'color_id', 'size_id','discount_id'],
+                            attributes: ['id' , 'stock', 'price', 'details', 'color_id', 'size_id','discount_id'],
                             include: [
                                 {
                                     association: 'characteristicDiscount',
@@ -1358,7 +1358,41 @@ productsSearch : (req, res) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    }, 
+
+    deleteItemCharacteristic : async (req , res) => {
+        console.log("Entraste de delete de item de características: " , req.params.id);
+        try {
+            const deleteItemCharacteristic = await Characteristics.findByPk(req.params.id , {
+                include:[
+                    {model: Products,
+                    attributes: ['name' , 'description']},
+                    {model: Colors,
+                        attributes: ['name']},
+                    {model: Sizes,
+                        attributes: ['name']},
+                ]
+            });
+            // *****************************************************************************************
+            // Le pasa a la vista characteristicItemDelete.ejs la información para verificarla 
+            // antes de borrar.
+            // *****************************************************************************************
+            console.log(deleteItemCharacteristic);
+            return res.render('./products/characteristicItemDelete' , {deleteItemCharacteristic : deleteItemCharacteristic})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    destroyItemCharacteristic : async (req , res) => {
+        console.log("Entraste a destroy de item de caractericticas: " , req.params.id);
+        try {
+            await Characteristics.destroy({where: { id: req.params.id}})
+            return res.redirect('/product/productItemsTable');
+        } catch (error) {
+            console.log(error);
+        }
+    } 
 
 
     

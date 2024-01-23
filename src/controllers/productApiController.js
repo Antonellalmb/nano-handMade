@@ -330,7 +330,7 @@ module.exports = {
                         
                         {model: Characteristics,
                             //as: 'productCharacteristic',
-                            attributes: ['stock', 'price', 'details', 'discount_id'],
+                            attributes: ['id', 'stock', 'price', 'details', 'discount_id'],
                         
                             include: [
                                 {

@@ -2878,6 +2878,7 @@ div.imageContainer a {
   justify-self: center;
   align-self: center;
   box-shadow: -5px 5px 10px #6a422d; 
+  transition: all .35s;
 }
 
 .productInfoView #chartItems {
@@ -3069,6 +3070,7 @@ div.imageContainer a {
 
 .productoImage:hover {
   width: 100%; 
+  box-shadow: -10px 10px 12px #6a422d;
 }
 
 .imagesProduct{
@@ -3077,7 +3079,6 @@ div.imageContainer a {
   flex-wrap: wrap;
   justify-content: center;
   padding: 0 0 10px 0;
-
 }
 
 .productImageSmall {
@@ -3131,6 +3132,11 @@ div.imageContainer a {
 
 .columnColor, .colorSize, .columnDiscount {
   width: 70px;
+}
+
+.columnDelete {
+  text-align: center;
+  width: 90px;
 }
 
 .columnPrize {
