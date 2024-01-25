@@ -61,6 +61,9 @@
     margin: 1.5em 0;
     font-size: 0.875rem;
   }
+  .copyRegister h2{
+    color: white;
+  }
 
   .rightRegister form {
     width: 328px;
@@ -96,7 +99,7 @@
 
   p.error {
     font-size: 14px;
-    color: #f19307;
+    color: #f17407;
     text-align: center;
     padding: 0;
     margin-bottom: 15px;

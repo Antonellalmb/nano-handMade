@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!contraseniaValida) {
             errores.push("error contrasenia");
-            errorContrasenia.innerText = "A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um símbolo.";
+            errorContrasenia.innerText = "As senhas devem ter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um símbolo.";
             contraseniaInput.classList.add('is-invalid');
             contraseniaInput.classList.remove('is-valid');
         } else {
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
             errores.innerHTML = '';
 
             Swal.fire({
-                title: 'Bienvenido',
+                title: 'Bem vindo',
                 text: 'Usuario registrado!',
                 icon: 'success',
                 confirmButtonText: 'OK'
