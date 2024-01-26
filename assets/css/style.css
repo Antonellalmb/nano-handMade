@@ -2999,7 +2999,7 @@ div.imageContainer a {
   flex-direction: column;
 }
 
-#chartData #chartSummary p {
+#chartData #chartSummary p.summaryCart {
   margin-top: 20px;
 }
 
@@ -3011,7 +3011,10 @@ div.imageContainer a {
 }
 
 div#wallet_container {  
-  width: 120%;
+  display: flex;
+
+  text-align: center;
+  width: 100%;
 }
 
 #chartData #chartSummary .continueButton {
@@ -3031,18 +3034,6 @@ div#wallet_container {
 #chartData #chartSummary .continueButton .buttonContinue:hover {
   background-color: #84563d;
   color: #efddd0;
-}
-
-button.svelte-16x6ay9 .text-container-1_5jSe.svelte-16x6ay9 {
-  top: 10% !important;
-}
-
-.wallet-label-container-2OnpcO.svelte-1b1h3kn { 
-  width: 100%;
-}
-
-#chartData #chartSummary p.white-23aWOC.svelte-1a1oxv8 {
-  margin-top: 5px;
 }
 
 #chartData #chartSummary .emptyChart {

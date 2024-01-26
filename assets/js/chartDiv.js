@@ -81,8 +81,8 @@ function showChart(chart) {
         console.log(totalQuantity)
         console.log(totalChart)
         divSummary.innerHTML += `
-        <p>Total de Itens: &nbsp &nbsp &nbsp &nbsp &nbsp ${totalQuantity} </p>
-        <p>Subtotal: &nbsp &nbsp &nbsp $R ${totalChart} </p>
+        <p class="summaryCart">Total de Itens: &nbsp &nbsp &nbsp &nbsp &nbsp ${totalQuantity} </p>
+        <p class="summaryCart">Subtotal: &nbsp &nbsp &nbsp $R ${totalChart} </p>
         <p class="commentSummary">O valor de entrega vai ser calculado nas próximas etapas</p>
         <div id="checkoutBtn" class="continueButton">
             <button class="buttonContinue">Continuar com a compra</button>
