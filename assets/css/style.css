@@ -3010,6 +3010,10 @@ div.imageContainer a {
   font-weight: 600;
 }
 
+div#wallet_container {  
+  width: 120%;
+}
+
 #chartData #chartSummary .continueButton {
   margin-top: 10px;
   width: 80%; 
@@ -3027,6 +3031,18 @@ div.imageContainer a {
 #chartData #chartSummary .continueButton .buttonContinue:hover {
   background-color: #84563d;
   color: #efddd0;
+}
+
+button.svelte-16x6ay9 .text-container-1_5jSe.svelte-16x6ay9 {
+  top: 10% !important;
+}
+
+.wallet-label-container-2OnpcO.svelte-1b1h3kn { 
+  width: 100%;
+}
+
+#chartData #chartSummary p.white-23aWOC.svelte-1a1oxv8 {
+  margin-top: 5px;
 }
 
 #chartData #chartSummary .emptyChart {
