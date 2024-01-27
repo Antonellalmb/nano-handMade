@@ -71,17 +71,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Confirmación de la contraseña
-        if (contraseniaInput.value !== confirmContraseniaInput.value) {
-            errores.push("error confirmacion contrasenia");
-            errorConfirmContrasenia.innerText = "As senhas não coincidem.";
+        if(confirmContraseniaInput.value == ""){
+            errorConfirmContrasenia.innerText = "Prencha o campo.";
             confirmContraseniaInput.classList.add('is-invalid');
             confirmContraseniaInput.classList.remove('is-valid');
-        } else {
+    
+        }else if(contraseniaInput.value !== confirmContraseniaInput.value){
+            errorConfirmContrasenia.innerText = "";
+            errorConfirmContrasenia.innerText = "As senhas não coincidem."; 
+        }else{
             errorConfirmContrasenia.innerText = "";
             confirmContraseniaInput.classList.remove('is-invalid');
             confirmContraseniaInput.classList.add('is-valid');
         }
 
+    
         // Validación del email
         function esValidoEmail(email) {
             const arroba = email.indexOf('@');

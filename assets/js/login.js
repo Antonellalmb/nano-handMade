@@ -50,7 +50,7 @@ window.onload = function () {
             console.log(emailExists);
             return emailExists;
         } catch (error) {
-            console.error('Error al validar el correo electrónico:', error);
+            console.log(error);
             return false;
         }
     }
@@ -130,7 +130,7 @@ window.onload = function () {
                         errorEmail.innerText = "";
                     }
                 } catch (error) {
-                    console.error('Error al validar el correo electrónico:', error);
+                    console.log(error);
                 }
             }
         }
@@ -175,8 +175,11 @@ window.onload = function () {
             console.log(emailExists);
             return emailExists;
         } else {
-            throw new Error('Error al validar el correo electrónico');
+            console.log(error)
         }
     }
 };
+
+
+
 
