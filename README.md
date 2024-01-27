@@ -59,7 +59,7 @@ Una vez que hayas completado la instalación, puedes ejecutar la aplicación loc
 npm start
 ```
 
-Abre tu navegador y visita [http://localhost:3000](http://localhost:3000) para ver Nano Handmade en acción.
+Abre tu navegador y visita [http://localhost:3004](http://localhost:3004) para ver Nano Handmade en acción.
 
 ## Contribuciones
 
