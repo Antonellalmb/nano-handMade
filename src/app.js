@@ -8,6 +8,7 @@ const mainRouter = require('./routes/mainRouter.js');
 const userRouter = require('./routes/userRouter.js');
 const productRouter = require('./routes/productRouter.js');
 const productApiRouter = require('./routes/productApiRouter.js');
+const userApiRouter = require('./routes/userApiRouter.js');
 
 
 const mercadoPagoRouter = require('./routes/mercadoPagoRouter.js')
