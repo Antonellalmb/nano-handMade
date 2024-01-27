@@ -79,6 +79,8 @@
                             <th class="column Stock input-tablas-stock">Etoque</th>
                             <th class="columnDiscount">Desconto</th>
                             <th class="columnDetail">Detalhes</th>
+                            th>
+                            <th class="columnDelete">Eliminar</th>
                         </tr>
                         <% //console.log(productItem.Characteristics[0]) %>
                         <% for(i = 1 ; i <= productItem.Characteristics.length ; i++) {%>
@@ -113,6 +115,9 @@
                                 </select></td>
                                 <td class="columnDetail">
                                     <textarea id="textareaTabla" class="form-tablas textarea-tablas" name="productDetail" placeholder="detalhes do produto"><%= productItem.Characteristics[i-1].details%></textarea>
+                                </td>
+                                <td class="columnDelete">
+                                    <a href="/product/characteristic/delete/<%= productItem.Characteristics[i -1].id%>"><spam><i class="fa-solid fa-trash"></i> Eliminar</spam></a>
                                 </td>
                             </tr>
                         <%}%>

@@ -6,38 +6,27 @@
             <div id="preloader">      
             <div id="loading-animation">&nbsp;</div>
             </div>
+        
             <!-- Navbar -->
             <%- include('../partials/header') %>
      <!-- End Navbar -->
-  <main class="mainChart">
-    <% //console.log(productTable)%>
-    <div id="chartDivView">
-      <div class="productInfoView">
-        <div class="divPinLeft">
-            <img class="pinImage" src="/images/Alfiler.png">
-        </div>
-        <div class="divPin">
-            <img class="pinImage" src="/images/Alfiler.png">
-        </div>
-        <h4>Sacola de compras</h4>
-        <div id="chartItems">
-          <div id="chartItem"></div>
-        </div>
-        <a href="/product/products">Voltar aos produtos</a>
-      </div>
-      <div id="chartData" class="productInfoView">
-        <div class="divPinLeft">
-            <img class="pinImage" src="/images/Alfiler.png">
-        </div>
-        <div class="divPin">
-            <img class="pinImage" src="/images/Alfiler.png">
-        </div>
-        <h4>Resumo do pedido</h4>
-        <div id="chartSummary"></div>
+    <main class="mainInput">
+        <div class="tableInput">
+            <form class="tables" action="/product/characteristic/delete/<%= deleteItemCharacteristic.id %>?_method=DELETE" method="post" >
+                <h4>Excluir produto: <em><%= deleteItemCharacteristic.Product.name%></em></h4>                
+                <div>
+                    <p>Tem certeza de que deseja excluir a produto  de cor <strong> <em>--  <%= deleteItemCharacteristic.Color.name%>  --</em></strong> e tamanho <strong>--  <%= deleteItemCharacteristic.Size.name%>  --</strong>?</p> 
+                </div>
+                <div class="button-div"> 
+                    <a> <button class="botEnterTablas tablasBoton" type="submit">Eliminar Produto</button> </a>
+                    <a class="linkEditar" href="/product/productItemsTable"> <button class="botEnterTablas" type="button">Ir a Tabela de Produtos</button>  </a>
+                </div>
+        </form>
     </div>
+        
+    </main>
 
-    </div>
-  </main>      
+     
      <!-- Footer
     ================================================== -->
     <%- include('../partials/footer') %> 
@@ -64,9 +53,6 @@
   <script src="/js/jquery.navbar-scroll.js"></script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="/js/jquery.gmaps.js"></script>
-  <script src="/js/main.js"></script> 
-  <script src="/js/chartDiv.js"></script>  
-  <script src="/js/mercadopago.js"></script>
-  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="/js/main.js"></script>   
 </body>
 </html>

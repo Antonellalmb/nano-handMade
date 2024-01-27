@@ -2878,6 +2878,7 @@ div.imageContainer a {
   justify-self: center;
   align-self: center;
   box-shadow: -5px 5px 10px #6a422d; 
+  transition: all .35s;
 }
 
 .productInfoView #chartItems {
@@ -2998,7 +2999,7 @@ div.imageContainer a {
   flex-direction: column;
 }
 
-#chartData #chartSummary p {
+#chartData #chartSummary p.summaryCart {
   margin-top: 20px;
 }
 
@@ -3007,6 +3008,13 @@ div.imageContainer a {
   margin-bottom: 20px;
   font-size: 12px;
   font-weight: 600;
+}
+
+div#wallet_container {  
+  display: flex;
+
+  text-align: center;
+  width: 100%;
 }
 
 #chartData #chartSummary .continueButton {
@@ -3069,6 +3077,7 @@ div.imageContainer a {
 
 .productoImage:hover {
   width: 100%; 
+  box-shadow: -10px 10px 12px #6a422d;
 }
 
 .imagesProduct{
@@ -3077,7 +3086,6 @@ div.imageContainer a {
   flex-wrap: wrap;
   justify-content: center;
   padding: 0 0 10px 0;
-
 }
 
 .productImageSmall {
@@ -3131,6 +3139,11 @@ div.imageContainer a {
 
 .columnColor, .colorSize, .columnDiscount {
   width: 70px;
+}
+
+.columnDelete {
+  text-align: center;
+  width: 90px;
 }
 
 .columnPrize {
