@@ -100,7 +100,8 @@ function showChart(chart) {
     //MERCADOPAGO //////////////////////////////////////////////////////////////////////////////
     // Add SDK credentials
     // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-    const mp = new MercadoPago('TEST-26191e0f-be78-4122-aef8-b49b17ff26d6', {
+    const mp = new MercadoPago('APP_USR-cb07f777-3ea2-42e3-9ee8-66926bef4999', {
+    //const mp = new MercadoPago('TEST-7eca5c92-51f1-41c4-9dff-3a044bd91009', {
         locale: "es-AR" // Los más comunes son: 'pt-BR', 'es-AR' and 'en-US'
     });
 
@@ -148,7 +149,7 @@ function createCheckoutButton(preferenceId) {
     //MERCADOPAGO //////////////////////////////////////////////////////////////////////////////
     // Add SDK credentials
     // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-    const mp = new MercadoPago('TEST-26191e0f-be78-4122-aef8-b49b17ff26d6', {
+    const mp = new MercadoPago('APP_USR-713bcef9-e6a7-4187-be1c-59c42cf39dc3', {
         locale: "es-AR" // Los más comunes son: 'pt-BR', 'es-AR' and 'en-US'
     });
     // los bricks son creados por MP para crear el botón de pago

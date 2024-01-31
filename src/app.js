@@ -3,6 +3,7 @@ const cors = require('cors') ;
 const mercadopago = require("mercadopago");
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 const port = 3004;
 const mainRouter = require('./routes/mainRouter.js');
 const userRouter = require('./routes/userRouter.js');
@@ -24,6 +25,8 @@ mercadopago.configure({
 });
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended:true}));
+app.use(bodyParser.json());
 app.use(express.static("./assets"));
 
 app.use(cookie());
