@@ -20,6 +20,7 @@ async function ready() {
     var apiEndPoint = initialDataApi.getAttribute('api-data');
     const initialDataElement = await fetch(apiEndPoint);
     const products = await initialDataElement.json();
+    console.log(products)
     var productItem = products.data.data;
     // ----------------------------------------------------------------------------------------
 
@@ -62,6 +63,9 @@ async function ready() {
             </div>
             <div id="divSizeSelected">
                 <input type="hidden" id="sizeSelected">
+            </div>
+            <div id="divCharacteristicSelected">
+                <input type="hidden" id="characteristicSelected">
             </div>
             <div id="divMaxQuantity">
                 <input type="hidden" id="maxQuantity">
@@ -125,8 +129,8 @@ async function ready() {
         }
         divMaxQuantity.innerHTML = `<input type="hidden" id="maxQuantity" value= '${productItem.Characteristics[selectOptions.value].stock}'>`;
         divColorSelected.innerHTML = `<input type="hidden" id="colorSelected" value= '${productItem.Characteristics[selectOptions.value].Color.description}'>`;
+        divCharacteristicSelected.innerHTML = `<input type="hidden" id="characteristicSelected" value= '${productItem.Characteristics[selectOptions.value].id}'>`
         divSizeSelected.innerHTML = `<input type="hidden" id="sizeSelected" value= '${productItem.Characteristics[selectOptions.value].Size.description}'>`;
-
     })
     selectQuantity.addEventListener("change" , (event) => {
         event.preventDefault();
@@ -171,6 +175,7 @@ function addItem() {
     let productSelection = document.querySelector('#optionsProduct').value;
     let colorSelected = document.querySelector('#colorSelected').value;
     let sizeSelected = document.querySelector('#sizeSelected').value;
+    let characteristicSelected = document.querySelector('#characteristicSelected').value;
     let productPrice = parseInt(document.querySelector('#summary p').innerText.replace('Precio unitario = $ ',''));
     // Guardo en variables la cantidad a agregar al carrito y el stock disponible
     let productQuantity = parseInt(document.querySelector('#optionQuantity').value);
@@ -184,6 +189,7 @@ function addItem() {
         productSelection: productSelection,
         productColor: colorSelected,
         productSize: sizeSelected,
+        productCharacteristic: characteristicSelected,
         productPrice: productPrice,
         productStock: maxQuantity
     }

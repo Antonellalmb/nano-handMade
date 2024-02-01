@@ -373,7 +373,8 @@ productsSearch : (req, res) => {
 // Chart  Controllers
 // *********************************    
     chart : (req,res) => {
-        return res.render('./products/chart')
+        let message = 'normal';
+        return res.render('./products/chart' , { message : message})
     },
 
 
