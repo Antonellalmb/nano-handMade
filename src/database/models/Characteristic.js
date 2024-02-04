@@ -60,8 +60,15 @@ module.exports = (sequelize, dataTypes) => {
             {
                 as: "characteristicDiscount",
                 foreignKey: "discount_id",
-            })
+            });
 
+        Characteristic.belongsToMany(models.Ticket,
+            {
+                as:"tickets",
+                through: "product-ticket",
+                foreignKey:"characteristic_id",
+                otherKey:"ticket_id"
+            })  
 
     }
 
