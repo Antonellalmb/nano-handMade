@@ -64,10 +64,12 @@ module.exports = (sequelize, dataTypes) => {
 
         Characteristic.belongsToMany(models.Ticket,
             {
-                as:"tickets",
-                through: "product-ticket",
+            //    as:"tickets",
+                through: "ProductTicket",
                 foreignKey:"characteristic_id",
                 otherKey:"ticket_id"
+            //    foreignKey:"ticket_id",
+            //    otherKey:"characteristic_id"
             })  
 
     }

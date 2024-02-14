@@ -18,17 +18,17 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
 
-        quantity: {
+        item_quantity: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false
         },
 
-        unit_price: {
+        item_unit_price: {
             type: dataTypes.DECIMAL(10,2),
             allowNull: false
         },
 
-        discount: {
+        item_discount: {
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: true
         }
@@ -39,9 +39,11 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         timestamps: true,
         freezeTableName: true,
-        tableName: 'Product-ticket',
+        tableName: 'product-tickets',
         paranoid: false,
-        createdAt: 'created_at'
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: 'deleted_at'
     }
     const ProductTicket = sequelize.define(alias,cols,config);
   

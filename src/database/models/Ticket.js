@@ -26,6 +26,21 @@ module.exports = (sequelize, dataTypes) => {
         total: {
             type: dataTypes.DECIMAL(12,2).UNSIGNED,
             allowNull: false
+        },
+
+        payment_order: {
+            type: dataTypes.BIGINT.UNSIGNED,
+            allowNull: true
+        },
+
+        payment_id: {
+            type: dataTypes.BIGINT.UNSIGNED,
+            allowNull: true
+        },
+
+        payer_id: {
+            type: dataTypes.BIGINT.UNSIGNED,
+            allowNull: true
         }
 
     };
@@ -35,7 +50,10 @@ module.exports = (sequelize, dataTypes) => {
         freezeTableName: true,
         tableName: 'tickets',
         paranoid: true,
-        createdAt: 'created_at'
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        deletedAt: 'deleted_at'
+
     }
     const Ticket = sequelize.define(alias,cols,config);
 
@@ -48,10 +66,12 @@ module.exports = (sequelize, dataTypes) => {
         
         Ticket.belongsToMany(models.Characteristic,
             {
-                as:"characteristics",
-                through: "product-ticket",
+            //    as:"characteristics",
+                through: "ProductTicket",
                 foreignKey:"ticket_id",
                 otherKey:"characteristic_id"
+            //    foreignKey:"characteristic_id",
+            //    otherKey:"ticket_id"
             })
 
     }
