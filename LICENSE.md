@@ -3,7 +3,7 @@
 Derechos de autor (c) [2024] [Gabriel Betelu] [Antonella Martinez]
 
 Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
-de este software y de los archivos de documentación asociados (el "Software"), para
+de este software y de los archivos de documentación asociados ("Nano Hand Made"), para
 negociar en el Software sin restricción, incluidos, entre otros, los derechos
 de uso, copia, modificación, fusión, publicación, distribución, sublicencia y/o
 venta de copias del Software, y a permitir a las personas a las que se les

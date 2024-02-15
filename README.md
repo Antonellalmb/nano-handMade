@@ -7,7 +7,7 @@ Bienvenido a Nano Handmade, tu tienda en línea para productos artesanales únic
 
 ## Descripción
 
-Nano Handmade es una plataforma de comercio electrónico que conecta a compradores con productos artesanales auténticos y hechos a mano. La aplicación proporciona a los usuarios una experiencia de compra personalizada y apoya a los artesanos locales.
+Nano Handmade es una plataforma de comercio electrónico que conecta a compradores con productos artesanales auténticos y hechos a mano. La página proporciona a los usuarios una experiencia de compra personalizada.
 
 ## Tecnologías Utilizadas
 
