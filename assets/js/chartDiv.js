@@ -6,7 +6,8 @@ if (document.readyState == "loading") {
 
 function ready() {
     // Primero verifico si el carrito existe y si no existe lo inicializo como un array vacío
-    if (localStorage.getItem('chart') == null) {
+    // O si después de una compra exitosa recibe el mensaje de "empty", se vacía el carrito
+    if (localStorage.getItem('chart') == null || message.attributes.message.nodeValue == "empty") {
         localStorage.setItem('chart', JSON.stringify([]))
     }
     let chart = JSON.parse(localStorage.getItem('chart'));
@@ -24,7 +25,7 @@ function ready() {
 function showChart(chart) {
     let divChart = document.getElementById('chartItem');
     let divSummary = document.getElementById('chartSummary');
-
+    
     // creo variable orderData que vamos a usar en MercadoPago
     let orderData = [];
 
@@ -69,6 +70,8 @@ function showChart(chart) {
             // En orderData vamos acumulando los objetos que tenemos en el carrito con la info
             // que necesitamos pasarle en las preferencias a MercadoPago
             orderData.push({
+                id: product.id,
+                idCharacteristic: product.productCharacteristic,
                 title: product.productName,
                 unit_price: product.productPrice,
                 quantity: product.productQuantity

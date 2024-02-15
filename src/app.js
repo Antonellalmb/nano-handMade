@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors') ;
 const mercadopago = require("mercadopago");
+// const http = require('http');   otrq forma de levantar el servidor
 const path = require('path');
 const app = express();
+// const server = http.createServer(app);   otrq forma de levantar el servidor
 const bodyParser = require('body-parser');
-const port = 3004;
+const port = process.env.PORT || 3004;
+// app.set('port' , process.env.PORT || 3004)   otrq forma de levantar el servidor
 const mainRouter = require('./routes/mainRouter.js');
 const userRouter = require('./routes/userRouter.js');
 const productRouter = require('./routes/productRouter.js');
@@ -53,6 +56,8 @@ app.set('view engine', 'ejs');
 
 app.listen(port, () => 
 console.log(`servidor corriendo en el puerto ${port}`));
+// server.listen(app.get('port'), () =>   otrq forma de levantar el servidor
+// console.log(`servidor corriendo en el puerto ` , app.get('port')));   otrq forma de levantar el servidor
 
 
 app.use(mainRouter);

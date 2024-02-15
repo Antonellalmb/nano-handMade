@@ -11,6 +11,10 @@
      <!-- End Navbar -->
   <main class="mainChart">
     <% //console.log(productTable)%>
+    <input type="hidden" message="<%= message%>" id="message"></input>
+    <% if (message == 'empty') { console.log('Vaciar carrito')} %>
+    <% if (message == 'normal') { console.log('Carrito Normal')} %>
+    
     <div id="chartDivView">
       <div class="productInfoView">
         <div class="divPinLeft">
@@ -66,7 +70,7 @@
   <script src="/js/jquery.gmaps.js"></script>
   <script src="/js/main.js"></script> 
   <script src="/js/chartDiv.js"></script>  
-  <script src="/js/mercadopago.js"></script>
+<!--  <script src="/js/mercadopago.js"></script> -->
   <script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>
