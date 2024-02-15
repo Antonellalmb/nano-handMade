@@ -12,6 +12,7 @@ const mainRouter = require('./routes/mainRouter.js');
 const userRouter = require('./routes/userRouter.js');
 const productRouter = require('./routes/productRouter.js');
 const productApiRouter = require('./routes/productApiRouter.js');
+const userApiRouter = require('./routes/userApiRouter.js');
 
 
 const mercadoPagoRouter = require('./routes/mercadoPagoRouter.js')
@@ -64,3 +65,4 @@ app.use(mercadoPagoRouter);
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/api/product', productApiRouter);
+app.use('/api/user', userApiRouter);

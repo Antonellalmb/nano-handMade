@@ -16,25 +16,27 @@
     <div class="mainLogin">
         <div class="left">
             <section class="copy">
-                <h2>Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
+                <h2 class="h2Perfil">Prontos para trazer a tranquilidade e a beleza do mar para o seu lar</h2>
             </section>
         </div>
         <div class="right">
-            <form class="login-form" action="/user/editarPerfil/<%=usuario.id%>?_method=PUT" method="POST">
+            <form class="edicion-form" action="/user/editarPerfil/<%=usuario.id%>?_method=PUT" method="POST">
                 <section class="copy">
                     <h2>Editar Perfil</h2>
                 </section>
                 <div class="login-container">
                     <div>
-                        <label for="email">Email:</label>
+                        <label class="labelPerfil" for="email">Email</label>
                         <input class="log-control" type="email" name="email" value="<%= usuario.usr_email %>" placeholder=" Email" required>
+                        <p id="errorEmail" class="error"></p>
                     </div>
                     <div class="input-container password">
-                        <label for="contrasenia">Nova Senha:</label>
+                        <label class="labelPerfil" for="contrasenia">Nova Senha</label>
                         <input class="log-control" type="password" name="contrasenia" placeholder=" Nova Senha">
+                        <p id="errorContrasenia" class="error"></p>
                     </div>
                     <div>
-                        <label for="direccion">Endereço:</label>
+                        <label class="labelPerfil" for="direccion">Endereço</label>
                         <input class="log-control" type="text" name="address" value="<%= usuario.usr_address %>" placeholder=" Endereço">
                     </div>
                 </div>
@@ -72,6 +74,8 @@
   <script src="/js/jquery.navbar-scroll.js"></script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="/js/jquery.gmaps.js"></script>
-  <script src="/js/main.js"></script>   
+  <script src="/js/main.js"></script> 
+  <script src="/js/edicionPerfil.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </body>
 </html>
