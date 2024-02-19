@@ -61,14 +61,14 @@ body {
   transition: all .5s;
   display: flex!important;
   border-top: none;
-  height: 180px;
+  height: 160px;
   width: 90px;
-  right: -15px;
+  right: -5px;
   visibility: unset;
 }
 
 #nav-menu ul {
-  padding: 5px 15px 0 15px;
+  padding: 5px 15px 0 5px;
   width: 110px;
 }
 
