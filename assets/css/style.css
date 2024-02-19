@@ -21,7 +21,7 @@ body {
 
 .container .navbar-menues {
   width: 80%;
-  height: 95px;
+  height: 80px;
   margin-left: 5%;
   justify-self: right;
 }
@@ -30,7 +30,7 @@ body {
 .navbar-header {
   width: 15%;
   height: fit-content;
-  padding: 5px;
+  /* padding: 5px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,11 @@ body {
 }
 
 #navigation-nav , #admin-nav {
-  height: 45px!important;
+  height: 40px!important;
+}
+
+.active-burger-div {
+  display: none;
 }
 
 #admin-nav-manu {
@@ -47,6 +51,45 @@ body {
 /*  border: dashed .5px #613f23; */
   box-shadow: -5px -2px 5px #895c44; 
   transition: all .5s;
+  /* height: unset!important; */
+}
+
+#nav-menu {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: -5px -2px 5px #895c44; 
+  transition: all .5s;
+  display: flex!important;
+  border-top: none;
+  height: 160px;
+  width: 90px;
+  right: -5px;
+  visibility: unset;
+}
+
+#nav-menu ul {
+  padding: 5px 15px 0 5px;
+  width: 110px;
+}
+
+.visible-menu {
+  display: contents;
+  z-index: 1;
+}
+
+.invisible-menu {
+  display: none;
+  z-index: -1;
+}
+
+.invisible-nav {
+  z-index: -1;
+  top: -350px;
+}
+
+.visible-nav {
+  z-index: 10;
+  top: 80px;
 }
 
 .invisible {
@@ -56,15 +99,34 @@ body {
 
 .visible {
   z-index: 10;
-  top: 12px;
+  top: 6px;
 }
 
+div#burger-menu {
+  padding-left: 0;
+}
 
 #logo-burguer {
-  font-size: 40px;
+  font-size: 35px;
+  width: 50px;
 }
 
+
 #logo-burguer:hover {
+  cursor: pointer;
+}
+
+#logo-burguer-menu {
+  padding-top: 10px;
+  font-size: 28px;
+  width: 50px;
+}
+
+#logo-burguer-menu div i.fa-solid.fa-arrow-down-long , #logo-burguer-menu div i.fa-solid.fa-arrow-up-long {
+  padding-left: 3px;
+}
+
+#logo-burguer-menu:hover {
   cursor: pointer;
 }
 
@@ -95,7 +157,8 @@ a.navbar-brand {
 .navbar-brand {
   width: 100px;
   height: fit-content;
-  padding: 5px;
+  /*padding: 5px; */
+  padding: 0;
   display: flex;
   align-self: center;
   justify-self: center;
@@ -401,7 +464,7 @@ p {
   margin-bottom: 0;
   position: absolute;
   top: 0;
-  border-bottom: 2px solid #f0f0f0;
+  /* border-bottom: 2px solid #f0f0f0; */
   display: flex;
   justify-content: center;
 }
@@ -3543,26 +3606,35 @@ p.copyright {
     padding-top: 40px;
   }
   .member-team .magnifier .magnifier-inner {
-   
     top: 5%;
     padding: 0 20px;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    font-size: 11.5px;
+    padding: 15px 10px;
   }
 
 }
 
 @media screen and (max-width: 992px) {
 
-  body {
+/*  body {
     padding-top: 55px;
-  }
+  } */
 
   .navbar .container {
-    width: 95%!important;
+    width: 95%;
+    height: 80px;
+  }
+
+  ul.nav.navbar-nav.navbar-right {
+    letter-spacing: .8px;
   }
 
   .navbar-default .navbar-nav > li > a {
-    font-size: 12px;
-    padding: 15px 10px;
+    font-size: 10px;
+    padding: 15px 10px 0 10px;
   }
 
   .entry-post {
@@ -3628,14 +3700,63 @@ p.copyright {
 
 @media screen and (max-width: 768px) {
 
-  .navbar .container {
-    width: auto;
+  nav.navbar.navbar-default.navbar-static-top {
+    width: 100%;
+    height: 40px;
+    justify-content: right;
   }
 
-  .navbar-default .navbar-nav > li > a {
-    font-size: 12px;
-    padding: 15px 10px;
+  div.collapse.navbar-collapse {
+    display: flex!important;
+    border-top: none;
+    height: 150px;
   }
+
+/*  ul {
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+  } */
+
+  ul.nav.navbar-nav.navbar-right {
+    margin: 15px 5px 0 0;
+    justify-content: center;
+    float: unset!important;
+    display: flex;
+  }
+  
+
+  .navbar-default .navbar-nav > li > a {
+    font-size: 10px;
+    padding: 0px 5px;
+  }
+
+  .navbar-header {
+    width: 25%;
+  }
+
+  .navbar-brand {
+    width: 85%;
+  }
+
+  
+#admin-nav-manu ul {
+  display: flex;
+  flex-direction: column;
+  width:120px;
+  height: 140px;
+}
+
+.invisible {
+  top: -360px;
+  left: -15px;
+}
+
+.visible {
+  z-index: 10;
+  top: 42px;
+  left: -15px;
+}
 
   .big-title-sec .view-more a {
     margin: 5px 0;
@@ -3712,6 +3833,9 @@ p.copyright {
 
 @media screen and (max-width: 640px) {
   
+  .navbar-default .navbar-nav > li > a {
+    font-size: 9px;
+  }
   h1, .h1 {
     font-size: 40px;
   }
@@ -3769,6 +3893,16 @@ p.copyright {
 @media screen and (max-width: 600px) {
   .formCategorias {
     width: 100%;
+  }
+
+  .active-burger-div {
+    display: flex;
+    justify-content: right;   
+    position: relative; 
+  }
+
+  div.navbar-collapse.active-menu-div {
+    display: none;
   }
 }
 
