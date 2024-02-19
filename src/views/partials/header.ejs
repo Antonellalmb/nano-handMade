@@ -15,7 +15,7 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-menues">
-          <div class="collapse navbar-collapse" id="navigation-nav">
+          <div class="navbar-collapse active-menu-div" id="navigation-nav">
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a class="section-scroll" href="/">Inicio</a></li>
               <li><a href="/#landing-offer">Ateliê</a></li>
@@ -35,6 +35,53 @@
               <%}%>
               
             </ul>
+          </div>
+
+          <div class="navbar-collapse active-burger-div" id="navigation-burger-nav">
+            <div id="logo-burguer-menu">
+              <!-- Menú hamburguesa con flecha para abajo para idicar que baje el menú -->
+              <div id="down-burguer-menu" class="visible-menu">
+                <i class="fas fa-bars"></i>
+                <i class="fa-solid fa-arrow-down-long"></i>
+              </div> 
+              <!-- Menú hamburguesa con flecha para arriba para idicar que se oculte el menú -->
+              <div id="up-burguer-menu" class="invisible-menu">
+                <i class="fas fa-bars"></i>
+                <i class="fa-solid fa-arrow-up-long"></i>
+              </div>
+            </div>
+            
+            <div class="collapse navbar-collapse invisible-nav" id="nav-menu">
+              <ul >
+                <li class="active"><a class="section-scroll" href="/">Inicio</a></li>
+                <li><a href="/#landing-offer">Ateliê</a></li>
+                <li><a href="/#features-section">Aulas</a></li>
+                <li><a href="/#team-section">Coleções</a></li>
+                <li><a href="/product/products">Produtos</a></li>
+                <li><a href="/#screenshots-section">Nós</a></li>
+                <li><a href="/#footer-section">Contact</a></li>                        
+              </ul>
+            </div>   
+
+            <ul class="nav navbar-nav navbar-right">
+            <!--          <li class="active"><a class="section-scroll" href="/">Inicio</a></li>
+              <li><a href="/#landing-offer">Ateliê</a></li>
+              <li><a href="/#features-section">Aulas</a></li>
+              <li><a href="/#team-section">Coleções</a></li>
+              <li><a href="/product/products">Produtos</a></li>
+              <li><a href="/#screenshots-section">Nós</a></li>
+              <li><a href="/#footer-section">Contact</a></li>
+            -->
+              <% if (locals.userLogged == undefined) { %>
+                <li><a href="/user/login"><i class="fa-regular fa-user icon-set" ></i></a></li>
+              <%} else { %>
+                <li><a href="/user/perfil">Perfil</a></li>
+              <%}%>
+              <li><a href="/product/chart"><i class="fa-solid fa-bag-shopping icon-set"></i></a></li>
+              <% if (locals.userLogged != undefined) { %>
+                <li><a href="/user/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+              <%}%>              
+            </ul>    
           </div>
 
           <div class="collapse navbar-collapse" id="admin-nav">
