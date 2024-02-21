@@ -167,6 +167,7 @@ function addNewRow(row) {
     </tr>`
 }
 
+console.log("entraste a validar ADICIONAR PRODUCTO")
 window.addEventListener("load", () => {
     const form = document.querySelector(".tables");
     const fileInput = document.getElementById("imag-valid");
@@ -216,13 +217,26 @@ window.addEventListener("load", () => {
             errorImagen.innerText = "";
         }
 
-        if (errores.length === 0) {
+        /*if (errores.length === 0) {
             Swal.fire(
                 'Produto criado!',
                 'Success'
             ).then(() => {
-                form.submit();
+                form.submit(); 
             });
+        }*/
+        console.log(errores)
+        if (errores.length == 0){
+            errores.innerHTML = '';
+                       
+            Swal.fire(
+                'Parabens',
+                'Produto criado!',
+                'Success'
+            ).then(()=> {
+                form.submit();
+            })
+           
         }
     });
 });
