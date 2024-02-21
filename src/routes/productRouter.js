@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/productController');
 const uploadFile = require ('../middlewares/multerMiddleware')
 const adminMiddleware = require('../middlewares/adminMiddleware');
-
+const productValidation = require('../middlewares/productValidation');
 // ******************************************************************************
 // ROUTES PRODUCTS
 // ****************************************************************************** 
@@ -33,7 +33,7 @@ router.get('/chart', controller.chart);
 // Product's Table **************************************************************
 router.get('/productItemsTable' , adminMiddleware, controller.itemsProducts);
 router.get('/productsTable', adminMiddleware, controller.productsItem);
-router.post('/productsItem', adminMiddleware, uploadFile.any('image'), controller.processProductsItem);
+router.post('/productsItem', adminMiddleware, productValidation, uploadFile.any('image'), controller.processProductsItem);
 router.get('/product/update/:id', adminMiddleware, controller.editItemProduct);
 router.put('/product/update/:id', adminMiddleware, uploadFile.any('image') , controller.updateItemProduct);
 router.get('/product/delete/:id', adminMiddleware, controller.deleteItemProduct);

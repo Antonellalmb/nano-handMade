@@ -167,6 +167,62 @@ function addNewRow(row) {
     </tr>`
 }
 
+window.addEventListener("load", () => {
+    const form = document.querySelector(".tables");
+    const fileInput = document.getElementById("imag-valid");
+    const errorImagen = document.getElementById("errorImg");
 
+    fileInput.addEventListener('change', function (event) {
+        const files = Array.from(event.target.files);
+        for (let i = 0; i < files.length; i++) {
+            if (!files[i].type.includes('image')) {
+                errorImagen.innerText = "Você deve selecionar uma imagem válida";
+                return;
+            }
+        }
+        errorImagen.innerText = "";
+    });
 
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const productName = document.querySelector('input[name="productName"]');
+        const detail = document.querySelector('textarea[name="detail"]');
+        const errorNombre = document.getElementById("errorNombre");
+        const errorDescripcion = document.getElementById("errorDescr");
 
+        let errores = [];
+
+        if (productName.value.trim() === "") {
+            errores.push("Este campo é obrigatório");
+            errorNombre.innerText = "Campo obrigatório, mínimo 5 caracteres";
+        } else if (productName.value.length < 5) {
+            errores.push("Este campo deve ter pelo menos 5 caracteres");
+            errorNombre.innerText = "Campo obrigatório, mínimo 5 caracteres";
+        } else {
+            errorNombre.innerText = "";
+        }
+
+        if (detail.value.length < 10) {
+            errores.push("Este campo deve ter pelo menos 10 caracteres");
+            errorDescripcion.innerText = "Campo obrigatório, mínimo 10 caracteres";
+        } else {
+            errorDescripcion.innerText = "";
+        }
+
+        if (fileInput.files.length === 0) {
+            errores.push("imagem vazia");
+            errorImagen.innerText = "Você deve selecionar pelo menos uma imagem válida";
+        } else {
+            errorImagen.innerText = "";
+        }
+
+        if (errores.length === 0) {
+            Swal.fire(
+                'Produto criado!',
+                'Success'
+            ).then(() => {
+                form.submit();
+            });
+        }
+    });
+});
