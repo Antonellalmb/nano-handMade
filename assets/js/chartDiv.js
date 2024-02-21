@@ -41,17 +41,21 @@ function showChart(chart) {
         let totalChart = 0;
         let totalQuantity = 0;
         chart.forEach(product => {
-            divChart.innerHTML += `  
-            <div id="chartProduct">      
+            divChart.innerHTML += ` 
+            <h4>${product.productName}</h4> 
+            <div id="chartProduct">  
                 <div class="imageChartProduct">
                     <img class="productChartImage" src="${product.productImage}">
                 </div>
                 <div class="productChartSummary">
-                    <h4>${product.productName}</h4>
-                    <p class="detailText">Cor: ${product.productColor}</p>
-                    <p class="detailText">Tamanho: ${product.productSize}</p>
-                    <p>P. unitário R$ ${product.productPrice}</p> 
-                    <div>
+                    <div id="detailsSummary">
+                        <p class="detailText">Cor: ${product.productColor}</p>
+                        <p class="detailText">Tamanho: ${product.productSize}</p>
+                    </div>
+                    <div id="detailsPrice">
+                        <p>P. unitário R$ ${product.productPrice}</p> 
+                    </div>
+                    <div id="detailQuantity">
                         <div>
                             <button class="chartButtonMinus" onClick=reduce(${product.id})><i class="fa-solid fa-minus"></i></button>
                             <input type="number" value="${product.productQuantity}">
