@@ -195,10 +195,10 @@ window.addEventListener("load", () => {
 
         if (productName.value.trim() === "") {
             errores.push("Este campo é obrigatório");
-            errorNombre.innerText = "Campo obrigatório, mínimo 5 caracteres";
+            errorNombre.innerText = "Para adicionar um produto você deve preencher este campo, mínimo de 5 caracteres";
         } else if (productName.value.length < 5) {
             errores.push("Este campo deve ter pelo menos 5 caracteres");
-            errorNombre.innerText = "Campo obrigatório, mínimo 5 caracteres";
+            errorNombre.innerText = "Este campo deve ter pelo menos 5 caracteres";
         } else {
             errorNombre.innerText = "";
         }
