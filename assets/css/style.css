@@ -2875,6 +2875,10 @@ div#searchIcon {
   align-items: center;
 }
 
+#sendBtn {
+  margin-bottom: 10px;
+}
+
 .btnAddItem {
   background-color: #efddd0;
   color: #84563d;
