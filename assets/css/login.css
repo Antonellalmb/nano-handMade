@@ -25,6 +25,12 @@
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 200px;
+  }
+
+  .copy {
+    display: flex;
+    align-items: center;
   }
   
   .left p{
@@ -32,7 +38,8 @@
   }
 
   .left .copy h2{
-    font-size: 20px;
+    font-size: 16px;
+    color: #fff;
   }
   
   .right .copy {
@@ -166,6 +173,7 @@
     }
     .left .copy h2{
         font-size: 15px;
+        color: #000;
       }
 
   
