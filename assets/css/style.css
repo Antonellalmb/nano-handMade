@@ -21,7 +21,7 @@ body {
 
 .container .navbar-menues {
   width: 80%;
-  height: 95px;
+  height: 80px;
   margin-left: 5%;
   justify-self: right;
 }
@@ -30,7 +30,7 @@ body {
 .navbar-header {
   width: 15%;
   height: fit-content;
-  padding: 5px;
+  /* padding: 5px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,11 @@ body {
 }
 
 #navigation-nav , #admin-nav {
-  height: 45px!important;
+  height: 40px!important;
+}
+
+.active-burger-div {
+  display: none;
 }
 
 #admin-nav-manu {
@@ -47,6 +51,45 @@ body {
 /*  border: dashed .5px #613f23; */
   box-shadow: -5px -2px 5px #895c44; 
   transition: all .5s;
+  /* height: unset!important; */
+}
+
+#nav-menu {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: -5px -2px 5px #895c44; 
+  transition: all .5s;
+  display: flex!important;
+  border-top: none;
+  height: 160px;
+  width: 90px;
+  right: -5px;
+  visibility: unset;
+}
+
+#nav-menu ul {
+  padding: 5px 15px 0 5px;
+  width: 110px;
+}
+
+.visible-menu {
+  display: contents;
+  z-index: 1;
+}
+
+.invisible-menu {
+  display: none;
+  z-index: -1;
+}
+
+.invisible-nav {
+  z-index: -1;
+  top: -350px;
+}
+
+.visible-nav {
+  z-index: 10;
+  top: 80px;
 }
 
 .invisible {
@@ -56,15 +99,34 @@ body {
 
 .visible {
   z-index: 10;
-  top: 12px;
+  top: 6px;
 }
 
+div#burger-menu {
+  padding-left: 0;
+}
 
 #logo-burguer {
-  font-size: 40px;
+  font-size: 35px;
+  width: 50px;
 }
 
+
 #logo-burguer:hover {
+  cursor: pointer;
+}
+
+#logo-burguer-menu {
+  padding-top: 10px;
+  font-size: 28px;
+  width: 50px;
+}
+
+#logo-burguer-menu div i.fa-solid.fa-arrow-down-long , #logo-burguer-menu div i.fa-solid.fa-arrow-up-long {
+  padding-left: 3px;
+}
+
+#logo-burguer-menu:hover {
   cursor: pointer;
 }
 
@@ -95,7 +157,8 @@ a.navbar-brand {
 .navbar-brand {
   width: 100px;
   height: fit-content;
-  padding: 5px;
+  /*padding: 5px; */
+  padding: 0;
   display: flex;
   align-self: center;
   justify-self: center;
@@ -401,7 +464,7 @@ p {
   margin-bottom: 0;
   position: absolute;
   top: 0;
-  border-bottom: 2px solid #f0f0f0;
+  /* border-bottom: 2px solid #f0f0f0; */
   display: flex;
   justify-content: center;
 }
@@ -2659,11 +2722,13 @@ ul.download li a img {
   margin-top: 50px;
   width: 93%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .collectionSelect {
   width: 165px;
+  margin: 0 20px 10px 20px;
 }
 
 .collectionSelect:hover {
@@ -2717,17 +2782,32 @@ div#searchIcon {
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");  
   box-shadow: -6px 6px 10px #6a422d;
   position: relative;
+  text-align: center;
 }
 
 .divPin {
   position: absolute;
-  left: 88%;
+  left: 50%;
   top: .5%;
 }
 
 .divPinLeft {
   position: absolute;
-  left: -3.5%;
+  left: -41%;
+  top: .5%;
+}
+
+.productDivPin {
+  position: absolute;
+  /*left: 88%;*/
+  left: 50%;
+  top: .5%;
+}
+
+.productDivPinLeft {
+  position: absolute;
+  /*left: -3.5%;*/
+  left: -41%;
   top: .5%;
 }
 
@@ -2746,11 +2826,12 @@ div#searchIcon {
 
 
 .productInfoView {
-  width: 30%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  text-align: center;
+  margin: 1%;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
   box-shadow: -6px 6px 10px #6a422d;
@@ -2758,11 +2839,11 @@ div#searchIcon {
 }
 
 #chartDivView .productInfoView {
-  width: 40%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 1%;
   /* background-color: #faefe7; */
   background-image: url("../images/papier-textur-hintergrund-beige.jpg");   
   box-shadow: -6px 6px 10px #6a422d;
@@ -2792,6 +2873,10 @@ div#searchIcon {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#sendBtn {
+  margin-bottom: 10px;
 }
 
 .btnAddItem {
@@ -2917,27 +3002,33 @@ div.imageContainer a {
 .productInfoView #chartItems #chartItem #chartProduct .productChartSummary {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 58%;
   margin-bottom: 20px;
 }
 
-.productInfoView #chartItems #chartItem #chartProduct .productChartSummary h4 {
+.productInfoView #chartItems #chartItem h4 {
   text-align: center;
   font-size: 13.5px;
   margin-bottom: 3px;
   margin-top: 5px;
 }
 
-.productInfoView #chartItems #chartItem #chartProduct .productChartSummary p.detailText {
+.productInfoView #chartItems #chartItem #chartProduct .productChartSummary #detailsSummary {
+  display: flex;
+  flex-direction: column;
+}
+
+.productInfoView #chartItems #chartItem #chartProduct .productChartSummary #detailsSummary p.detailText {
   text-align: left;
   font-size: 9px;
-  height: 13px;
+  line-height: 16px;
   padding: 0;
 }
 
-.productInfoView #chartItems #chartItem #chartProduct .productChartSummary p {
-  padding-top: 7px;
+.productInfoView #chartItems #chartItem #chartProduct .productChartSummary #detailsPrice p {
+  padding-top: 3px;
   font-size: 10px;
+  line-height: 18px;
   text-align: right;
 }
 
@@ -2987,9 +3078,15 @@ div.imageContainer a {
   width: 30px;
 }
 
+.productInfoView #chartItems #chartItem #chartProduct .productChartSummary p {
+  text-align: right;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
 .productInfoView #chartItems #chartItem .imageChartProduct {
   display: flex;
-  width: 38%;
+  width: 35%;
   justify-self: left;
   margin-bottom: 20px;
 }
@@ -3026,7 +3123,7 @@ div#wallet_container {
 #chartData #chartSummary .continueButton .buttonContinue {
   width: 100%; 
   justify-self: center;
-  font-size: 17px;
+  font-size: 16px;
   height: 45px;
   border-radius: 8px;
 }
@@ -3292,6 +3389,15 @@ td select {
   height: 80px;
   margin-bottom: 10px;
 }
+.error {
+  font-size: 12px;
+  color: #f78b10;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 10px;
+  border: none;
+}
+
 
 .hyde {
   position: absolute;
@@ -3543,26 +3649,57 @@ p.copyright {
     padding-top: 40px;
   }
   .member-team .magnifier .magnifier-inner {
-   
     top: 5%;
     padding: 0 20px;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    font-size: 11.5px;
+    padding: 15px 10px;
   }
 
 }
 
 @media screen and (max-width: 992px) {
 
-  body {
+/*  body {
     padding-top: 55px;
-  }
+  } */
 
   .navbar .container {
-    width: 95%!important;
+    width: 95%;
+    height: 80px;
+  }
+
+  ul.nav.navbar-nav.navbar-right {
+    letter-spacing: .8px;
   }
 
   .navbar-default .navbar-nav > li > a {
-    font-size: 12px;
-    padding: 15px 10px;
+    font-size: 10px;
+    padding: 15px 10px 0 10px;
+  }
+
+  .productInfo {
+    width: 30%;
+  }
+
+  #productDivView, #chartDivView {
+    width: 90%;
+    margin: 40px 20px 20px 20px;
+  }
+
+  .productInfoView {
+    width: 46%;
+    margin: 0px;
+  }
+
+  #chartDivView .productInfoView {
+    width: 46%;
+  }
+
+  #chartData #chartSummary .continueButton {
+    width: 100%; 
   }
 
   .entry-post {
@@ -3628,13 +3765,75 @@ p.copyright {
 
 @media screen and (max-width: 768px) {
 
-  .navbar .container {
-    width: auto;
+  nav.navbar.navbar-default.navbar-static-top {
+    width: 100%;
+    height: 40px;
+    justify-content: right;
   }
 
+  div.collapse.navbar-collapse {
+    display: flex!important;
+    border-top: none;
+    height: 150px;
+  }
+
+/*  ul {
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+  } */
+
+  ul.nav.navbar-nav.navbar-right {
+    margin: 15px 5px 0 0;
+    justify-content: center;
+    float: unset!important;
+    display: flex;
+  }
+  
+
   .navbar-default .navbar-nav > li > a {
+    font-size: 10px;
+    padding: 0px 5px;
+  }
+
+  .navbar-header {
+    width: 25%;
+  }
+
+  .navbar-brand {
+    width: 85%;
+  }
+
+  
+  #admin-nav-manu ul {
+    display: flex;
+    flex-direction: column;
+    width:120px;
+    height: 140px;
+  }
+
+  .invisible {
+    top: -360px;
+    left: -15px;
+  }
+
+  .visible {
+    z-index: 10;
+    top: 42px;
+    left: -15px;
+  }
+
+  #productDivView, #chartDivView {
+    width: 95%;
+    margin: 40px 10px 20px 10px;
+  } 
+
+  #chartData #chartSummary .emptyChart .buttonEmpty {
+    font-size: 10px;
+  }
+  
+  #chartData #chartSummary .emptyChart .buttonEmpty i {
     font-size: 12px;
-    padding: 15px 10px;
   }
 
   .big-title-sec .view-more a {
@@ -3712,6 +3911,49 @@ p.copyright {
 
 @media screen and (max-width: 640px) {
   
+  .navbar-default .navbar-nav > li > a {
+    font-size: 9px;
+  }
+
+  .productInfo {
+    width: 45%;
+  }
+
+  #productDiv {
+    justify-content: center;
+  }
+
+  .productInfoView #chartItems #chartItem h4 {
+    margin-bottom: 8px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .productInfoView #chartItems #chartItem .imageChartProduct {
+    width: 45%;
+    margin-bottom: 3px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary {
+    width: 80%;
+    margin-bottom: 3px;
+  }
+
+  #chartData #chartSummary .continueButton .buttonContinue {
+    font-size: 14px;
+  }
+
+  .productInfoView p {
+    font-size: 12.5px;
+  }
+
+  #chartData #chartSummary p.commentSummary {
+    font-size: 10px;
+  }
+
   h1, .h1 {
     font-size: 40px;
   }
@@ -3767,12 +4009,115 @@ p.copyright {
 }
 
 @media screen and (max-width: 600px) {
+
+  #chartData #chartSummary .continueButton .buttonContinue {
+    font-size: 13px;
+  }
+
+  #chartData #chartSummary .emptyChart {
+    width: 100%; 
+  }
+
+  .productInfoView #chartItems #chartItem h4 {
+    font-size: 10px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary h4 {
+    font-size: 12px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary p {
+    font-size: 12px;
+  }
+
+  .productInfoView p {
+    font-size: 11.5px;
+  }
+
+  #chartData #chartSummary .continueButton .buttonContinue {
+    font-size: 12px;
+  }
+
+
   .formCategorias {
     width: 100%;
+  }
+
+  .active-burger-div {
+    display: flex;
+    justify-content: right;   
+    position: relative; 
+  }
+
+  div.navbar-collapse.active-menu-div {
+    display: none;
   }
 }
 
 @media screen and (max-width: 480px) {
+
+  #chartDivView {
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .productInfoView {
+    width: 70%;
+  }
+
+  #divSeleccion {
+    margin-top: 6%;
+  }
+  
+  #chartDivView .productInfoView {
+    width: 100%;
+  }
+
+  #chartData.productInfoView {
+    margin-top: 6%;
+  }
+
+  .productInfo {
+    width: 80%;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary {
+    width: 100%;
+  }
+
+  .productInfoView #chartItems #chartItem .imageChartProduct {
+    width: 55%;
+    margin-bottom: 3px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary #detailsSummary p.detailText {
+    font-size: 7.5px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary #detailsPrice p {
+    font-size: 8.5px;
+  }
+
+  .productInfoView #chartItems #chartItem #chartProduct .productChartSummary p {
+    font-size: 10px;
+  }
+
+  .productInfoView p {
+    font-size: 11px;
+  }
+
+  #chartData #chartSummary .continueButton .buttonContinue {
+    font-size: 9px;
+  }
+
+  #chartData #chartSummary .emptyChart .buttonEmpty {
+    width: 100%; 
+    justify-self: center;
+    font-size: 8px;
+    height: 35px;
+    border-radius: 6px;
+  }
+
   .back-to-top {
     visibility: hidden;
   }

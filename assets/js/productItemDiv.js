@@ -29,10 +29,10 @@ async function ready() {
         // Acá paso la estructura html al div de Id 'productDivView'
         divProducto.innerHTML += `
         <div class="productInfoView">
-            <div class="divPinLeft">
+            <div class="productDivPinLeft">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
-            <div class="divPin">
+            <div class="productDivPin">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
             <h4>${productItem.name}</h4>
@@ -45,10 +45,10 @@ async function ready() {
             <a href="/product/products">Voltar aos produtos</a>
         </div>
         <div id="divSeleccion" class="productInfoView">
-            <div class="divPinLeft">
+            <div class="productDivPinLeft">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
-            <div class="divPin">
+            <div class="productDivPin">
                 <img class="pinImage" src="/images/Alfiler.png">
             </div>
             <p>Selecione</p>

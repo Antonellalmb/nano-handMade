@@ -14,14 +14,26 @@
     <!-- Main del formulario de carga de la tabla de Colecciones -->
     <main class="mainInput">
         <div class="tableInput">
+            <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+                <div class="error">
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
             <form class="tables" action="/product/productsItem" method="post" enctype="multipart/form-data">
                 <h4>Adicionar Produto</h4> 
                 <div>
                     <input class="form-tablas" type="text" name="productName" placeholder="Nome do produto"> 
+                    <div id="errorNombre" class="error"></div>
                     <textarea class="form-tablas textarea-tablas" name="detail" placeholder="Descrição do produto"></textarea>
+                    <div id="errorDescr" class="error"></div>
                     <div id="divFotos">
                         <p class="imageTitle">Imagens do produto</p>
                         <div id="inputFotos"></div>
+                        <div id="errorImg" class="error"></div>
                     </div>
                     
                     
@@ -162,61 +174,61 @@
 
 
 
-
+<!--
 <div>
                         
     <div>
         <!-- Select para elegir si el producto lleva descuento o no -->
-        <p class="optionsSelect">Cor</p>
+       <!-- <p class="optionsSelect">Cor</p>
         <select class="form-tablas" type="number" name="colorSelected" id="colorTable">
             <option value="" required>- Selecione cor - </option>
                 <!-- Se buscan los valores que completarán las opciones del select en la tabla de colores que recibe del controller-->
-                <% colors.forEach(color => { %>
+              <!--  <% colors.forEach(color => { %>
                 <option value="<%= color.id %>"><%= color.name %></option>
                 <% }); %>
 
         </select>
         <!-- End Select-->
-    </div>
+   <!-- </div>
     <div>
         <!-- Select para elegir si el producto lleva descuento o no -->
-        <p class="optionsSelect">Tamanho</p>
+      <!--  <p class="optionsSelect">Tamanho</p>
         <select class="form-tablas" type="number" name="sizeSelected" id="sizeTable">
             <option value="" required>- Selecione tamanho - </option>
                 <!-- Se buscan los valores que completarán las opciones del select en la tabla de tamaños que recibe del controller-->
-                <% sizes.forEach(size => { %>
+             <!--   <% sizes.forEach(size => { %>
                 <option value="<%= size.id %>"><%= size.name %></option>
                 <% }); %>
 
         </select>
         <!-- End Select-->
-    </div>
+ <!--   </div>
     <div>
         <!-- Select para elegir si el producto lleva descuento o no -->
-        <p class="optionsSelect">Coleção</p>
+  <!--      <p class="optionsSelect">Coleção</p>
         <select class="form-tablas" name="collectionSelected" id="collectionTable">
             <option value="" required>- Selecione coleção - </option>
                 <!-- Se buscan los valores que completarán las opciones del select en la tabla de colecciones que recibe del controller-->
-                <% collections.forEach(collection => { %>
+     <!--           <% collections.forEach(collection => { %>
                 <option value="<%= collection.id %>"><%= collection.name %></option>
                 <% }); %>
 
         </select>
         <!-- End Select-->
-    </div>
+ <!--   </div>
     <div>
         <!-- Select para elegir si el producto lleva descuento o no -->
-        <p class="optionsSelect">Desconto</p>
+    <!--    <p class="optionsSelect">Desconto</p>
         <select class="form-tablas" type="number" name="discountSelected" id="discountTable">
             <option value="" required>- Selecione o desconto - </option>
                 <!-- Se buscan los valores que completarán las opciones del select en la tabla de descuentos que recibe del controller-->
-                <% discounts.forEach(discount => { %>
+        <!--        <% discounts.forEach(discount => { %>
                 <option value="<%= discount.id %>"><%= discount.discount_code %></option>
                 <% }); %>
 
         </select>
         <!-- End Select-->
-    </div>
+<!--    </div>
 </div>
 
 <textarea class="form-tablas textarea-tablas" name="productDetail" placeholder="detalhes do produto"></textarea>
