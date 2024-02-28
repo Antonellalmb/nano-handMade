@@ -21,16 +21,13 @@
   }
   
   .left .copy {
+    display: flex;
+    align-items: center;
     color: white;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 200px;
-  }
-
-  .copy {
-    display: flex;
-    align-items: center;
   }
   
   .left p{
