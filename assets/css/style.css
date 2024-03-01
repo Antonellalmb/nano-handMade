@@ -250,7 +250,7 @@ h1, .h1 {
   margin-bottom: 30px;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
-  font-size: 33px;
+  font-size: 43px;
   font-weight: 400;
   /*letter-spacing: 8px; */
   text-transform: uppercase;
@@ -3863,6 +3863,10 @@ p.copyright {
     font-size: 38px;
   }
 
+  .titles {
+    font-size: 38px;
+  }
+
   .soon-countdown div span:first-child {
     font-size: 60px;
   }
@@ -3871,11 +3875,11 @@ p.copyright {
     padding-top: 0;
   }
 
-   #creative-section-1 .view-more {
-    text-align: center!important;
-   }
+  #creative-section-1 .view-more {
+  text-align: center!important;
+  }
 
- #creative-section-2 .view-more {
+  #creative-section-2 .view-more {
     margin-bottom: 80px;
     text-align: center!important;
   }
@@ -3977,7 +3981,11 @@ p.copyright {
     font-size: 40px;
   }
 
-    .hero-content h1 {
+  .hero-content h1 {
+    font-size: 33px;
+  }
+
+  .titles {
     font-size: 33px;
   }
 
