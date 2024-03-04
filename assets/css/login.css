@@ -127,6 +127,33 @@
   .botonLog:hover{
     background-color: black;
   }
+
+    /* Estilos para el botón de mostrar contraseña */
+     #togglePassword {
+      background-color: gainsboro;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 8px 10px;
+      margin-top: 15px;
+      border-radius: 5px; 
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.3s, color 0.3s; 
+  } 
+
+
+  #togglePassword  {
+    color: #999; 
+  }
+
+
+  #togglePassword:hover  {
+    background-color:black; 
+    color: #ffffff;
+  }
+
   
   .login-form .registrate , .login-form .olvideSenha {
     margin: 15px;

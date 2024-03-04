@@ -92,12 +92,23 @@ window.onload = function () {
 
 window.onload = function () {
     const form = document.querySelector(".login-form");
+    const togglePasswordButton = document.getElementById('togglePassword');
+
+
+    //..................
+    togglePasswordButton.addEventListener('click', function () {
+        const contraseniaInput = document.querySelector("input[name='contrasenia']");
+        const type = contraseniaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        contraseniaInput.setAttribute('type', type);
+        togglePasswordButton.textContent = type === 'password' ? 'Mostrar senha' : 'Ocultar';
+    });
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const emailInput = document.querySelector("input[name='email']");
         const contraseniaInput = document.querySelector("input[name='contrasenia']");
+        
         let pError = document.querySelector('#errores');
         let errorEmail = document.querySelector('#errorEmail');
         let errores = [];
@@ -135,6 +146,7 @@ window.onload = function () {
             }
         }
 
+       
         // Validación contraseña
         function esValidPassword(contrasenia) {
             const tieneUpperCase = /[A-Z]/.test(contrasenia);

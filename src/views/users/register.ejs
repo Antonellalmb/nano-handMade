@@ -49,6 +49,7 @@
               <% if(locals.errors && errors.contrasenia) { %>
                   <p class="errores"> <%= errors.contrasenia.msg %> </p>
               <% } %>
+              
               <p id="errorContrasenia" class="error"></p>
             </div>
             <div class="input-container password">
@@ -58,6 +59,7 @@
               <% } %>
                   <p id="errorConfirmContrasenia" class="error"></p>
             </div>
+            <button id="togglePassword" type="button">Mostrar senha</button> 
           </div>
           <div class="erroresRegistro">
             <% if(locals.errors && errors.datosMal) { %>
