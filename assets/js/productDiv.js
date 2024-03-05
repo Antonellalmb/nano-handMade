@@ -59,7 +59,7 @@ async function ready() {
                         <a href="/product/product/${productItems[i].id}"><img class="productoImage" src="${productItems[i].productPhoto[0].product_image}"></a>
                     </div>
             <!--        <p>$ ${productItems[i].Characteristics[0].price}</p>     -->
-                    <p>${productItems[i].description}</p>
+                    <p class="truncate">${productItems[i].description}</p>
                 </div>`
             } else {
                 divProductos.innerHTML += `

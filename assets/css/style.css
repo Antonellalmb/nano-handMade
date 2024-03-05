@@ -107,8 +107,9 @@ div#burger-menu {
 }
 
 #logo-burguer {
-  font-size: 35px;
+  font-size: 25px;
   width: 50px;
+  color: #84563d;
 }
 
 
@@ -123,7 +124,7 @@ div#burger-menu {
 }
 
 #logo-burguer-menu div i.fa-solid.fa-arrow-down-long , #logo-burguer-menu div i.fa-solid.fa-arrow-up-long {
-  padding-left: 3px;
+  padding-left: -1px;
 }
 
 #logo-burguer-menu:hover {
@@ -131,13 +132,13 @@ div#burger-menu {
 }
 
 .fa-solid.fa-arrow-down-long {
-  font-size: 20px;
-  margin-left: -10px;
+  font-size: 15px;
+  margin-left: -7px;
 }
 
 .fa-solid.fa-arrow-up-long {
-  font-size: 20px;
-  margin-left: -10px;
+  font-size: 15px;
+  margin-left: -7px;
 }
 
 .visible-burguer {
@@ -2809,6 +2810,10 @@ div#searchIcon {
   text-align: center;
 }
 
+.productInfo h4 {
+  max-width: 87%;
+  height: 35px;
+}
 .divPin {
   position: absolute;
   left: 50%;
@@ -2929,6 +2934,7 @@ div#searchIcon {
   color: #000;
   text-align: center;
   margin: 7px 10px 0 10px;
+  font-weight: 500;
 }
 
 .productInfoView p {
@@ -2936,6 +2942,14 @@ div#searchIcon {
   color: #000;
   text-align: center;
   padding-bottom: 2px;
+}
+
+.truncate {
+  display: -webkit-box; /* para compatibilidad con navegadores basados en WebKit */
+  -webkit-line-clamp: 3; /* número máximo de líneas a mostrar */
+  -webkit-box-orient: vertical; /* orientación del contenido */
+  overflow: hidden; /* oculta el texto que se desborda del contenedor */
+  text-overflow: ellipsis; /* agrega puntos suspensivos al final del texto truncado */
 }
 
 #clickText {
@@ -3841,6 +3855,14 @@ p.copyright {
     top: 42px;
     left: -15px;
   }
+  
+  .productInfo h4 {
+    font-size: 13.5px;
+  }
+
+  .productInfo p {
+    font-size: 11px;
+  }
 
   #productDivView, #chartDivView {
     width: 95%;
@@ -3941,7 +3963,7 @@ p.copyright {
   .productInfo {
     width: 45%;
   }
-
+  
   #productDiv {
     justify-content: center;
   }
@@ -4086,6 +4108,14 @@ p.copyright {
   #chartDivView {
     flex-direction: column;
     width: 70%;
+  }
+
+  .productInfo p {
+    display: none;
+  }
+
+  .imageContainer {
+    margin-bottom: 20px;
   }
 
   .productInfoView {
