@@ -46,7 +46,8 @@ body {
 }
 
 #admin-nav-manu {
-  position: relative;;
+  position: relative; 
+  left: -12px;
   background-color: #fff;
 /*  border: dashed .5px #613f23; */
   box-shadow: -5px -2px 5px #895c44; 
@@ -62,8 +63,8 @@ body {
   display: flex!important;
   border-top: none;
   height: 160px;
-  width: 90px;
-  right: -5px;
+  width: 120px;
+  right: -112px;
   visibility: unset;
 }
 
@@ -99,7 +100,7 @@ body {
 
 .visible {
   z-index: 10;
-  top: 6px;
+  top: 15px;
 }
 
 div#burger-menu {
@@ -118,6 +119,7 @@ div#burger-menu {
 }
 
 #logo-burguer-menu {
+  position: relative;
   padding-top: 10px;
   font-size: 28px;
   width: 50px;
@@ -2717,6 +2719,8 @@ ul.download li a img {
 
 #productDivView h4 {
   font-size: 20px;
+  width: 87%;
+  height: 45px
 }
 
 .filterProducts {
@@ -2942,6 +2946,7 @@ div#searchIcon {
   color: #000;
   text-align: center;
   padding-bottom: 2px;
+  width: 90%;
 }
 
 .truncate {
@@ -3436,7 +3441,6 @@ td select {
   border: none;
 }
 
-
 .hyde {
   position: absolute;
   visibility: hidden;
@@ -3807,7 +3811,7 @@ p.copyright {
   div.collapse.navbar-collapse {
     display: flex!important;
     border-top: none;
-    height: 150px;
+    height: 150px !important;
   }
 
 /*  ul {
@@ -3957,7 +3961,7 @@ p.copyright {
 @media screen and (max-width: 640px) {
   
   .navbar-default .navbar-nav > li > a {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .productInfo {
@@ -4059,6 +4063,10 @@ p.copyright {
 
 @media screen and (max-width: 600px) {
 
+  .navbar-default .navbar-nav > li > a {
+    font-size: 12px;
+  }
+
   #chartData #chartSummary .continueButton .buttonContinue {
     font-size: 13px;
   }
@@ -4096,11 +4104,69 @@ p.copyright {
     display: flex;
     justify-content: right;   
     position: relative; 
+    padding-right: 0;
   }
 
   div.navbar-collapse.active-menu-div {
     display: none;
   }
+
+  .tableInput {
+    margin-left: 2%;
+    width: 96%;
+  }
+
+  .tableInput table tbody tr td, .tableInput table tbody tr th {
+    font-size: 7px;
+  }
+
+  .columnColor, .colorSize, .columnDiscount {
+    width: 50px;
+  }
+  
+  .columnDelete {
+    text-align: center;
+    width: 60px;
+  }
+  
+  .columnPrize {
+    width: 80px;
+  }
+  
+  .columnstock {
+    width: 40px;
+  }
+  
+  .columnDetail {
+    width: 30%;
+  }
+  
+  .columnNumber {
+    width: 9px;
+  }
+
+  td select {
+    margin-top: 15px;
+    font-size: 9px;
+    width: 40px;
+  }
+
+  td .input-tablas-prize {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 50px;
+  }
+
+  td .input-tablas-stock {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 30px;
+  }
+
+  th , td {
+    padding: 0 2px 0 2px;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {
@@ -4201,9 +4267,60 @@ p.copyright {
   }
 
   .tableInput {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 2%;
+    width: 96%;
   }
 
+  .tableInput table tbody tr td, .tableInput table tbody tr th {
+    font-size: 7px;
+  }
+
+  .columnColor, .colorSize, .columnDiscount {
+    width: 50px;
+  }
+  
+  .columnDelete {
+    text-align: center;
+    width: 60px;
+  }
+  
+  .columnPrize {
+    width: 80px;
+  }
+  
+  .columnstock {
+    width: 40px;
+  }
+  
+  .columnDetail {
+    width: 30%;
+  }
+  
+  .columnNumber {
+    width: 9px;
+  }
+
+  td select {
+    margin-top: 15px;
+    font-size: 9px;
+    width: 40px;
+  }
+
+  td .input-tablas-prize {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 50px;
+  }
+
+  td .input-tablas-stock {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 30px;
+  }
+
+  th , td {
+    padding: 0 2px 0 2px;
+  }
+  
 
 }
