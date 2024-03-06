@@ -3157,6 +3157,10 @@ div#wallet_container {
   width: 100%;
 }
 
+button.svelte-1ruergu.svelte-1ruergu {
+  min-width: 0px !important;
+}
+
 #chartData #chartSummary .continueButton {
   margin-top: 10px;
   width: 80%; 
@@ -3798,6 +3802,10 @@ p.copyright {
     text-align: center;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -3955,6 +3963,9 @@ p.copyright {
     width: 60%;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 13px;
+  }
 
 }
 
@@ -4058,6 +4069,9 @@ p.copyright {
     width: 70%;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 12px;
+  }
 
 }
 
@@ -4165,6 +4179,10 @@ p.copyright {
 
   th , td {
     padding: 0 2px 0 2px;
+  }
+
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 9px;
   }
   
 }
@@ -4322,5 +4340,8 @@ p.copyright {
     padding: 0 2px 0 2px;
   }
   
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 10px;
+  }
 
 }
