@@ -26,7 +26,6 @@ body {
   justify-self: right;
 }
 
-
 .navbar-header {
   width: 15%;
   height: fit-content;
@@ -3021,6 +3020,7 @@ div.imageContainer a {
 
 .productInfoView #chartItems h3 {
   text-align: center;
+  font-weight: 400;
 }
 
 
