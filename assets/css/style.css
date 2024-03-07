@@ -47,7 +47,7 @@ body {
 
 #admin-nav-manu {
   position: relative; 
-  left: -12px;
+  left: -50px;
   background-color: #fff;
 /*  border: dashed .5px #613f23; */
   box-shadow: -5px -2px 5px #895c44; 
@@ -63,8 +63,8 @@ body {
   display: flex!important;
   border-top: none;
   height: 160px;
-  width: 120px;
-  right: -112px;
+  width: 150px;
+  right: -100px;
   visibility: unset;
 }
 
@@ -3819,7 +3819,7 @@ p.copyright {
   div.collapse.navbar-collapse {
     display: flex!important;
     border-top: none;
-    height: 150px !important;
+    height: 225px !important;
   }
 
 /*  ul {
@@ -3853,7 +3853,7 @@ p.copyright {
   #admin-nav-manu ul {
     display: flex;
     flex-direction: column;
-    width:120px;
+    width:150px;
     height: 140px;
   }
 
@@ -3864,7 +3864,7 @@ p.copyright {
 
   .visible {
     z-index: 10;
-    top: 42px;
+    top: 33px;
     left: -15px;
   }
   
@@ -4077,8 +4077,13 @@ p.copyright {
 
 @media screen and (max-width: 600px) {
 
+  .navbar-default .navbar-nav.navbar-right > li > a {
+    font-size: 11px;
+  }
+
   .navbar-default .navbar-nav > li > a {
-    font-size: 12px;
+    font-size: 15px;
+    padding-bottom: 10px;
   }
 
   #chartData #chartSummary .continueButton .buttonContinue {
