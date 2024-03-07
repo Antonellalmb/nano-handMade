@@ -26,7 +26,6 @@ body {
   justify-self: right;
 }
 
-
 .navbar-header {
   width: 15%;
   height: fit-content;
@@ -46,7 +45,8 @@ body {
 }
 
 #admin-nav-manu {
-  position: relative;;
+  position: relative; 
+  left: -50px;
   background-color: #fff;
 /*  border: dashed .5px #613f23; */
   box-shadow: -5px -2px 5px #895c44; 
@@ -62,8 +62,8 @@ body {
   display: flex!important;
   border-top: none;
   height: 160px;
-  width: 90px;
-  right: -5px;
+  width: 150px;
+  right: -100px;
   visibility: unset;
 }
 
@@ -99,7 +99,7 @@ body {
 
 .visible {
   z-index: 10;
-  top: 6px;
+  top: 15px;
 }
 
 div#burger-menu {
@@ -107,8 +107,9 @@ div#burger-menu {
 }
 
 #logo-burguer {
-  font-size: 35px;
+  font-size: 25px;
   width: 50px;
+  color: #84563d;
 }
 
 
@@ -117,13 +118,14 @@ div#burger-menu {
 }
 
 #logo-burguer-menu {
+  position: relative;
   padding-top: 10px;
   font-size: 28px;
   width: 50px;
 }
 
 #logo-burguer-menu div i.fa-solid.fa-arrow-down-long , #logo-burguer-menu div i.fa-solid.fa-arrow-up-long {
-  padding-left: 3px;
+  padding-left: -1px;
 }
 
 #logo-burguer-menu:hover {
@@ -131,13 +133,13 @@ div#burger-menu {
 }
 
 .fa-solid.fa-arrow-down-long {
-  font-size: 20px;
-  margin-left: -10px;
+  font-size: 15px;
+  margin-left: -7px;
 }
 
 .fa-solid.fa-arrow-up-long {
-  font-size: 20px;
-  margin-left: -10px;
+  font-size: 15px;
+  margin-left: -7px;
 }
 
 .visible-burguer {
@@ -251,10 +253,10 @@ h1, .h1 {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 43px;
-  font-weight: 500;
-  letter-spacing: 8px;
+  font-weight: 400;
+  /*letter-spacing: 8px; */
   text-transform: uppercase;
-  
+  line-height: 40px;
 }
 
 h2 {
@@ -2682,7 +2684,7 @@ ul.download li a img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #baa18e;
+  background-color: #e3d5ca;
 }
 
 .mainProductView , .mainChart{
@@ -2698,7 +2700,7 @@ ul.download li a img {
   justify-content: space-between;
   width: 95%;
   margin: 20px 20px 20px 20px;
-  background-color: #baa18e;
+  background-color: #e3d5ca;
   font-size: 17px;
   font-weight: 700;
 }
@@ -2716,6 +2718,8 @@ ul.download li a img {
 
 #productDivView h4 {
   font-size: 20px;
+  width: 87%;
+  height: 45px
 }
 
 .filterProducts {
@@ -2727,8 +2731,13 @@ ul.download li a img {
 }
 
 .collectionSelect {
-  width: 165px;
+  width: 185px;
   margin: 0 20px 10px 20px;
+  font-weight: 600;
+  color: #84563d;
+  border: solid 2px #84563d;
+  border-radius: 8px;
+  background-color: #e3d5ca
 }
 
 .collectionSelect:hover {
@@ -2738,18 +2747,36 @@ ul.download li a img {
 
 .filterProducts div {
   display: inline-flex;
-  width: 165px;
+  width: 185px;
   height: 40px;
 }
 
 .filterProducts div input {
+  width: 100%;
   height: 30px;
   padding: 0 0 0 4px;
   margin: 0;
-  border-radius: 0;
-  border-width: 0.5px;
-  border-style: outset;
-  border-color: #888;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #84563d;
+  border-radius: 8px;
+  background-color: #ccc;
+}
+
+.filterProducts div input:hover {
+  border-style: solid;
+  background-color: #d6d6d6;
+  color: #84563d;
+  border-color: #84563d;
+  font-weight: 600;
+}
+
+.filterProducts div input:focus {
+  border-style: solid;
+  background-color: #d6d6d6;
+  color: #84563d;
+  border-color: #84563d;
+  font-weight: 600;
 }
 
 div#searchIcon {
@@ -2764,7 +2791,8 @@ div#searchIcon {
   padding-left: 7px;
   padding-top: 7px;
   padding-right: 7px;
-  color: #fc6e51;
+  border-radius: 8px;
+  color: #84563d  ;
 }
 
 .icon:hover {
@@ -2785,6 +2813,10 @@ div#searchIcon {
   text-align: center;
 }
 
+.productInfo h4 {
+  max-width: 87%;
+  height: 35px;
+}
 .divPin {
   position: absolute;
   left: 50%;
@@ -2905,6 +2937,7 @@ div#searchIcon {
   color: #000;
   text-align: center;
   margin: 7px 10px 0 10px;
+  font-weight: 500;
 }
 
 .productInfoView p {
@@ -2912,6 +2945,15 @@ div#searchIcon {
   color: #000;
   text-align: center;
   padding-bottom: 2px;
+  width: 90%;
+}
+
+.truncate {
+  display: -webkit-box; /* para compatibilidad con navegadores basados en WebKit */
+  -webkit-line-clamp: 3; /* número máximo de líneas a mostrar */
+  -webkit-box-orient: vertical; /* orientación del contenido */
+  overflow: hidden; /* oculta el texto que se desborda del contenedor */
+  text-overflow: ellipsis; /* agrega puntos suspensivos al final del texto truncado */
 }
 
 #clickText {
@@ -2978,9 +3020,8 @@ div.imageContainer a {
 
 .productInfoView #chartItems h3 {
   text-align: center;
+  font-weight: 400;
 }
-
-
 
 .productInfoView #chartItems #chartItem{
   display: flex;
@@ -3112,6 +3153,10 @@ div#wallet_container {
 
   text-align: center;
   width: 100%;
+}
+
+button.svelte-1ruergu.svelte-1ruergu {
+  min-width: 0px !important;
 }
 
 #chartData #chartSummary .continueButton {
@@ -3398,7 +3443,6 @@ td select {
   border: none;
 }
 
-
 .hyde {
   position: absolute;
   visibility: hidden;
@@ -3516,15 +3560,10 @@ td a {
   font-size: 12px;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+input[type="text"]::placeholder {
+  color: #000;
+  font-weight: 500;
 }
-
 
 .adicionarCategoria {
   background-color: #4caf50;
@@ -3761,6 +3800,10 @@ p.copyright {
     text-align: center;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -3774,7 +3817,7 @@ p.copyright {
   div.collapse.navbar-collapse {
     display: flex!important;
     border-top: none;
-    height: 150px;
+    height: 225px !important;
   }
 
 /*  ul {
@@ -3808,7 +3851,7 @@ p.copyright {
   #admin-nav-manu ul {
     display: flex;
     flex-direction: column;
-    width:120px;
+    width:150px;
     height: 140px;
   }
 
@@ -3819,8 +3862,16 @@ p.copyright {
 
   .visible {
     z-index: 10;
-    top: 42px;
+    top: 33px;
     left: -15px;
+  }
+  
+  .productInfo h4 {
+    font-size: 13.5px;
+  }
+
+  .productInfo p {
+    font-size: 11px;
   }
 
   #productDivView, #chartDivView {
@@ -3844,6 +3895,10 @@ p.copyright {
     font-size: 38px;
   }
 
+  .titles {
+    font-size: 38px;
+  }
+
   .soon-countdown div span:first-child {
     font-size: 60px;
   }
@@ -3852,11 +3907,11 @@ p.copyright {
     padding-top: 0;
   }
 
-   #creative-section-1 .view-more {
-    text-align: center!important;
-   }
+  #creative-section-1 .view-more {
+  text-align: center!important;
+  }
 
- #creative-section-2 .view-more {
+  #creative-section-2 .view-more {
     margin-bottom: 80px;
     text-align: center!important;
   }
@@ -3906,19 +3961,22 @@ p.copyright {
     width: 60%;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 13px;
+  }
 
 }
 
 @media screen and (max-width: 640px) {
   
   .navbar-default .navbar-nav > li > a {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .productInfo {
     width: 45%;
   }
-
+  
   #productDiv {
     justify-content: center;
   }
@@ -3958,7 +4016,11 @@ p.copyright {
     font-size: 40px;
   }
 
-    .hero-content h1 {
+  .hero-content h1 {
+    font-size: 33px;
+  }
+
+  .titles {
     font-size: 33px;
   }
 
@@ -4005,10 +4067,22 @@ p.copyright {
     width: 70%;
   }
 
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 12px;
+  }
 
 }
 
 @media screen and (max-width: 600px) {
+
+  .navbar-default .navbar-nav.navbar-right > li > a {
+    font-size: 11px;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
 
   #chartData #chartSummary .continueButton .buttonContinue {
     font-size: 13px;
@@ -4047,11 +4121,73 @@ p.copyright {
     display: flex;
     justify-content: right;   
     position: relative; 
+    padding-right: 0;
   }
 
   div.navbar-collapse.active-menu-div {
     display: none;
   }
+
+  .tableInput {
+    margin-left: 2%;
+    width: 96%;
+  }
+
+  .tableInput table tbody tr td, .tableInput table tbody tr th {
+    font-size: 7px;
+  }
+
+  .columnColor, .colorSize, .columnDiscount {
+    width: 50px;
+  }
+  
+  .columnDelete {
+    text-align: center;
+    width: 60px;
+  }
+  
+  .columnPrize {
+    width: 80px;
+  }
+  
+  .columnstock {
+    width: 40px;
+  }
+  
+  .columnDetail {
+    width: 30%;
+  }
+  
+  .columnNumber {
+    width: 9px;
+  }
+
+  td select {
+    margin-top: 15px;
+    font-size: 9px;
+    width: 40px;
+  }
+
+  td .input-tablas-prize {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 50px;
+  }
+
+  td .input-tablas-stock {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 30px;
+  }
+
+  th , td {
+    padding: 0 2px 0 2px;
+  }
+
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 9px;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {
@@ -4059,6 +4195,14 @@ p.copyright {
   #chartDivView {
     flex-direction: column;
     width: 70%;
+  }
+
+  .productInfo p {
+    display: none;
+  }
+
+  .imageContainer {
+    margin-bottom: 20px;
   }
 
   .productInfoView {
@@ -4144,9 +4288,63 @@ p.copyright {
   }
 
   .tableInput {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 2%;
+    width: 96%;
   }
 
+  .tableInput table tbody tr td, .tableInput table tbody tr th {
+    font-size: 7px;
+  }
+
+  .columnColor, .colorSize, .columnDiscount {
+    width: 50px;
+  }
+  
+  .columnDelete {
+    text-align: center;
+    width: 60px;
+  }
+  
+  .columnPrize {
+    width: 80px;
+  }
+  
+  .columnstock {
+    width: 40px;
+  }
+  
+  .columnDetail {
+    width: 30%;
+  }
+  
+  .columnNumber {
+    width: 9px;
+  }
+
+  td select {
+    margin-top: 15px;
+    font-size: 9px;
+    width: 40px;
+  }
+
+  td .input-tablas-prize {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 50px;
+  }
+
+  td .input-tablas-stock {
+    margin-top: 20px;
+    font-size: 9px;
+    width: 30px;
+  }
+
+  th , td {
+    padding: 0 2px 0 2px;
+  }
+  
+  button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
+    font-size: 10px;
+  }
 
 }

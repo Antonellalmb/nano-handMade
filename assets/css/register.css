@@ -36,7 +36,7 @@
    }
 
   .leftRegister {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/temp/woman.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("/images/team/manostierra.jpg");
     background-size: cover;
   }
 
@@ -153,6 +153,32 @@
   .botEnter:hover{
     background-color: black;
   }
+
+  /* Estilos para el botón de mostrar contraseña */
+  #togglePassword {
+    background-color: gainsboro;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 8px 10px;
+    margin-top: 15px;
+    border-radius: 5px; 
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s, color 0.3s; 
+} 
+
+
+#togglePassword  {
+  color: #999; 
+}
+
+
+#togglePassword:hover  {
+  background-color:black; 
+  color: #ffffff;
+}
 
   .registro a {
     color: black;

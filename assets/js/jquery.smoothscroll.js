@@ -226,6 +226,50 @@ function scrollArray(elem, left, top, delay) {
 /***********************************************
  * EVENTS
  ***********************************************/
+/* ------------------------------------------------------------------------------------------
+/**
+ * Mouse wheel handler.
+ * @param {Object} event
+ 
+function wheel(event) {
+
+  if (!initdone) {
+    init();
+  }
+
+  var target = event.target;
+  var overflowing = overflowingAncestor(target);
+
+  // use default if there's no overflowing
+  // element or default action is prevented
+  if (!overflowing || event.defaultPrevented ||
+      isNodeName(activeElement, "embed") ||
+        (isNodeName(target, "embed") && /\.pdf/i.test(target.src))) {
+    return true;
+  }
+
+  var deltaX = event.wheelDeltaX || 0;
+  var deltaY = event.wheelDeltaY || 0;
+
+  // use wheelDelta if deltaX/Y is not available
+  if (!deltaX && !deltaY) {
+    deltaY = event.wheelDelta || 0;
+  }
+
+  // scale by step size
+  // delta is 120 most of the time
+  // synaptics seems to send 1 sometimes
+  if (Math.abs(deltaX) > 1.2) {
+    deltaX *= stepsize / 120;
+  }
+  if (Math.abs(deltaY) > 1.2) {
+    deltaY *= stepsize / 120;
+  }
+
+  scrollArray(overflowing, -deltaX, -deltaY);
+  event.preventDefault();
+}
+--------------------------------------------------------------------*/
 
 /**
  * Mouse wheel handler.
@@ -267,8 +311,11 @@ function wheel(event) {
   }
 
   scrollArray(overflowing, -deltaX, -deltaY);
-  event.preventDefault();
+  // Remove event.preventDefault() from here
 }
+
+
+
 
 /**
  * Keydown event handler.

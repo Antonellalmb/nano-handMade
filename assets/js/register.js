@@ -1,6 +1,18 @@
 console.log('validaciones del front registro')
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".registro");
+    const contraseniaInput = document.querySelector("input[name='contrasenia']");
+    const confirmContraseniaInput = document.querySelector("input[name='confirm-contrasenia']");
+    const togglePasswordButton = document.getElementById('togglePassword');
+
+
+    togglePasswordButton.addEventListener('click', function () {
+        const type = contraseniaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        contraseniaInput.setAttribute('type', type);
+        confirmContraseniaInput.setAttribute('type', type);
+        togglePasswordButton.textContent = type === 'password' ? 'Mostrar senha' : 'Ocultar';
+    });
+
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
