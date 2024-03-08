@@ -3,6 +3,8 @@
 
 ![Nano Handmade Logo](/images/logo_nano.png)
 
+
+
 Bienvenido a Nano Handmade, tu tienda en línea para productos artesanales únicos.
 
 ## Descripción
