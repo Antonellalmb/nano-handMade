@@ -1,9 +1,7 @@
 
 ### Nano Handmade - Tienda Online de Cerámicas Artesanales
 
-![Nano Handmade Logo](/images/logo_nano.png)
-
-
+![Nano Handmade Logo](./assets/images/logo_nano.png)
 
 Bienvenido a Nano Handmade, tu tienda en línea para productos artesanales únicos.
 
