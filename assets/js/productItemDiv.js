@@ -75,8 +75,11 @@ async function ready() {
                 <p class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ </p>
             </div> 
             <div id="sendBtn">
-                <button type="button" class="btnAddItem" id="btnAddToChart">
+                <button type="button" class="btnAddItem notShow" id="btnAddToChart">
                 Adicionar à sacola</button>
+                <div id="divBtnAdd" class="show">
+                    <p>Adicionar à sacola</p>
+                </div>
             </div>
         </div>`;
     }
@@ -113,9 +116,36 @@ async function ready() {
 //    let quantityOption = document.getElementById('quantity');
     let divMaxQuantity = document.getElementById('divMaxQuantity')
     let maxQuantity = document.getElementById('maxQuantity')
-    let selectQuantity = document.getElementById('optionQuantity');    
+    let selectQuantity = document.getElementById('optionQuantity');  
+    console.log(selectQuantity.value)  
+
     selectOptions.addEventListener("change" , (event) => {
         event.preventDefault();
+        let btnAddToChart = document.getElementById('btnAddToChart');
+        let divBtnAdd = document.getElementById('divBtnAdd')
+        console.log(btnAddToChart)
+        console.log(divBtnAdd)
+        let divSummary = document.getElementById('summary');
+        divSummary.innerHTML = `
+            <p class="summaryText">Precio unitario = $ </p>
+            <p class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ </p>`;
+        btnAddToChart.classList.remove("show");
+        btnAddToChart.classList="btnAddItem notShow";
+        divBtnAdd.classList.remove("notShow");
+        divBtnAdd.classList="show";      
+
+        if(selectOptions.value == "- Escolher -") {
+           
+            divSummary.innerHTML = `
+                <p class="summaryText">Precio unitario = $ </p>
+                <p class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ </p>`;
+                btnAddToChart.classList.remove("show");
+                btnAddToChart.classList="btnAddItem notShow";
+                divBtnAdd.classList.remove("notShow");
+                divBtnAdd.classList="show"; 
+        }
+    
+
 //        summary.innerHTML = ''
         selectQuantity.innerHTML = '<option required>- Selecione a quantidade -</option>'
         console.log(selectOptions.value);
@@ -138,6 +168,22 @@ async function ready() {
         console.log(selectQuantity.value)
         summary.innerHTML = `<p class="summaryText">Precio unitario = $ ${productItem.Characteristics[selectOptions.value].price} </p>`
         summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ ${productItem.Characteristics[selectOptions.value].price * selectQuantity.value } </p>`
+        
+        if (selectQuantity.value) {
+            btnAddToChart.classList.toggle("show");
+            btnAddToChart.classList.toggle("notShow");
+            divBtnAdd.classList.toggle("notShow");
+            divBtnAdd.classList.toggle("show");
+            console.log(btnAddToChart)
+        console.log(divBtnAdd)
+        } else {
+            btnAddToChart.classList.toggle("show");
+            btnAddToChart.classList.toggle("notShow");
+            divBtnAdd.classList.toggle("notShow");
+            divBtnAdd.classList.toggle("show");
+            console.log(btnAddToChart)
+        console.log(divBtnAdd)
+        }
     })
 
     // Acá va el código del carrito
