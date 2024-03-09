@@ -10,7 +10,7 @@ else {
 // Al usar APIs como al usar await con elfetch a la API tengo que hacer la función ready asincróna
 async function ready() {
     let searchText = document.getElementById('searchProducts');
-    let searchDataIcon = document.getElementById('searchIcon');
+    let searchDataIcon = document.getElementById('searchIcon');    
     searchDataIcon.addEventListener("click" , ()=> {
         // Redirige a la ruta "/product/search" y agrega el valor de searchText como parámetro
         window.location.href = "/product/products/search?query=" + searchText.value;
@@ -75,9 +75,7 @@ async function ready() {
             <!--        <p>$ ${productItems[i].Characteristics[0].price}</p>     -->
                     <p>${productItems[i].description}</p>
                 </div>`
-
             }
-
         } else {
             if(productItems[i].productPhoto.length != 0 ) {
                 divProductos.innerHTML += `
@@ -93,8 +91,6 @@ async function ready() {
                     <br>
                     <p>${productItems[i].description}</p>
                 </div>`
-
-
             } else {
                 divProductos.innerHTML += `
                 <div class="productInfo">
@@ -109,16 +105,15 @@ async function ready() {
                     <br>
                     <p>${productItems[i].description}</p>
                 </div>`
-
-
-
         }
-
-            
-        
-
     }
-    
-    
+}
 
-}}
+    let searchProducts = document.getElementById('searchProducts');
+    searchProducts.addEventListener("keydown", (event) => {
+        if(event.key === 'Enter') {
+        // Redirige a la ruta "/product/search" y agrega el valor de searchText como parámetro
+        window.location.href = "/product/products/search?query=" + searchText.value;
+        }
+    })
+}
