@@ -160,7 +160,7 @@ window.onload = function () {
         if (!ContraseniaValid) {
             console.log('contraseña inválida')
             errores.push("error contraseña");
-            pError.innerText = "A senha deve ter no mínimo 8 caracteres, sendo uma letra maiúscula, uma letra minúscula e um símbolo";
+            pError.innerText = "Senha inválida";
         } else {
             pError.innerText = ''
         }
