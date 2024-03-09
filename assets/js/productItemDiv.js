@@ -166,10 +166,11 @@ async function ready() {
         event.preventDefault();
         console.log(productItem.Characteristics[selectOptions.value])
         console.log(selectQuantity.value)
-        summary.innerHTML = `<p class="summaryText">Precio unitario = $ ${productItem.Characteristics[selectOptions.value].price} </p>`
-        summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ ${productItem.Characteristics[selectOptions.value].price * selectQuantity.value } </p>`
         
-        if (selectQuantity.value) {
+        
+        if (selectQuantity.value > 0) {
+            summary.innerHTML = `<p class="summaryText">Precio unitario = $ ${productItem.Characteristics[selectOptions.value].price} </p>`
+            summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $ ${productItem.Characteristics[selectOptions.value].price * selectQuantity.value } </p>`
             btnAddToChart.classList.toggle("show");
             btnAddToChart.classList.toggle("notShow");
             divBtnAdd.classList.toggle("notShow");
@@ -177,6 +178,8 @@ async function ready() {
             console.log(btnAddToChart)
         console.log(divBtnAdd)
         } else {
+            summary.innerHTML = `<p class="summaryText">Precio unitario = $ </p>`
+            summary.innerHTML += `<p  class="summaryText">Total =  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp $  </p>`
             btnAddToChart.classList.toggle("show");
             btnAddToChart.classList.toggle("notShow");
             divBtnAdd.classList.toggle("notShow");
