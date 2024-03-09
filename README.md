@@ -1,7 +1,7 @@
 
 ### Nano Handmade - Tienda Online de Cerámicas Artesanales
 
-![Nano Handmade Logo](./assets/images/logo_nano.png)
+<img src="./assets/images/logo_nano.png" width="100" height="100"/>
 
 Bienvenido a Nano Handmade, tu tienda en línea para productos artesanales únicos.
 
@@ -98,8 +98,49 @@ Derechos de autor © [2024] [Gabriel Betelu] [Antonella Martinez]
 
 ### Estado del Proyecto
 
-En este momento, Nano Handmade se encuentra en una etapa intermedia de desarrollo. Estamos trabajando activamente para mejorar la aplicación y expandir sus funcionalidades. 
+En este momento, Nano Handmade se encuentra en una etapa final de desarrollo. Estamos trabajando activamente para mejorar la aplicación y expandir sus funcionalidades. 
 Valoramos cualquier comentario, sugerencia o contribución de la comunidad. Si encuentras errores, tienes ideas para mejoras o deseas contribuir de alguna manera, ¡no dudes en abrir un problema o enviar una solicitud de extracción! Estamos entusiasmados por seguir construyendo y perfeccionando Nano Handmade en colaboración con nuestra comunidad de usuarios. 
+
+
+# Acceso a la Web de Nano
+
+Para probar Nano Handmade, sigue estos pasos:
+
+1. Para visitar la web de Nano Handmade, haz clic en el siguiente enlace: [https://typical-susette-gbetelu.koyeb.app/]
+
+2. Para acceder al **panel de administrador**, inicia sesión con las siguientes credenciales:
+    - **Email**: madeirakiki@gmail.com
+    - **Contraseña**: Vm@123456
+
+3. Para ingresar a realizar la compra en Mercado Pago utilizar un **usuario de prueba**:
+    - **Usuario MP**: TESTUSER1562282238
+    - **Contraseña**: 1B5BA75B#a656#422b#
+
+
+### Credenciales de Mercado Pago
+
+4. Utiliza las siguientes **credenciales de Mercado Pago** para simular transacciones:
+
+**Public Key**: TEST-26191e0f-be78-4122-aef8-b49b17ff26d6
+
+**Access Token**: TEST-6568686057605713-012315-f19ff8b70ed8baee45da32a870deb6b9-89306239
+
+**Tarjetas de prueba**:
+
+- **Mastercard**: 5031 7557 3453 0604, Código de seguridad: 123, Fecha de caducidad: 11/25
+- **Visa**: 4509 9535 6623 3704, Código de seguridad: 123, Fecha de caducidad: 11/25
+- **American Express**: 3711 803032 57522, Código de seguridad: 1234, Fecha de caducidad: 11/25
+
+_Para probar diferentes resultados de pago, completa el estado deseado en el nombre del titular de la tarjeta_:
+- APRO: Pago aprobado, Documento de identidad (DNI): 12345678
+- OTHE: Rechazado por error general, Documento de identidad (DNI): 12345678
+- CONT: Pendiente de pago
+- CALL: Rechazado con validación para autorizar
+- FUND: Rechazado por importe insuficiente
+- SECU: Rechazado por código de seguridad inválido
+- EXPI: Rechazado debido a un problema de fecha de vencimiento
+- FORM: Rechazado debido a un error de formulario
+
 
 
 ## Contacto
