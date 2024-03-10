@@ -278,23 +278,29 @@ module.exports = {
                                 attributes: ['id' , 'discount_code' , 'discount']} 
                             ]
                         }
-                ],
-                where: {
-                    [Op.or]: [
-                        {
-                            name: {
-                                [Op.like]: `%${req.query.query}%`
-                            }
-                        },
-                        {
-                            description: {
-                                [Op.like]: `%${req.query.query}%`
-                            }
-                        }
-                    ]
-                }
-
-                
+                    ],
+                    // Condición para que sea case insensitive
+                    where: {
+                        [Op.or]: [
+                            sequelize.literal(`LOWER(Product.name) LIKE '%${req.query.query.toLowerCase()}%'`),
+                            sequelize.literal(`LOWER(Product.description) LIKE '%${req.query.query.toLowerCase()}%'`)
+                        ]
+                    }
+    //                De esta forma es case sensitive
+    //                where: {
+    //                    [Op.or]: [
+    //                        {                    
+    //                            name: {
+    //                                [Op.like]: `%${req.query.query}%`
+    //                            }
+    //                        },                            
+    //                        {
+    //                            description: {
+    //                                [Op.like]: `%${req.query.query}%`
+    //                            }
+    //                        }
+    //                    ]
+    //                }
                 }
             )
             console.log(data)
