@@ -968,8 +968,7 @@ a:hover .overlay {
   display: flex;
   flex-wrap: wrap;
   justify-content:space-between;
-  width: 100%;
-  
+  width: 100%;  
 }
 
 .member-team {
@@ -1666,10 +1665,16 @@ ul.features-list li {
   text-align: left!important;
 }
 
-.img-creative-left figure, .img-creative-right figure {
-  padding: 0 25px;
+.img-creative-left figure {
+  padding: 0 50px 0 0; 
   text-align: center;
 }
+
+.img-creative-right figure {
+  padding: 0 25px; 
+  text-align: center;
+}
+
 .marColeccion:hover{
   transform: scale(1.10);
 
@@ -3897,6 +3902,22 @@ p.copyright {
     top: 33px;
     left: -15px;
   }
+
+  #team-contenedor {
+    justify-content:center;
+  }
+
+  .col-sm-4 {
+    width: 40%;
+  }
+
+  #creative-section-1 h2 {
+    margin-top: 35px;
+  }
+
+  .img-creative-left figure {
+    padding: 0;
+  }
   
   .productInfo h4 {
     font-size: 13.5px;
@@ -4101,6 +4122,15 @@ p.copyright {
 
   button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
     font-size: 12px;
+  }
+
+  #row-coleccion {
+    justify-content: center;
+  }
+
+  .col-sm-4 {
+    width: 60%;
+    text-align: center;
   }
 
 }
@@ -4377,6 +4407,10 @@ p.copyright {
   
   button.svelte-1ruergu .text-container-3t8RCk span.svelte-1ruergu { 
     font-size: 10px;
+  }
+
+  .col-sm-4 {
+    width: 75%;
   }
 
 }
