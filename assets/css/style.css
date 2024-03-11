@@ -1645,10 +1645,11 @@ ul.features-list li {
 }
 
 .creative-content-left, .creative-content-right {
-  padding-top: 100px;
+  padding-top: 0px;
 }
 
 #creative-section-1 h2, #creative-section-2 h2, #features-app-section-1 h2, #features-app-section-2 h2 {
+  margin-bottom: 35px;
   font-weight: 400;
   letter-spacing: 2px;
   font-size: 32px;
@@ -1657,7 +1658,7 @@ ul.features-list li {
 
 #creative-section-1 p, #creative-section-2 p, #features-app-section-1 p {
   line-height: 26px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 #creative-section-1 .view-more, #creative-section-2 .view-more, #features-app-section-1 .view-more, #features-app-section-2 .view-more {
@@ -2364,11 +2365,11 @@ label {
 ul.features-app-list {
   list-style-type: none;
   padding-left: 0;
-  padding-top: 10px;
+  padding-top: 50px;
 }
 
 ul.features-app-list li {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 #feature-app-section-2 ul.features-app-list li {
@@ -2391,7 +2392,7 @@ ul.features-app-list li {
 }
 
 .features-app-content-left {
-  padding-top: 40px;
+  padding-top: 0px;
 }
 
 #features-app-section-2 ul.features-app-list {
@@ -2407,6 +2408,14 @@ ul.features-app-list li {
 }
 
 #features-app-section-2 .feature-app-box-content h6 {
+  margin-top: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+#creative-section-1 .feature-app-box-content h6 {
   margin-top: 0;
   font-size: 13px;
   font-weight: 500;
