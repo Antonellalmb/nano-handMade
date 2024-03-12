@@ -3982,7 +3982,7 @@ p.copyright {
  }
 
   .member-team .magnifier .magnifier-inner p:last-of-type {
-    display: block;
+    display: none;
   }
 
   .banner-content {
