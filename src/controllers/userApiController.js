@@ -24,7 +24,7 @@ module.exports = {
             //Crea un nuevo array usuario mediante el mapeo de los usuarios obtenidos, seleccionando solo algunas propiedades específicas.
             const usuario = data.map(user => ({
                 id: user.id,
-                email: user.usr_correo, 
+                email: user.usr_email, 
                 detail: `/api/user/${user.id}`,
              
             }));

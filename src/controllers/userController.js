@@ -15,7 +15,7 @@ module.exports = {
         return res.render('./users/login')
 
     },
-
+/*
     loginProcess: async (req, res) => {
         console.log('entraste a login process')
         try {
@@ -23,16 +23,19 @@ module.exports = {
             const usuario = await Users.findOne({
                 where: {
                     usr_email: req.body.email,
-                    
                 }
             });
             console.log(usuario)
 
             if (usuario) { //si encuentro el usuarioi
-                delete usuario.usr_password;// borro la contraseña para guardarlo en la session
-                req.session.usuarioLogeado = usuario; //y almaceno al usuario en la session
+                /*delete usuario.usr_password;// borro la contraseña para guardarlo en la session
+                req.session.usuarioLogeado = usuario; //y almaceno al usuario en la session*/
                   
-
+               /* if (bcrypt.compareSync(req.body.contrasenia, usuario.usr_password)){
+                    delete usuario.usr_password
+                    req.session.usuarioLogeado = usuario
+                    console.log('contraseña correcta')
+                
                 if (req.body.cookie) {
                     res.cookie('recordame', usuario.usr_email, { maxAge: 1000*60*60*72 });
                 }
@@ -48,9 +51,74 @@ module.exports = {
                     }
                 })
             }
-        } catch (error) {
-            console.log(error);
+        }else{
+            console.log("error mail")
+            return res.render('./users/login', {
+                errors: {
+                    datosMal: {
+                        msg: "Datos Incorrectos"
+                    }
+                }
+            })
+        }
             
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+    },  */
+
+
+    loginProcess: async (req, res) => {
+        console.log('entraste a login process')
+        try {
+            console.log(req.body.email)
+            const usuario = await Users.findOne({
+                where: {
+                    usr_email: req.body.email,
+                    
+                }
+            });
+            console.log(usuario)
+            console.log(req.body)
+
+            if (usuario) { //si encuentro el usuarioi
+                console.log(req.body.contrasenia)
+                console.log(usuario.usr_password)
+
+                if (bcrypt.compareSync(req.body.contrasenia, usuario.usr_password)){
+                    delete usuario.usr_password  // borro la contraseña para guardarlo en la session
+                    req.session.usuarioLogeado = usuario  //y almaceno al usuario en la session
+                    console.log('contraseña correcta')       
+                    if (req.body.cookie) {
+                        console.log("se crea cookie recordame")
+                        res.cookie("recordame", usuario.correo, {maxAge: 1000*60*60})
+                       
+                    }
+                    return res.redirect('/')                    
+                }else{
+                    console.log('error datos')
+                    return res.render('./users/login', {
+                        errors: {
+                            datosMal: {
+                                msg: "Datos Incorrectos"
+                            }
+                        }
+                    })
+                }                
+            }else{
+                console.log('error datos')
+                return res.render('./users/login', {
+                    errors: {
+                        datosMal: {
+                            msg: "Datos Incorrectos"
+                        }
+                    }
+                })
+            }
+        } catch (error) {
+            console.log(error);            
         }
     },
 

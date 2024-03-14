@@ -3,7 +3,9 @@ const router = express.Router();
 const controller = require("../controllers/userApiController");
 const adminMiddleware = require('../middlewares/adminMiddleware');
 
-router.get('/', adminMiddleware, controller.list)
-router.get('/:id', adminMiddleware, controller.detail)
+
+
+router.get('/',  controller.list)
+router.get('/:id' , controller.detail)
 
 module.exports = router;
