@@ -12,6 +12,20 @@ window.onload = function () {
         togglePasswordButton.textContent = type === 'password' ? 'Mostrar senha' : 'Ocultar';
     });
 
+    // En caso de que la validación del email y la contraseña del backend sea correcta
+    // devuelve en el input con id="validacionesOk" el value "validacionesOk" entonces
+    // en ese caso enviamos al usuario na notificación del Swal
+    const validacionesOk = document.getElementById('validacionesOk');
+    if (validacionesOk.value == "validacionOk") { 
+        Swal.fire({
+            title: 'Bem vindo ao NANO Handmade',
+            text: 'Aproveite nossos produtos',
+            icon: 'success'
+        }).then(()=> {
+            render('./users/login', {validacionOk : ""});
+        });
+    }
+
     const emailInput = document.querySelector("input[name='email']");
     const errorDatos = document.querySelector(".errorDatos");
 
@@ -85,7 +99,7 @@ window.onload = function () {
                 // Si es email válido borra los innerText
                 errorEmail.innerText = "";
 
-                const email = emailInput.value;
+            /*    const email = emailInput.value;
                 try {
                     console.log(email , "Busqueda en Base de datos")
                     const emailExists = await validateEmailExists(email);
@@ -100,6 +114,7 @@ window.onload = function () {
                 } catch (error) {
                     console.log(error);
                 }
+            */
             }
         }
 

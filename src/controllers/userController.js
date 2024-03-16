@@ -12,7 +12,7 @@ module.exports = {
 
     login: (req, res) => {
         console.log('entraste a login');
-        return res.render('./users/login')
+        return res.render('./users/login', {validacionOk : ""})
 
     },
 /*
@@ -96,10 +96,11 @@ module.exports = {
                         res.cookie("recordame", usuario.correo, {maxAge: 1000*60*60})
                        
                     }
-                    return res.redirect('/')                    
+                    return res.render('./users/login' , {validacionOk : "validacionOk"})
+                //    return res.redirect('/')                    
                 }else{
                     console.log('error datos')
-                    return res.render('./users/login', {
+                    return res.render('./users/login', {validacionOk : ""}, {
                         errors: {
                             datosMal: {
                                 msg: "Datos Incorrectos"
@@ -109,7 +110,7 @@ module.exports = {
                 }                
             }else{
                 console.log('error datos')
-                return res.render('./users/login', {
+                return res.render('./users/login', {validacionOk : ""}, {
                     errors: {
                         datosMal: {
                             msg: "Datos Incorrectos"
@@ -170,7 +171,7 @@ module.exports = {
             } catch (error) {
                 console.error(error);
                 console.log('error datos')
-                return res.render('./users/login', {
+                return res.render('./users/login', {validacionOk : ""}, {
                     errors: {
                         datosMal: {
                             msg: "Datos Incorrectos"
