@@ -99,8 +99,8 @@ module.exports = {
                     return res.render('./users/login' , {validacionOk : "validacionOk"})
                 //    return res.redirect('/')                    
                 }else{
-                    console.log('error datos')
-                    return res.render('./users/login', {validacionOk : ""}, {
+                    console.log('error datos no coincide contraseña')
+                    return res.render('./users/login', {validacionOk : "" ,
                         errors: {
                             datosMal: {
                                 msg: "Datos Incorrectos"
@@ -109,14 +109,17 @@ module.exports = {
                     })
                 }                
             }else{
-                console.log('error datos')
-                return res.render('./users/login', {validacionOk : ""}, {
+                console.log('error datos no encuentra usuario')
+
+                return res.render('./users/login' , {validacionOk : "" ,
                     errors: {
                         datosMal: {
                             msg: "Datos Incorrectos"
                         }
                     }
-                })
+                }
+                )
+
             }
         } catch (error) {
             console.log(error);            

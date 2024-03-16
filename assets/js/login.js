@@ -13,16 +13,21 @@ window.onload = function () {
     });
 
     // En caso de que la validación del email y la contraseña del backend sea correcta
-    // devuelve en el input con id="validacionesOk" el value "validacionesOk" entonces
+    // devuelve en el input con id="validacionOk" el value "validacionOk" entonces
     // en ese caso enviamos al usuario na notificación del Swal
-    const validacionesOk = document.getElementById('validacionesOk');
-    if (validacionesOk.value == "validacionOk") { 
+    const validacionOk = document.getElementById('validacionOk');
+    if (validacionOk.value == "") {
+        console.log(validacionOk.value)
+       
+    } 
+    if (validacionOk.value == "validacionOk") { 
         Swal.fire({
             title: 'Bem vindo ao NANO Handmade',
             text: 'Aproveite nossos produtos',
             icon: 'success'
         }).then(()=> {
-            render('./users/login', {validacionOk : ""});
+
+            window.location = "/";
         });
     }
 
